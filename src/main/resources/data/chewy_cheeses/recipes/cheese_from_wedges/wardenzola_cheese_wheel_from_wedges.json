@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "modid": "dungeonsdelight",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "p": {
+      "item": "dungeonsdelight:wardenzola_crumbles"
+    }
+  },
+  "pattern": [
+    "pp",
+    "pp"
+  ],
+  "result": {
+    "item": "chewy_cheeses:wardenzola_cheese_wheel"
+  },
+  "show_notification": true
+}

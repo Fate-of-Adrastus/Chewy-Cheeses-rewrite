@@ -3,6 +3,9 @@ package com.fateofadrastus.chewy_cheeses;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.level.material.FlowingFluid;
+import net.minecraft.world.level.material.Fluid;
 import net.neoforged.fml.ModList;
 import org.slf4j.Logger;
 
@@ -43,6 +46,8 @@ import umpaz.brewinandchewin.common.block.UnripeCheeseWheelBlock;
 import net.yirmiri.dungeonsdelight.core.registry.DDItems;
 import net.yirmiri.dungeonsdelight.common.util.DDProperties;
 
+import java.util.function.Supplier;
+
 @Mod(ChewyCheeses.MODID)
 public class ChewyCheeses {
     public static final String MODID = "chewy_cheeses";
@@ -52,6 +57,7 @@ public class ChewyCheeses {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
     // Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
+    //public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(Registries.FLUID ,MODID);
     // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "examplemod" namespace
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
@@ -79,6 +85,7 @@ public class ChewyCheeses {
     public static final DeferredBlock<Block> UNRIPE_WARDENZOLA_CHEESE_WHEEL;
     public static final DeferredItem<BlockItem> UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM;
     public static final DeferredItem<BlockItem> WARDENZOLA_CHEESE_WHEEL_ITEM;
+    //public static final Supplier<Fluid> WARDENZOLA_CHEESE_FLUID_TYPE;
 
     static {
         if (ModList.get().isLoaded("dungeonsdelight")){
@@ -86,11 +93,13 @@ public class ChewyCheeses {
             UNRIPE_WARDENZOLA_CHEESE_WHEEL = BLOCKS.register("unripe_wardenzola_cheese_wheel", () -> new UnripeCheeseWheelBlock(WARDENZOLA_CHEESE_WHEEL, Block.Properties.ofFullCopy(Blocks.CAKE)));
             UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM = ITEMS.registerSimpleBlockItem(UNRIPE_WARDENZOLA_CHEESE_WHEEL,new Item.Properties().stacksTo(16).rarity(DDProperties.MONSTER));
             WARDENZOLA_CHEESE_WHEEL_ITEM = ITEMS.registerSimpleBlockItem(WARDENZOLA_CHEESE_WHEEL, new Item.Properties().stacksTo(16).rarity(DDProperties.MONSTER));
+            //WARDENZOLA_CHEESE_FLUID_TYPE = FLUIDS.register("wardenzola_cheese_type", () -> new CheeseFluid("wardenzola"));
         } else {
             WARDENZOLA_CHEESE_WHEEL = null;
             UNRIPE_WARDENZOLA_CHEESE_WHEEL = null;
             UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM = null;
             WARDENZOLA_CHEESE_WHEEL_ITEM = null;
+            //WARDENZOLA_CHEESE_FLUID_TYPE = null;
         }
     }
 

@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "modid": "rats",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "p": {
+      "item": "rats:cheese"
+    }
+  },
+  "pattern": [
+    "pp",
+    "pp"
+  ],
+  "result": {
+    "item": "chewy_cheeses:rat_leicester_cheese_wheel"
+  },
+  "show_notification": true
+}

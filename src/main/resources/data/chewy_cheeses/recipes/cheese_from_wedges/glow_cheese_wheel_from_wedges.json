@@ -1,0 +1,23 @@
+{
+  "conditions": [
+    {
+      "modid": "netherexp",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "p": {
+      "item": "netherexp:glowcheese"
+    }
+  },
+  "pattern": [
+    "pp",
+    "pp"
+  ],
+  "result": {
+    "item": "chewy_cheeses:glow_cheese_wheel"
+  },
+  "show_notification": true
+}
