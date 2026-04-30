@@ -28,6 +28,20 @@ sourceSets.main.resources {
 
 repositories {
     // Add here additional repositories if required by some of the dependencies below.
+
+    maven {
+        // JEI
+        name = "Progwml6 maven"
+        url = "https://dvs1.progwml6.com/files/maven/"
+    }
+    maven {
+        // EMI
+        url = "https://maven.terraformersmc.com/"
+    }
+    maven {
+        name = "Curse maven"
+        url "https://cursemaven.com"
+    }
 }
 
 base {
@@ -124,6 +138,17 @@ dependencies {
     // compileOnly "mezz.jei:jei-${mc_version}-neoforge-api:${jei_version}"
     // We add the full version to localRuntime, not runtimeOnly, so that we do not publish a dependency on it
     // localRuntime "mezz.jei:jei-${mc_version}-neoforge:${jei_version}"
+
+    // JEI
+    compileOnly "curse.maven:jei-238222:7420587"
+    localRuntime "curse.maven:jei-238222:7420587"
+
+    // EMI
+    compileOnly "curse.maven:emi-580555:6420931"
+    localRuntime "curse.maven:emi-580555:6420931"
+
+    implementation "curse.maven:farmers-delight-398521:8007613"
+    implementation "curse.maven:brewin-and-chewin-637808:7523542"
 
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
