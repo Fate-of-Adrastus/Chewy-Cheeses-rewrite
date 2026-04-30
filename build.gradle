@@ -28,16 +28,6 @@ sourceSets.main.resources {
 
 repositories {
     // Add here additional repositories if required by some of the dependencies below.
-
-    maven {
-        // JEI
-        name = "Progwml6 maven"
-        url = "https://dvs1.progwml6.com/files/maven/"
-    }
-    maven {
-        // EMI
-        url = "https://maven.terraformersmc.com/"
-    }
     maven {
         name = "Curse maven"
         url "https://cursemaven.com"
@@ -149,6 +139,11 @@ dependencies {
 
     implementation "curse.maven:farmers-delight-398521:8007613"
     implementation "curse.maven:brewin-and-chewin-637808:7523542"
+
+    compileOnly "curse.maven:dungeons-delight-1258923:7924478"
+    localRuntime "curse.maven:dungeons-delight-1258923:7924478"
+    compileOnly "curse.maven:runiclib-880879:7788771"
+    localRuntime "curse.maven:runiclib-880879:7788771"
 
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar

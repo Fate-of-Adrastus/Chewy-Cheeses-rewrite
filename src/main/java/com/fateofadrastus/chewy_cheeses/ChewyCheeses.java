@@ -1,10 +1,13 @@
 package com.fateofadrastus.chewy_cheeses;
 
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.neoforged.fml.ModList;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.food.FoodProperties;
@@ -24,7 +27,6 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraft.client.Minecraft;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
@@ -34,16 +36,81 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import umpaz.brewinandchewin.BrewinAndChewin;
+import umpaz.brewinandchewin.common.block.CheeseWheelBlock;
+import umpaz.brewinandchewin.common.block.UnripeCheeseWheelBlock;
+
+import net.yirmiri.dungeonsdelight.core.registry.DDItems;
+import net.yirmiri.dungeonsdelight.common.util.DDProperties;
+
 @Mod(ChewyCheeses.MODID)
 public class ChewyCheeses {
     public static final String MODID = "chewy_cheeses";
     public static final Logger LOGGER = LogUtils.getLogger();
+
     // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
     // Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
     // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "examplemod" namespace
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
+
+
+    /* ----------------------------------------------notes for adding a new cheese ----------------------------------------------------
+
+    register block
+    register unripe block
+    register item for blocks
+    add new cheese fluid type to cheese fluid
+    register fluid
+    block states
+    block models
+    coster model (in brewin and chewin file) - it is just the corner of cheese to go on a coaster, uses the cheese slice item from the mods
+    fluid item display
+    lang
+    block textures
+    recipes
+    tags
+
+     ---------------------------------------------------------------------------------------------------------------------------------*/
+
+    // dungeons delight
+    public static final DeferredBlock<Block> WARDENZOLA_CHEESE_WHEEL;
+    public static final DeferredBlock<Block> UNRIPE_WARDENZOLA_CHEESE_WHEEL;
+    public static final DeferredItem<BlockItem> UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM;
+    public static final DeferredItem<BlockItem> WARDENZOLA_CHEESE_WHEEL_ITEM;
+
+    static {
+        if (ModList.get().isLoaded("dungeonsdelight")){
+            WARDENZOLA_CHEESE_WHEEL = BLOCKS.register("wardenzola_cheese_wheel", () -> new CheeseWheelBlock(DDItems.WARDENZOLA_CRUMBLES, Block.Properties.ofFullCopy(Blocks.CAKE)));
+            UNRIPE_WARDENZOLA_CHEESE_WHEEL = BLOCKS.register("unripe_wardenzola_cheese_wheel", () -> new UnripeCheeseWheelBlock(WARDENZOLA_CHEESE_WHEEL, Block.Properties.ofFullCopy(Blocks.CAKE)));
+            UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM = ITEMS.registerSimpleBlockItem(UNRIPE_WARDENZOLA_CHEESE_WHEEL,new Item.Properties().stacksTo(16).rarity(DDProperties.MONSTER));
+            WARDENZOLA_CHEESE_WHEEL_ITEM = ITEMS.registerSimpleBlockItem(WARDENZOLA_CHEESE_WHEEL, new Item.Properties().stacksTo(16).rarity(DDProperties.MONSTER));
+        } else {
+            WARDENZOLA_CHEESE_WHEEL = null;
+            UNRIPE_WARDENZOLA_CHEESE_WHEEL = null;
+            UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM = null;
+            WARDENZOLA_CHEESE_WHEEL_ITEM = null;
+        }
+    }
+
+    //public static final Block WARDENZOLA_CHEESE_WHEEL = ModList.get().isLoaded("dungeonsdelight") ? (new CheeseWheelBlock(DDItems.WARDENZOLA_CRUMBLES, Block.Properties.ofFullCopy(Blocks.CAKE))) : null;
+    //public static final Block UNRIPE_WARDENZOLA_CHEESE_WHEEL = ModList.get().isLoaded("dungeonsdelight") ? (new UnripeCheeseWheelBlock( () -> WARDENZOLA_CHEESE_WHEEL , Block.Properties.ofFullCopy(Blocks.CAKE))) : null;
+    //public static final Item UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM = ModList.get().isLoaded("dungeonsdelight") ? ITEMS.registerSimpleBlockItem("unripe_wardenzola_cheese_wheel", () -> new BlockItem(UNRIPE_WARDENZOLA_CHEESE_WHEEL, new Item.Properties().stacksTo(16).rarity(DDProperties.MONSTER))): null;
+    //public static final Item WARDENZOLA_CHEESE_WHEEL_ITEM = ModList.get().isLoaded("dungeonsdelight") ? ITEMS.registerSimpleBlockItem("wardenzola_cheese_wheel", () -> new BlockItem(WARDENZOLA_CHEESE_WHEEL, new Item.Properties().stacksTo(16).rarity(DDProperties.MONSTER))): null;
+
+
+// dungeons delight
+//    public static final DeferredBlock<Block> UNRIPE_WARDENZOLA_CHEESE_WHEEL = ModList.get().isLoaded("dungeonsdelight") ? BLOCKS.registerSimpleBlock("unripe_wardenzola_cheese_wheel", () -> new UnripeCheeseWheelBlock(ChewyCheeses.WARDENZOLA_CHEESE_WHEEL , Block.Properties.ofFullCopy(Blocks.CAKE))) : null;
+//    public static final DeferredBlock<Block> WARDENZOLA_CHEESE_WHEEL = ModList.get().isLoaded("dungeonsdelight") ? BLOCKS.registerSimpleBlock("wardenzola_cheese_wheel", () -> new CheeseWheelBlock(DDItems.WARDENZOLA_CRUMBLES, Block.Properties.ofFullCopy(Blocks.CAKE))) : null;
+//    public static final DeferredItem<Item> UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM = ModList.get().isLoaded("dungeonsdelight") ? ITEMS.registerSimpleBlockItem("unripe_wardenzola_cheese_wheel", () -> new BlockItem(UNRIPE_WARDENZOLA_CHEESE_WHEEL.get(), new Item.Properties().stacksTo(16).rarity(DDProperties.MONSTER))): null;
+//    public static final DeferredItem<Item> WARDENZOLA_CHEESE_WHEEL_ITEM = ModList.get().isLoaded("dungeonsdelight") ? ITEMS.registerSimpleBlockItem("wardenzola_cheese_wheel", () -> new BlockItem(WARDENZOLA_CHEESE_WHEEL.get(), new Item.Properties().stacksTo(16).rarity(DDProperties.MONSTER))): null;
+
+//    public static final RegistryObject<FluidType> WARDENZOLA_CHEESE_FLUID_TYPE = FLUID_TYPES.register("wardenzola_cheese_type", () -> new CheeseFluid("wardenzola"));
+//    public static final RegistryObject<FlowingFluid> WARDENZOLA_CHEESE = FLUIDS.register("wardenzola_cheese", () -> new ForgeFlowingFluid.Source(ChewyCheeses.WARDENZOLA_CHEESE_FLUID_PROPERTIES));
+//    public static final RegistryObject<FlowingFluid> FLOWING_WARDENZOLA_CHEESE = FLUIDS.register("flowing_wardenzola_cheese", () -> new ForgeFlowingFluid.Flowing(ChewyCheeses.WARDENZOLA_CHEESE_FLUID_PROPERTIES));
+//    public static final ForgeFlowingFluid.Properties WARDENZOLA_CHEESE_FLUID_PROPERTIES = new ForgeFlowingFluid.Properties(WARDENZOLA_CHEESE_FLUID_TYPE, WARDENZOLA_CHEESE, FLOWING_WARDENZOLA_CHEESE);
+
 
     // Creates a new Block with the id "examplemod:example_block", combining the namespace and path
     public static final DeferredBlock<Block> EXAMPLE_BLOCK = BLOCKS.registerSimpleBlock("example_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
@@ -70,9 +137,9 @@ public class ChewyCheeses {
         modEventBus.addListener(this::commonSetup);
 
         // Register the Deferred Register to the mod event bus so blocks get registered
-        //BLOCKS.register(modEventBus);
+        BLOCKS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
-        //ITEMS.register(modEventBus);
+        ITEMS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
         //CREATIVE_MODE_TABS.register(modEventBus);
 
@@ -104,11 +171,15 @@ public class ChewyCheeses {
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @EventBusSubscriber(modid = ChewyCheeses.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @EventBusSubscriber(modid = ChewyCheeses.MODID, value = Dist.CLIENT)
     static class ClientModEvents {
         @SubscribeEvent
         static void onClientSetup(FMLClientSetupEvent event) {
 
         }
+    }
+
+    private ResourceLocation getResourceLocation(String name){
+        return ResourceLocation.fromNamespaceAndPath(MODID, name);
     }
 }
