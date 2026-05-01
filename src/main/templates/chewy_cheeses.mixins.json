@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "com.fateofadrastus.chewy_cheeses.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "PlaceWardenzolaMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,10 +1,6 @@
 package com.fateofadrastus.chewy_cheeses;
 
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.fluids.BaseFlowingFluid;
@@ -15,38 +11,27 @@ import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
-import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
-import umpaz.brewinandchewin.BrewinAndChewin;
 import umpaz.brewinandchewin.common.block.CheeseWheelBlock;
 import umpaz.brewinandchewin.common.block.UnripeCheeseWheelBlock;
 
 import net.yirmiri.dungeonsdelight.core.registry.DDItems;
 import net.yirmiri.dungeonsdelight.common.util.DDProperties;
 import umpaz.brewinandchewin.neoforge.fluid.BnCFluidType;
-
-import java.util.function.Supplier;
 
 @Mod(ChewyCheeses.MODID)
 public class ChewyCheeses {
@@ -85,7 +70,7 @@ public class ChewyCheeses {
     public static final DeferredBlock<Block> WARDENZOLA_CHEESE_WHEEL;
     public static final DeferredBlock<Block> UNRIPE_WARDENZOLA_CHEESE_WHEEL;
     public static final DeferredItem<BlockItem> UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM;
-    public static final DeferredItem<BlockItem> WARDENZOLA_CHEESE_WHEEL_ITEM;
+    //public static final DeferredItem<BlockItem> WARDENZOLA_CHEESE_WHEEL_ITEM;
 
     public static final DeferredHolder<FluidType, FluidType> WARDENZOLA_CHEESE_FLUID_TYPE;
     public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> WARDENZOLA_CHEESE;
@@ -94,11 +79,11 @@ public class ChewyCheeses {
 
     static {
         if (ModList.get().isLoaded("dungeonsdelight")){
+            //registerBlockNoItem("pumpkin_pie", () -> new PumpkinPieBlock(BlockBehaviour.Properties.of().noOcclusion().forceSolidOn().strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY)));
             WARDENZOLA_CHEESE_WHEEL = BLOCKS.register("wardenzola_cheese_wheel", () -> new CheeseWheelBlock(DDItems.WARDENZOLA_CRUMBLES, Block.Properties.ofFullCopy(Blocks.CAKE)));
             UNRIPE_WARDENZOLA_CHEESE_WHEEL = BLOCKS.register("unripe_wardenzola_cheese_wheel", () -> new UnripeCheeseWheelBlock(WARDENZOLA_CHEESE_WHEEL, Block.Properties.ofFullCopy(Blocks.CAKE)));
             UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM = ITEMS.registerSimpleBlockItem(UNRIPE_WARDENZOLA_CHEESE_WHEEL,new Item.Properties().stacksTo(16).rarity(DDProperties.MONSTER));
-            WARDENZOLA_CHEESE_WHEEL_ITEM = ITEMS.registerSimpleBlockItem(WARDENZOLA_CHEESE_WHEEL, new Item.Properties().stacksTo(16).rarity(DDProperties.MONSTER));
-
+            //WARDENZOLA_CHEESE_WHEEL_ITEM = ITEMS.registerSimpleBlockItem(WARDENZOLA_CHEESE_WHEEL, new Item.Properties().stacksTo(16).rarity(DDProperties.MONSTER));
             WARDENZOLA_CHEESE_FLUID_TYPE = FLUIDS_TYPES.register("wardenzola_cheese_type", BnCFluidType::new);
             WARDENZOLA_CHEESE = FLUIDS.register("wardenzola_cheese", () -> new BaseFlowingFluid.Source(ChewyCheeses.WARDENZOLA_CHEESE_FLUID_PROPERTIES));
             FLOWING_WARDENZOLA_CHEESE = FLUIDS.register("flowing_wardenzola_cheese", () -> new BaseFlowingFluid.Flowing(ChewyCheeses.WARDENZOLA_CHEESE_FLUID_PROPERTIES));
@@ -107,7 +92,7 @@ public class ChewyCheeses {
             WARDENZOLA_CHEESE_WHEEL = null;
             UNRIPE_WARDENZOLA_CHEESE_WHEEL = null;
             UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM = null;
-            WARDENZOLA_CHEESE_WHEEL_ITEM = null;
+            //WARDENZOLA_CHEESE_WHEEL_ITEM = null;
 
             WARDENZOLA_CHEESE_FLUID_TYPE = null;
             WARDENZOLA_CHEESE = null;
