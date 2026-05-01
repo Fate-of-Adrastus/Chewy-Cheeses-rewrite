@@ -137,7 +137,7 @@ dependencies {
     compileOnly "curse.maven:emi-580555:6420931"
     localRuntime "curse.maven:emi-580555:6420931"
 
-    implementation "curse.maven:farmers-delight-398521:8007613"
+    implementation "curse.maven:farmers-delight-398521:7953736"
     implementation "curse.maven:brewin-and-chewin-637808:7523542"
 
     compileOnly "curse.maven:dungeons-delight-1258923:7924478"
