@@ -1,8 +1,10 @@
 package com.fateofadrastus.chewy_cheeses;
 
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.material.Fluid;
 import net.neoforged.fml.ModList;
+import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 import net.neoforged.neoforge.fluids.BaseFlowingFluid;
 import net.neoforged.neoforge.fluids.FluidType;
 import net.neoforged.neoforge.registries.*;
@@ -101,6 +103,11 @@ public class ChewyCheeses {
         }
     }
 
+    public void modifyComponents(ModifyDefaultComponentsEvent event) {
+        event.modify(DDItems.WARDENZOLA.get(), builder -> builder
+                .set(DataComponents.MAX_STACK_SIZE, 16));
+    }
+
     // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
 //    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
 //            .title(Component.translatable("itemGroup.examplemod")) //The language key for the title of your CreativeModeTab
@@ -113,8 +120,8 @@ public class ChewyCheeses {
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public ChewyCheeses(IEventBus modEventBus, ModContainer modContainer) {
-        // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(this::modifyComponents);
 
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
