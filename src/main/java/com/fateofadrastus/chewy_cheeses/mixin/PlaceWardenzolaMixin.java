@@ -5,6 +5,7 @@ import com.fateofadrastus.chewy_cheeses.util.MixinUtils;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
+import net.neoforged.fml.ModList;
 import net.yirmiri.dungeonsdelight.core.registry.DDItems;
 import org.spongepowered.asm.mixin.Mixin;
 import net.minecraft.world.item.Item;

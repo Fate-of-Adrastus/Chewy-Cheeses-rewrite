@@ -68,8 +68,9 @@ public class ChewyCheeses {
     }
 
     public void modifyComponents(ModifyDefaultComponentsEvent event) {
-        event.modify(DDItems.WARDENZOLA.get(), builder -> builder
-                .set(DataComponents.MAX_STACK_SIZE, 16).set(DataComponents.RARITY,DDProperties.MONSTER));
+        if (ModList.get().isLoaded("dungeonsdelight"))
+            event.modify(DDItems.WARDENZOLA.get(), builder -> builder
+                    .set(DataComponents.MAX_STACK_SIZE, 16).set(DataComponents.RARITY,DDProperties.MONSTER));
     }
 
 

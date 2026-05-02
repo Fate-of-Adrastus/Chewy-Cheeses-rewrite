@@ -33,6 +33,9 @@ An addon mod for Brewin' and Chewin' that adds compatibility with cheeses from o
 
 [[mixins]]
 config = "chewy_cheeses.mixins.json"
+[[mixins]]
+config = "chewy_cheeses.dungeonsdelight.mixins.json"
+requiredMods=["dungeonsdelight"]
 
 [[dependencies.chewy_cheeses]]
     modId="neoforge"
