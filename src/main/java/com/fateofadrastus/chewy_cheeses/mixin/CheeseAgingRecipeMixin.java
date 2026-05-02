@@ -19,6 +19,9 @@ public class CheeseAgingRecipeMixin {
 
         if (Registry.UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM != null )
             original.add(new CheeseAgingRecipe(Registry.UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM.get(), DDItems.WARDENZOLA.get()));
+        if (Registry.UNRIPE_GLOW_CHEESE_WHEEL_ITEM != null && Registry.GLOW_CHEESE_WHEEL_ITEM != null) {
+            original.add(new CheeseAgingRecipe(Registry.UNRIPE_GLOW_CHEESE_WHEEL_ITEM.get(), Registry.GLOW_CHEESE_WHEEL_ITEM.get()));
+        }
 
         return original;
     }

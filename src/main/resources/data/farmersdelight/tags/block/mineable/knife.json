@@ -8,6 +8,14 @@
     {
       "id": "chewy_cheeses:wardenzola_cheese_wheel",
       "required": false
+    },
+    {
+      "id": "chewy_cheeses:unripe_glow_cheese_wheel",
+      "required": false
+    },
+    {
+      "id": "chewy_cheeses:glow_cheese_wheel",
+      "required": false
     }
   ]
 }

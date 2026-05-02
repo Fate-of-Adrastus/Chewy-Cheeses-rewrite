@@ -4,6 +4,10 @@
     {
       "id": "dungeonsdelight:wardenzola",
       "required": false
+    },
+    {
+      "id": "chewy_cheeses:glow_cheese_wheel",
+      "required": false
     }
   ]
 }
