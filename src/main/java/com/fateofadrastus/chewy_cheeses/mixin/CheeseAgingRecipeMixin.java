@@ -1,6 +1,6 @@
 package com.fateofadrastus.chewy_cheeses.mixin;
 
-import com.fateofadrastus.chewy_cheeses.ChewyCheeses;
+import com.fateofadrastus.chewy_cheeses.Registry;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.yirmiri.dungeonsdelight.core.registry.DDItems;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,8 +17,8 @@ public class CheeseAgingRecipeMixin {
     public List<CheeseAgingRecipe> getOtherCheeseRecipes(List<CheeseAgingRecipe> original){
         if (original == null) original = new ArrayList<>();
 
-        if (ChewyCheeses.UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM != null )
-            original.add(new CheeseAgingRecipe(ChewyCheeses.UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM.get(), DDItems.WARDENZOLA.get()));
+        if (Registry.UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM != null )
+            original.add(new CheeseAgingRecipe(Registry.UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM.get(), DDItems.WARDENZOLA.get()));
 
         return original;
     }

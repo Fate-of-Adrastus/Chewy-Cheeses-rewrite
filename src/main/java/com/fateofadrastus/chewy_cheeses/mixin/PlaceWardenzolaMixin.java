@@ -1,6 +1,6 @@
 package com.fateofadrastus.chewy_cheeses.mixin;
 
-import com.fateofadrastus.chewy_cheeses.ChewyCheeses;
+import com.fateofadrastus.chewy_cheeses.Registry;
 import com.fateofadrastus.chewy_cheeses.util.MixinUtils;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -17,8 +17,8 @@ public class PlaceWardenzolaMixin {
 
     @Inject(method = "useOn", at = @At("HEAD"), cancellable = true)
     public void onPlaceWardenzola(UseOnContext context, CallbackInfoReturnable<InteractionResult> callbackInfo){
-        if ( ChewyCheeses.WARDENZOLA_CHEESE_WHEEL != null && context.getItemInHand().is(DDItems.WARDENZOLA.get())){
-            callbackInfo.setReturnValue(MixinUtils.placeCheese(new BlockPlaceContext(context), ChewyCheeses.WARDENZOLA_CHEESE_WHEEL.get()));
+        if ( Registry.WARDENZOLA_CHEESE_WHEEL != null && context.getItemInHand().is(DDItems.WARDENZOLA.get())){
+            callbackInfo.setReturnValue(MixinUtils.placeCheese(new BlockPlaceContext(context), Registry.WARDENZOLA_CHEESE_WHEEL.get()));
         }
     }
 

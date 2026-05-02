@@ -2,50 +2,26 @@ package com.fateofadrastus.chewy_cheeses;
 
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.material.Fluid;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
-import net.neoforged.neoforge.fluids.BaseFlowingFluid;
-import net.neoforged.neoforge.fluids.FluidType;
-import net.neoforged.neoforge.registries.*;
 import net.yirmiri.dungeonsdelight.core.registry.DDCreativeTabs;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.core.registries.Registries;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
-import net.neoforged.neoforge.event.server.ServerStartingEvent;
-
-import umpaz.brewinandchewin.common.block.CheeseWheelBlock;
-import umpaz.brewinandchewin.common.block.UnripeCheeseWheelBlock;
 
 import net.yirmiri.dungeonsdelight.core.registry.DDItems;
 import net.yirmiri.dungeonsdelight.common.util.DDProperties;
-import umpaz.brewinandchewin.neoforge.fluid.BnCFluidType;
 
 @Mod(ChewyCheeses.MODID)
 public class ChewyCheeses {
     public static final String MODID = "chewy_cheeses";
     public static final Logger LOGGER = LogUtils.getLogger();
-
-    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
-    public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(Registries.FLUID ,MODID);
-    public static final DeferredRegister<FluidType> FLUIDS_TYPES = DeferredRegister.create(NeoForgeRegistries.FLUID_TYPES,MODID);
-
 
     /* ----------------------------------------------notes for adding a new cheese ----------------------------------------------------
 
@@ -65,35 +41,29 @@ public class ChewyCheeses {
 
      ---------------------------------------------------------------------------------------------------------------------------------*/
 
-    // dungeons delight
-    public static final DeferredBlock<Block> WARDENZOLA_CHEESE_WHEEL;
-    public static final DeferredBlock<Block> UNRIPE_WARDENZOLA_CHEESE_WHEEL;
-    public static final DeferredItem<BlockItem> UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM;
+    public ChewyCheeses(IEventBus modEventBus, ModContainer modContainer) {
+        //modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(this::modifyComponents);
 
-    public static final DeferredHolder<FluidType, FluidType> WARDENZOLA_CHEESE_FLUID_TYPE;
-    public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> WARDENZOLA_CHEESE;
-    public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> FLOWING_WARDENZOLA_CHEESE;
-    public static final BaseFlowingFluid.Properties WARDENZOLA_CHEESE_FLUID_PROPERTIES;
+        Registry.BLOCKS.register(modEventBus);
+        Registry.ITEMS.register(modEventBus);
+        Registry.FLUIDS_TYPES.register(modEventBus);
+        Registry.FLUIDS.register(modEventBus);
 
-    static {
-        if (ModList.get().isLoaded("dungeonsdelight")){
-            WARDENZOLA_CHEESE_WHEEL = BLOCKS.register("wardenzola_cheese_wheel", () -> new CheeseWheelBlock(DDItems.WARDENZOLA_CRUMBLES, Block.Properties.ofFullCopy(Blocks.CAKE)));
-            UNRIPE_WARDENZOLA_CHEESE_WHEEL = BLOCKS.register("unripe_wardenzola_cheese_wheel", () -> new UnripeCheeseWheelBlock(WARDENZOLA_CHEESE_WHEEL, Block.Properties.ofFullCopy(Blocks.CAKE)));
-            UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM = ITEMS.registerSimpleBlockItem(UNRIPE_WARDENZOLA_CHEESE_WHEEL,new Item.Properties().stacksTo(16).rarity(DDProperties.MONSTER));
+        // Register ourselves for server and other game events we are interested in.
+        // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
+        // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
+        //NeoForge.EVENT_BUS.register(this);
 
-            WARDENZOLA_CHEESE_FLUID_TYPE = FLUIDS_TYPES.register("wardenzola_cheese_type", BnCFluidType::new);
-            WARDENZOLA_CHEESE = FLUIDS.register("wardenzola_cheese", () -> new BaseFlowingFluid.Source(ChewyCheeses.WARDENZOLA_CHEESE_FLUID_PROPERTIES));
-            FLOWING_WARDENZOLA_CHEESE = FLUIDS.register("flowing_wardenzola_cheese", () -> new BaseFlowingFluid.Flowing(ChewyCheeses.WARDENZOLA_CHEESE_FLUID_PROPERTIES));
-            WARDENZOLA_CHEESE_FLUID_PROPERTIES = new BaseFlowingFluid.Properties(WARDENZOLA_CHEESE_FLUID_TYPE, WARDENZOLA_CHEESE, FLOWING_WARDENZOLA_CHEESE);
-        } else {
-            WARDENZOLA_CHEESE_WHEEL = null;
-            UNRIPE_WARDENZOLA_CHEESE_WHEEL = null;
-            UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM = null;
+        modEventBus.addListener(this::addCreative);
 
-            WARDENZOLA_CHEESE_FLUID_TYPE = null;
-            WARDENZOLA_CHEESE = null;
-            FLOWING_WARDENZOLA_CHEESE = null;
-            WARDENZOLA_CHEESE_FLUID_PROPERTIES = null;
+        // Register our mod's ModConfigSpec so that FML can create and load the config file for us
+        //modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+    }
+
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if (ModList.get().isLoaded("dungeonsdelight") && event.getTab() == DDCreativeTabs.DUNGEONSDELIGHT.get()) {
+            event.insertBefore(DDItems.WARDENZOLA.get().getDefaultInstance(), Registry.UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
     }
 
@@ -103,44 +73,13 @@ public class ChewyCheeses {
     }
 
 
-    // The constructor for the mod class is the first code that is run when your mod is loaded.
-    // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
-    public ChewyCheeses(IEventBus modEventBus, ModContainer modContainer) {
-        modEventBus.addListener(this::commonSetup);
-        modEventBus.addListener(this::modifyComponents);
-
-        BLOCKS.register(modEventBus);
-        ITEMS.register(modEventBus);
-        FLUIDS_TYPES.register(modEventBus);
-        FLUIDS.register(modEventBus);
-        // Register the Deferred Register to the mod event bus so tabs get registered
-        //CREATIVE_MODE_TABS.register(modEventBus);
-
-        // Register ourselves for server and other game events we are interested in.
-        // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
-        // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
-        NeoForge.EVENT_BUS.register(this);
-
-        modEventBus.addListener(this::addCreative);
-
-        // Register our mod's ModConfigSpec so that FML can create and load the config file for us
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
-    }
-
-    private void commonSetup(FMLCommonSetupEvent event) {
-
-    }
-
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (ModList.get().isLoaded("dungeonsdelight") && event.getTab() == DDCreativeTabs.DUNGEONSDELIGHT.get()) {
-            event.insertAfter(DDItems.WARDENZOLA.get().getDefaultInstance(), UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-        }
-    }
-
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
-    @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event) {
-    }
+//    private void commonSetup(FMLCommonSetupEvent event) {
+//
+//    }
+//    // You can use SubscribeEvent and let the Event Bus discover methods to call
+//    @SubscribeEvent
+//    public void onServerStarting(ServerStartingEvent event) {
+//    }
 
     public static ResourceLocation getResourceLocation(String name){
         return ResourceLocation.fromNamespaceAndPath(MODID, name);

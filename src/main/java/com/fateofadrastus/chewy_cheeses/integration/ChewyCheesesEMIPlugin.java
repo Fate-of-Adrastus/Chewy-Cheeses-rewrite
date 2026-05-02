@@ -1,6 +1,7 @@
 package com.fateofadrastus.chewy_cheeses.integration;
 
 import com.fateofadrastus.chewy_cheeses.ChewyCheeses;
+import com.fateofadrastus.chewy_cheeses.Registry;
 import dev.emi.emi.api.EmiEntrypoint;
 import dev.emi.emi.api.EmiPlugin;
 import dev.emi.emi.api.EmiRegistry;
@@ -14,8 +15,8 @@ public class ChewyCheesesEMIPlugin implements EmiPlugin {
     }
 
     public void register(EmiRegistry registry){
-        if (ChewyCheeses.UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM != null )
-            registry.addRecipe(new CheeseEmiRecipe(ChewyCheeses.getResourceLocation("/cheese/wardenzola"), EmiStack.of(ChewyCheeses.UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM.get()), EmiStack.of(DDItems.WARDENZOLA.get())));
+        if (Registry.UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM != null )
+            registry.addRecipe(new CheeseEmiRecipe(ChewyCheeses.getResourceLocation("/cheese/wardenzola"), EmiStack.of(Registry.UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM.get()), EmiStack.of(DDItems.WARDENZOLA.get())));
 
     }
 }
