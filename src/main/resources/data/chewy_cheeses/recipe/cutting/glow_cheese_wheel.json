@@ -1,8 +1,8 @@
 {
-  "conditions": [
+  "neoforge:conditions": [
     {
       "modid": "netherexp",
-      "type": "forge:mod_loaded"
+      "type": "neoforge:mod_loaded"
     }
   ],
   "type": "farmersdelight:cutting",
@@ -13,11 +13,13 @@
   ],
   "result": [
     {
-      "count": 4,
-      "item": "netherexp:glowcheese"
+      "item": {
+        "count": 4,
+        "id": "netherexp:glowcheese"
+      }
     }
   ],
   "tool": {
-    "tag": "forge:tools/knives"
+    "tag": "c:tools/knives"
   }
 }

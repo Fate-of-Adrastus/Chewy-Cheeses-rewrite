@@ -1,8 +1,8 @@
 {
-  "conditions": [
+  "neoforge:conditions": [
     {
       "modid": "rats",
-      "type": "forge:mod_loaded"
+      "type": "neoforge:mod_loaded"
     }
   ],
   "type": "farmersdelight:cutting",
@@ -13,11 +13,13 @@
   ],
   "result": [
     {
-      "count": 2,
-      "item": "chewy_cheeses:rat_leicester_cheese_wheel"
+      "item": {
+        "count": 2,
+        "id": "chewy_cheeses:rat_leicester_cheese_wheel"
+      }
     }
   ],
   "tool": {
-    "tag": "forge:tools/knives"
+    "tag": "c:tools/knives"
   }
 }

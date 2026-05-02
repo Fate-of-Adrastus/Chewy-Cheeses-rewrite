@@ -1,19 +1,23 @@
 {
-  "conditions": [
+  "neoforge:conditions": [
     {
       "modid": "rats",
-      "type": "forge:mod_loaded"
+      "type": "neoforge:mod_loaded"
     }
   ],
   "type": "brewinandchewin:keg_pouring",
-  "amount": 1000,
+  "can_fill": false,
   "container": {
-    "item": "minecraft:honeycomb"
+    "count": 1,
+    "id": "minecraft:honeycomb"
   },
-  "filling": false,
-  "fluid": "chewy_cheeses:nether_cheese",
+  "fluid": {
+    "amount": 1000,
+    "id": "chewy_cheeses:nether_cheese"
+  },
   "output": {
-    "item": "chewy_cheeses:unripe_nether_cheese_wheel"
+    "count": 1,
+    "id": "chewy_cheeses:unripe_nether_cheese_wheel"
   },
-  "strict": false
+  "unit": "millibuckets"
 }

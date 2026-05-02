@@ -1,17 +1,24 @@
 {
+  "neoforge:conditions": [
+    {
+      "modid": "rats",
+      "type": "neoforge:mod_loaded"
+    }
+  ],
   "type": "minecraft:crafting_shaped",
-  "category": "building",
+  "category": "misc",
   "key": {
-    "C": {
+    "W": {
       "item": "chewy_cheeses:nether_cheese_wheel"
     }
   },
   "pattern": [
-    "C",
-    "C"
+    "W",
+    "W"
   ],
   "result": {
-    "item": "rats:block_of_nether_cheese"
+    "count": 1,
+    "id": "rats:block_of_nether_cheese"
   },
   "show_notification": true
 }

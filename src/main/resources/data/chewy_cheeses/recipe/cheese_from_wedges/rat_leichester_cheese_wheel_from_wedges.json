@@ -1,8 +1,8 @@
 {
-  "conditions": [
+  "neoforge:conditions": [
     {
       "modid": "rats",
-      "type": "forge:mod_loaded"
+      "type": "neoforge:mod_loaded"
     }
   ],
   "type": "minecraft:crafting_shaped",
@@ -17,7 +17,8 @@
     "pp"
   ],
   "result": {
-    "item": "chewy_cheeses:rat_leicester_cheese_wheel"
+    "count": 1,
+    "id": "chewy_cheeses:rat_leicester_cheese_wheel"
   },
   "show_notification": true
 }

@@ -1,17 +1,24 @@
 {
+  "neoforge:conditions": [
+    {
+      "modid": "rats",
+      "type": "neoforge:mod_loaded"
+    }
+  ],
   "type": "minecraft:crafting_shaped",
-  "category": "building",
+  "category": "misc",
   "key": {
-    "C": {
+    "W": {
       "item": "chewy_cheeses:blue_cheese_wheel"
     }
   },
   "pattern": [
-    "C",
-    "C"
+    "W",
+    "W"
   ],
   "result": {
-    "item": "rats:block_of_blue_cheese"
+    "count": 1,
+    "id": "rats:block_of_blue_cheese"
   },
   "show_notification": true
 }
