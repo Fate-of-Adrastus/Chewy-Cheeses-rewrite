@@ -1,0 +1,23 @@
+{
+  "neoforge:conditions": [
+    {
+      "modid": "dungeonsdelight",
+      "type": "neoforge:mod_loaded"
+    }
+  ],
+  "type": "brewinandchewin:keg_pouring",
+  "can_fill": false,
+  "container": {
+    "count": 1,
+    "id": "minecraft:honeycomb"
+  },
+  "fluid": {
+    "amount": 1000,
+    "id": "chewy_cheeses:wardenzola_cheese"
+  },
+  "output": {
+    "count": 1,
+    "id": "chewy_cheeses:unripe_wardenzola_cheese_wheel"
+  },
+  "unit": "millibuckets"
+}

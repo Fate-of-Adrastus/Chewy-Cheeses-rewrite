@@ -20,12 +20,12 @@ public class MixinUtils {
         if (blockState == null ) return  InteractionResult.FAIL;
 
         BlockPos blockPos = placeContext.getClickedPos();
-        if (!placeContext.getLevel().setBlock(blockPos, blockState, 11))
+        Level world = placeContext.getLevel();
+        if (!world.setBlock(blockPos, blockState, 11))
             return InteractionResult.FAIL;
 
         ItemStack itemStack = placeContext.getItemInHand();
         Player playerEntity = placeContext.getPlayer();
-        Level world = placeContext.getLevel();
         SoundType blockSoundGroup = blockToPlace.getSoundType(blockToPlace.defaultBlockState(),world,blockPos,playerEntity);
 
         itemStack.consume(1, playerEntity);

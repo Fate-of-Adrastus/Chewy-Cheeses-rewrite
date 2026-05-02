@@ -1,0 +1,25 @@
+{
+  "neoforge:conditions": [
+    {
+      "modid": "dungeonsdelight",
+      "type": "neoforge:mod_loaded"
+    }
+  ],
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "dungeonsdelight:wardenzola"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 4,
+        "id": "dungeonsdelight:wardenzola_crumbles"
+      }
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/knife"
+  }
+}
