@@ -1,6 +1,6 @@
 package com.fateofadrastus.chewy_cheeses.mixin;
 
-import com.fateofadrastus.chewy_cheeses.Registry;
+import com.fateofadrastus.chewy_cheeses.registry.Registry;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.yirmiri.dungeonsdelight.core.registry.DDItems;
 import org.spongepowered.asm.mixin.Mixin;

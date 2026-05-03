@@ -1,5 +1,6 @@
 package com.fateofadrastus.chewy_cheeses;
 
+import com.fateofadrastus.chewy_cheeses.registry.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;

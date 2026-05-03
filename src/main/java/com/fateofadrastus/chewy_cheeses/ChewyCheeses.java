@@ -1,5 +1,6 @@
 package com.fateofadrastus.chewy_cheeses;
 
+import com.fateofadrastus.chewy_cheeses.registry.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.fml.ModList;

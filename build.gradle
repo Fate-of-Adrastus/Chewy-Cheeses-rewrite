@@ -146,9 +146,15 @@ dependencies {
     localRuntime "curse.maven:runiclib-880879:7788771"
 
     compileOnly "curse.maven:jadens-nether-expansion-1111833:7983621"
-    localRuntime "curse.maven:jadens-nether-expansion-1111833:7983621"
+    //localRuntime "curse.maven:jadens-nether-expansion-1111833:7983621"
     compileOnly "curse.maven:elysium-api-1158628:7983590"
-    localRuntime "curse.maven:elysium-api-1158628:7983590"
+    //localRuntime "curse.maven:elysium-api-1158628:7983590"
+
+    //compileOnly "curse.maven:lets-do-meadow-821483:7672847"
+    //localRuntime "curse.maven:lets-do-meadow-821483:7672847"
+    //compileOnly "curse.maven:architectury-api-419699:5786327"
+    //localRuntime "curse.maven:architectury-api-419699:5786327"
+
 
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar

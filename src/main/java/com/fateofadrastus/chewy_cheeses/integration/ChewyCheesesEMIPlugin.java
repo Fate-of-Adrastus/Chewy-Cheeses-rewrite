@@ -1,7 +1,7 @@
 package com.fateofadrastus.chewy_cheeses.integration;
 
 import com.fateofadrastus.chewy_cheeses.ChewyCheeses;
-import com.fateofadrastus.chewy_cheeses.Registry;
+import com.fateofadrastus.chewy_cheeses.registry.Registry;
 import dev.emi.emi.api.EmiEntrypoint;
 import dev.emi.emi.api.EmiPlugin;
 import dev.emi.emi.api.EmiRegistry;
