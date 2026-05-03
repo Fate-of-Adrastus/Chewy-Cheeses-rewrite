@@ -6,6 +6,10 @@ import dev.emi.emi.api.EmiEntrypoint;
 import dev.emi.emi.api.EmiPlugin;
 import dev.emi.emi.api.EmiRegistry;
 import dev.emi.emi.api.stack.EmiStack;
+import net.hardzi.farmerspizzeria.FarmerspizzeriaMod;
+import net.hardzi.farmerspizzeria.init.FarmerspizzeriaModBlocks;
+import net.minecraft.resources.ResourceLocation;
+import net.neoforged.fml.ModList;
 import net.yirmiri.dungeonsdelight.core.registry.DDItems;
 import umpaz.brewinandchewin.integration.emi.recipe.CheeseEmiRecipe;
 
@@ -20,5 +24,8 @@ public class ChewyCheesesEMIPlugin implements EmiPlugin {
 
         if (Registry.UNRIPE_GLOW_CHEESE_WHEEL_ITEM != null )
             registry.addRecipe(new CheeseEmiRecipe(ChewyCheeses.getResourceLocation("/cheese/glowcheese"), EmiStack.of(Registry.UNRIPE_GLOW_CHEESE_WHEEL_ITEM.get()), EmiStack.of(Registry.GLOW_CHEESE_WHEEL_ITEM.get())));
+
+        if (ModList.get().isLoaded("farmerspizzeria"))
+            registry.addRecipe(new CheeseEmiRecipe(ResourceLocation.fromNamespaceAndPath(FarmerspizzeriaMod.MODID, "/cheese/dorblu"), EmiStack.of(FarmerspizzeriaModBlocks.UNRIPE_DORBLU_CHEESE_WHEEL.asItem()), EmiStack.of(FarmerspizzeriaModBlocks.DORBLU_CHEESE_WHEEL.asItem())));
     }
 }

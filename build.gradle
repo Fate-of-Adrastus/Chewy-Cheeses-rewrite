@@ -150,6 +150,9 @@ dependencies {
     compileOnly "curse.maven:elysium-api-1158628:7983590"
     //localRuntime "curse.maven:elysium-api-1158628:7983590"
 
+    compileOnly "curse.maven:farmers-pizzeria-1449102:7750927"
+    localRuntime "curse.maven:farmers-pizzeria-1449102:7750927"
+
     //compileOnly "curse.maven:lets-do-meadow-821483:7672847"
     //localRuntime "curse.maven:lets-do-meadow-821483:7672847"
     //compileOnly "curse.maven:architectury-api-419699:5786327"

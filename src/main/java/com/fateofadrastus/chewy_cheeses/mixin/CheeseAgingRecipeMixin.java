@@ -2,6 +2,8 @@ package com.fateofadrastus.chewy_cheeses.mixin;
 
 import com.fateofadrastus.chewy_cheeses.registry.Registry;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
+import net.hardzi.farmerspizzeria.init.FarmerspizzeriaModBlocks;
+import net.neoforged.fml.ModList;
 import net.yirmiri.dungeonsdelight.core.registry.DDItems;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,9 +21,11 @@ public class CheeseAgingRecipeMixin {
 
         if (Registry.UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM != null )
             original.add(new CheeseAgingRecipe(Registry.UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM.get(), DDItems.WARDENZOLA.get()));
-        if (Registry.UNRIPE_GLOW_CHEESE_WHEEL_ITEM != null && Registry.GLOW_CHEESE_WHEEL_ITEM != null) {
+        if (Registry.UNRIPE_GLOW_CHEESE_WHEEL_ITEM != null && Registry.GLOW_CHEESE_WHEEL_ITEM != null)
             original.add(new CheeseAgingRecipe(Registry.UNRIPE_GLOW_CHEESE_WHEEL_ITEM.get(), Registry.GLOW_CHEESE_WHEEL_ITEM.get()));
-        }
+        if (ModList.get().isLoaded("farmerspizzeria"))
+            original.add(new CheeseAgingRecipe(FarmerspizzeriaModBlocks.DORBLU_CHEESE_WHEEL.asItem(), FarmerspizzeriaModBlocks.UNRIPE_DORBLU_CHEESE_WHEEL.asItem()));
+
 
         return original;
     }
