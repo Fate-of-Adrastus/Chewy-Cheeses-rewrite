@@ -6,13 +6,22 @@
   "block.chewy_cheeses.unripe_blue_cheese_wheel": "Unripe Blue Cheese Wheel",
   "block.chewy_cheeses.blue_cheese_wheel": "Blue Cheese Wheel",
   "fluid_type.chewy_cheeses.blue_cheese_type": "Blue Cheese",
+
   "block.chewy_cheeses.unripe_nether_cheese_wheel": "Unripe Nether Cheese Wheel",
   "block.chewy_cheeses.nether_cheese_wheel": "Nether Cheese Wheel",
   "fluid_type.chewy_cheeses.nether_cheese_type": "Nether Cheese",
+
   "block.chewy_cheeses.unripe_glow_cheese_wheel": "Unripe Glow Cheese Wheel",
   "block.chewy_cheeses.glow_cheese_wheel": "Glow Cheese Wheel",
   "fluid_type.chewy_cheeses.glow_cheese_type": "Glow Cheese",
+
   "block.chewy_cheeses.unripe_wardenzola_cheese_wheel": "Unripe Wardenzola Cheese Wheel",
   "block.chewy_cheeses.wardenzola_cheese_wheel": "Wardenzola Cheese Wheel",
-  "fluid_type.chewy_cheeses.wardenzola_cheese_type": "Wardenzola"
+  "fluid_type.chewy_cheeses.wardenzola_cheese_type": "Wardenzola",
+
+  "item.chewy_cheeses.truffle_cheese_wedge": "Truffle Cheese Wedge",
+  "block.chewy_cheeses.unripe_truffle_cheese_wheel": "Unripe Truffle Cheese Wheel",
+  "block.chewy_cheeses.truffle_cheese_wheel": "Truffle Cheese Wheel",
+  "fluid_type.chewy_cheeses.truffle_cheese_type": "Truffle Cheese"
+
 }

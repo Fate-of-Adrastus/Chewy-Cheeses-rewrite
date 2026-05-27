@@ -4,6 +4,7 @@ import com.fateofadrastus.chewy_cheeses.ChewyCheeses;
 import com.fateofadrastus.chewy_cheeses.content.block.WardenzolaCheeseWheelBlock;
 import net.jadenxgamer.netherexp.registry.JNEItems;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -48,6 +49,19 @@ public class Registry {
     public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> FLOWING_GLOW_CHEESE;
     public static final BaseFlowingFluid.Properties GLOW_CHEESE_FLUID_PROPERTIES;
 
+    // Environmental
+    public static final FoodProperties FLAXEN_CHEESE_PROPERITIES;
+    public static final DeferredItem<Item> TRUFFLE_CHEESE_WEDGE;
+    public static final DeferredBlock<Block> TRUFFLE_CHEESE_WHEEL;
+    public static final DeferredBlock<Block> UNRIPE_TRUFFLE_CHEESE_WHEEL;
+    public static final DeferredItem<BlockItem> UNRIPE_TRUFFLE_CHEESE_WHEEL_ITEM;
+    public static final DeferredItem<BlockItem> TRUFFLE_CHEESE_WHEEL_ITEM;
+
+    public static final DeferredHolder<FluidType, FluidType> TRUFFLE_CHEESE_FLUID_TYPE;
+    public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> TRUFFLE_CHEESE;
+    public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> FLOWING_TRUFFLE_CHEESE;
+    public static final BaseFlowingFluid.Properties TRUFFLE_CHEESE_FLUID_PROPERTIES;
+
     static  {
         if (ModList.get().isLoaded("dungeonsdelight")){
             WARDENZOLA_CHEESE_WHEEL = BLOCKS.register("wardenzola_cheese_wheel", () -> new WardenzolaCheeseWheelBlock(DDItems.WARDENZOLA_CRUMBLES, Block.Properties.ofFullCopy(Blocks.CAKE)));
@@ -89,6 +103,32 @@ public class Registry {
             GLOW_CHEESE = null;
             FLOWING_GLOW_CHEESE = null;
             GLOW_CHEESE_FLUID_PROPERTIES = null;
+        }
+        if (ModList.get().isLoaded("environmental")) {
+            FLAXEN_CHEESE_PROPERITIES = (new FoodProperties.Builder()).nutrition(4).saturationModifier(1.0F).build();
+            TRUFFLE_CHEESE_WEDGE = ITEMS.register("truffle_cheese_wedge", () -> new Item((new Item.Properties()).food( FLAXEN_CHEESE_PROPERITIES )));
+            TRUFFLE_CHEESE_WHEEL =  BLOCKS.register("truffle_cheese_wheel", () -> new CheeseWheelBlock(TRUFFLE_CHEESE_WEDGE , Block.Properties.ofFullCopy(Blocks.CAKE)));
+            UNRIPE_TRUFFLE_CHEESE_WHEEL =  BLOCKS.register("unripe_truffle_cheese_wheel", () -> new UnripeCheeseWheelBlock(TRUFFLE_CHEESE_WHEEL , Block.Properties.ofFullCopy(Blocks.CAKE)));
+            TRUFFLE_CHEESE_WHEEL_ITEM = ITEMS.registerSimpleBlockItem(TRUFFLE_CHEESE_WHEEL, new Item.Properties().stacksTo(16));
+            UNRIPE_TRUFFLE_CHEESE_WHEEL_ITEM =  ITEMS.registerSimpleBlockItem(UNRIPE_TRUFFLE_CHEESE_WHEEL, new Item.Properties().stacksTo(16));
+
+            TRUFFLE_CHEESE_FLUID_TYPE = FLUIDS_TYPES.register("truffle_cheese_type", BnCFluidType::new);
+            TRUFFLE_CHEESE = FLUIDS.register("truffle_cheese", () -> new BaseFlowingFluid.Source(Registry.TRUFFLE_CHEESE_FLUID_PROPERTIES));
+            FLOWING_TRUFFLE_CHEESE = FLUIDS.register("flowing_truffle_cheese", () -> new BaseFlowingFluid.Flowing(Registry.TRUFFLE_CHEESE_FLUID_PROPERTIES));
+            TRUFFLE_CHEESE_FLUID_PROPERTIES = new BaseFlowingFluid.Properties(TRUFFLE_CHEESE_FLUID_TYPE, TRUFFLE_CHEESE, FLOWING_TRUFFLE_CHEESE);
+
+        } else {
+            FLAXEN_CHEESE_PROPERITIES = null;
+            TRUFFLE_CHEESE_WEDGE = null;
+            TRUFFLE_CHEESE_WHEEL = null;
+            UNRIPE_TRUFFLE_CHEESE_WHEEL = null;
+            TRUFFLE_CHEESE_WHEEL_ITEM = null;
+            UNRIPE_TRUFFLE_CHEESE_WHEEL_ITEM = null;
+
+            TRUFFLE_CHEESE_FLUID_TYPE = null;
+            TRUFFLE_CHEESE = null;
+            FLOWING_TRUFFLE_CHEESE = null;
+            TRUFFLE_CHEESE_FLUID_PROPERTIES = null;
         }
     }
 }

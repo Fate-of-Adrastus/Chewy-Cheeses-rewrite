@@ -37,5 +37,16 @@ public class ClientEvents {
                 }
             }, Registry.GLOW_CHEESE_FLUID_TYPE.get());
         }
+        if (ModList.get().isLoaded("environmental")) {
+            event.registerFluidType(new IClientFluidTypeExtensions() {
+                public @NotNull ResourceLocation getStillTexture() {
+                    return ChewyCheeses.getResourceLocation("block/truffle_cheese_still");
+                }
+
+                public @NotNull ResourceLocation getFlowingTexture() {
+                    return ChewyCheeses.getResourceLocation("block/truffle_cheese_flow");
+                }
+            }, Registry.TRUFFLE_CHEESE_FLUID_TYPE.get());
+        }
     }
 }

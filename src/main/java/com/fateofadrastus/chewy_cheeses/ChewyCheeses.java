@@ -1,8 +1,10 @@
 package com.fateofadrastus.chewy_cheeses;
 
 import com.fateofadrastus.chewy_cheeses.registry.Registry;
+import com.teamabnormals.environmental.core.registry.EnvironmentalItems;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 import net.yirmiri.dungeonsdelight.core.registry.DDCreativeTabs;
@@ -65,6 +67,11 @@ public class ChewyCheeses {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (ModList.get().isLoaded("dungeonsdelight") && event.getTab() == DDCreativeTabs.DUNGEONSDELIGHT.get()) {
             event.insertBefore(DDItems.WARDENZOLA.get().getDefaultInstance(), Registry.UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+        }
+        if (ModList.get().isLoaded("environmental") && event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
+            event.insertAfter(EnvironmentalItems.TRUFFLE.get().getDefaultInstance(), Registry.TRUFFLE_CHEESE_WEDGE.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(EnvironmentalItems.TRUFFLE.get().getDefaultInstance(), Registry.TRUFFLE_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(EnvironmentalItems.TRUFFLE.get().getDefaultInstance(), Registry.UNRIPE_TRUFFLE_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
     }
 

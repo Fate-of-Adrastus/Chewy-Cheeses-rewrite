@@ -8,6 +8,10 @@
     {
       "id": "chewy_cheeses:unripe_glow_cheese_wheel",
       "required": false
+    },
+    {
+      "id": "chewy_cheeses:unripe_truffle_cheese_wheel",
+      "required": false
     }
   ]
 }

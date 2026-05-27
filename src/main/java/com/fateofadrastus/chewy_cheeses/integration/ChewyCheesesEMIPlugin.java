@@ -27,5 +27,8 @@ public class ChewyCheesesEMIPlugin implements EmiPlugin {
 
         if (ModList.get().isLoaded("farmerspizzeria"))
             registry.addRecipe(new CheeseEmiRecipe(ResourceLocation.fromNamespaceAndPath(FarmerspizzeriaMod.MODID, "/cheese/dorblu"), EmiStack.of(FarmerspizzeriaModBlocks.UNRIPE_DORBLU_CHEESE_WHEEL.asItem()), EmiStack.of(FarmerspizzeriaModBlocks.DORBLU_CHEESE_WHEEL.asItem())));
+
+        if (Registry.UNRIPE_TRUFFLE_CHEESE_WHEEL != null )
+            registry.addRecipe(new CheeseEmiRecipe(ChewyCheeses.getResourceLocation("/cheese/truffle"), EmiStack.of(Registry.UNRIPE_TRUFFLE_CHEESE_WHEEL.get()), EmiStack.of(Registry.TRUFFLE_CHEESE_WHEEL.get())));
     }
 }
