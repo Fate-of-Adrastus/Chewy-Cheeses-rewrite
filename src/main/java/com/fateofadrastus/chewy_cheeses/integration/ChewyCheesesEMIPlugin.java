@@ -33,5 +33,8 @@ public class ChewyCheesesEMIPlugin implements EmiPlugin {
 
         if (Registry.UNRIPE_GLOWSHROOM_CHEESE_WHEEL_ITEM != null && Registry.GLOWSHROOM_CHEESE_WHEEL_ITEM != null )
             registry.addRecipe(new CheeseEmiRecipe(ChewyCheeses.getResourceLocation("/cheese/glowshroom"), EmiStack.of(Registry.UNRIPE_GLOWSHROOM_CHEESE_WHEEL_ITEM.get()), EmiStack.of(Registry.GLOWSHROOM_CHEESE_WHEEL_ITEM.get())));
+
+        if (Registry.UNRIPE_SHULKER_CHEESE_WHEEL_ITEM != null && Registry.SHULKER_CHEESE_WHEEL_ITEM != null )
+            registry.addRecipe(new CheeseEmiRecipe(ChewyCheeses.getResourceLocation("/cheese/shulker"), EmiStack.of(Registry.UNRIPE_SHULKER_CHEESE_WHEEL_ITEM.get()), EmiStack.of(Registry.SHULKER_CHEESE_WHEEL_ITEM.get())));
     }
 }

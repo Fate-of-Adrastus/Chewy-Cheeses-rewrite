@@ -1,10 +1,8 @@
 package com.fateofadrastus.chewy_cheeses;
 
 import com.fateofadrastus.chewy_cheeses.registry.Registry;
-import com.teamabnormals.environmental.core.registry.EnvironmentalItems;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 import net.yirmiri.dungeonsdelight.core.registry.DDCreativeTabs;
@@ -79,6 +77,11 @@ public class ChewyCheeses {
             event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.GLOWSHROOM_CHEESE_WEDGE.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.GLOWSHROOM_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.UNRIPE_GLOWSHROOM_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+        }
+        if ( ModList.get().isLoaded("endersdelight") && event.getTab() == BnCCreativeTabs.TAB_BREWIN_AND_CHEWIN) {
+            event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.SHULKER_CHEESE_WEDGE.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.SHULKER_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.UNRIPE_SHULKER_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
     }
 

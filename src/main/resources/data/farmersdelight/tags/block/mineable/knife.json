@@ -32,6 +32,14 @@
     {
       "id": "chewy_cheeses:unripe_glowshroom_cheese_wheel",
       "required": false
+    },
+    {
+      "id": "chewy_cheeses:shulker_cheese_wheel",
+      "required": false
+    },
+    {
+      "id": "chewy_cheeses:unripe_shulker_cheese_wheel",
+      "required": false
     }
   ]
 }

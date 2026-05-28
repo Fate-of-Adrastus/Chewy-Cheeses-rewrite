@@ -27,6 +27,10 @@
   "item.chewy_cheeses.glowshroom_cheese_wedge": "Glowshroom Cheese Wedge",
   "block.chewy_cheeses.unripe_glowshroom_cheese_wheel": "Unripe Glowshroom Cheese Wheel",
   "block.chewy_cheeses.glowshroom_cheese_wheel": "Glowshroom Cheese Wheel",
-  "fluid_type.chewy_cheeses.glowshroom_cheese_type": "Glowshroom Cheese"
+  "fluid_type.chewy_cheeses.glowshroom_cheese_type": "Glowshroom Cheese",
 
+  "item.chewy_cheeses.shulker_cheese_wedge": "Shulker Cheese Wedge",
+  "block.chewy_cheeses.unripe_shulker_cheese_wheel": "Unripe Shulker Cheese Wheel",
+  "block.chewy_cheeses.shulker_cheese_wheel": "Shulker Cheese Wheel",
+  "fluid_type.chewy_cheeses.shulker_cheese_type": "Shulker Cheese"
 }

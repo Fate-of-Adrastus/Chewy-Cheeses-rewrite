@@ -12,6 +12,10 @@
     {
       "id": "chewy_cheeses:glowshroom_cheese_wedge",
       "required": false
+    },
+    {
+      "id": "chewy_cheeses:shulker_cheese_wedge",
+      "required": false
     }
   ]
 }

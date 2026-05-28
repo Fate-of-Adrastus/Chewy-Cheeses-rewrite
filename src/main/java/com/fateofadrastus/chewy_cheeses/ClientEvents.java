@@ -59,5 +59,16 @@ public class ClientEvents {
                 }
             }, Registry.GLOWSHROOM_CHEESE_FLUID_TYPE.get());
         }
+        if (ModList.get().isLoaded("endersdelight")) {
+            event.registerFluidType(new IClientFluidTypeExtensions() {
+                public @NotNull ResourceLocation getStillTexture() {
+                    return ChewyCheeses.getResourceLocation("block/shulker_cheese_still");
+                }
+
+                public @NotNull ResourceLocation getFlowingTexture() {
+                    return ChewyCheeses.getResourceLocation("block/shulker_cheese_flow");
+                }
+            }, Registry.SHULKER_CHEESE_FLUID_TYPE.get());
+        }
     }
 }

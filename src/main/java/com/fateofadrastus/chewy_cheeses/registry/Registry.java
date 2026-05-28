@@ -4,6 +4,8 @@ import com.fateofadrastus.chewy_cheeses.ChewyCheeses;
 import com.fateofadrastus.chewy_cheeses.content.block.WardenzolaCheeseWheelBlock;
 import net.jadenxgamer.netherexp.registry.JNEItems;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -19,6 +21,7 @@ import net.yirmiri.dungeonsdelight.common.util.DDProperties;
 import net.yirmiri.dungeonsdelight.core.registry.DDItems;
 import umpaz.brewinandchewin.common.block.CheeseWheelBlock;
 import umpaz.brewinandchewin.common.block.UnripeCheeseWheelBlock;
+import umpaz.brewinandchewin.common.registry.BnCEffects;
 import umpaz.brewinandchewin.neoforge.fluid.BnCFluidType;
 
 public class Registry {
@@ -75,6 +78,19 @@ public class Registry {
     public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> GLOWSHROOM_CHEESE;
     public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> FLOWING_GLOWSHROOM_CHEESE;
     public static final BaseFlowingFluid.Properties GLOWSHROOM_CHEESE_FLUID_PROPERTIES;
+
+    // Ender's delight
+    public static final FoodProperties SHULKER_CHEESE_PROPERITIES;
+    public static final DeferredItem<Item> SHULKER_CHEESE_WEDGE;
+    public static final DeferredBlock<Block> SHULKER_CHEESE_WHEEL;
+    public static final DeferredBlock<Block> UNRIPE_SHULKER_CHEESE_WHEEL;
+    public static final DeferredItem<BlockItem> UNRIPE_SHULKER_CHEESE_WHEEL_ITEM;
+    public static final DeferredItem<BlockItem> SHULKER_CHEESE_WHEEL_ITEM;
+
+    public static final DeferredHolder<FluidType, FluidType> SHULKER_CHEESE_FLUID_TYPE;
+    public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> SHULKER_CHEESE;
+    public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> FLOWING_SHULKER_CHEESE;
+    public static final BaseFlowingFluid.Properties SHULKER_CHEESE_FLUID_PROPERTIES;
 
     static  {
         if (ModList.get().isLoaded("dungeonsdelight")){
@@ -169,6 +185,32 @@ public class Registry {
             GLOWSHROOM_CHEESE = null;
             FLOWING_GLOWSHROOM_CHEESE = null;
             GLOWSHROOM_CHEESE_FLUID_PROPERTIES = null;
+        }
+        if (ModList.get().isLoaded("endersdelight")){
+            SHULKER_CHEESE_PROPERITIES = (new FoodProperties.Builder()).nutrition(4).saturationModifier(1.0F).effect( () -> new MobEffectInstance(MobEffects.LEVITATION, 100, 0, false, false), 1.0F).alwaysEdible().build();
+            SHULKER_CHEESE_WEDGE = ITEMS.register("shulker_cheese_wedge", () -> new Item((new Item.Properties()).food( SHULKER_CHEESE_PROPERITIES )));
+            SHULKER_CHEESE_WHEEL =  BLOCKS.register("shulker_cheese_wheel", () -> new CheeseWheelBlock(SHULKER_CHEESE_WEDGE , Block.Properties.ofFullCopy(Blocks.CAKE)));
+            UNRIPE_SHULKER_CHEESE_WHEEL =  BLOCKS.register("unripe_shulker_cheese_wheel", () -> new UnripeCheeseWheelBlock(SHULKER_CHEESE_WHEEL , Block.Properties.ofFullCopy(Blocks.CAKE)));
+            SHULKER_CHEESE_WHEEL_ITEM = ITEMS.registerSimpleBlockItem(SHULKER_CHEESE_WHEEL, new Item.Properties().stacksTo(16));
+            UNRIPE_SHULKER_CHEESE_WHEEL_ITEM =  ITEMS.registerSimpleBlockItem(UNRIPE_SHULKER_CHEESE_WHEEL, new Item.Properties().stacksTo(16));
+
+            SHULKER_CHEESE_FLUID_TYPE = FLUIDS_TYPES.register("shulker_cheese_type", BnCFluidType::new);
+            SHULKER_CHEESE = FLUIDS.register("shulker_cheese", () -> new BaseFlowingFluid.Source(Registry.SHULKER_CHEESE_FLUID_PROPERTIES));
+            FLOWING_SHULKER_CHEESE = FLUIDS.register("flowing_shulker_cheese", () -> new BaseFlowingFluid.Flowing(Registry.SHULKER_CHEESE_FLUID_PROPERTIES));
+            SHULKER_CHEESE_FLUID_PROPERTIES = new BaseFlowingFluid.Properties(SHULKER_CHEESE_FLUID_TYPE, SHULKER_CHEESE, FLOWING_SHULKER_CHEESE);
+
+        } else {
+            SHULKER_CHEESE_PROPERITIES = null;
+            SHULKER_CHEESE_WEDGE = null;
+            SHULKER_CHEESE_WHEEL = null;
+            UNRIPE_SHULKER_CHEESE_WHEEL = null;
+            SHULKER_CHEESE_WHEEL_ITEM = null;
+            UNRIPE_SHULKER_CHEESE_WHEEL_ITEM = null;
+
+            SHULKER_CHEESE_FLUID_TYPE = null;
+            SHULKER_CHEESE = null;
+            FLOWING_SHULKER_CHEESE = null;
+            SHULKER_CHEESE_FLUID_PROPERTIES = null;
         }
     }
 }
