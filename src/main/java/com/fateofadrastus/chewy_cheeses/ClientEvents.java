@@ -48,5 +48,16 @@ public class ClientEvents {
                 }
             }, Registry.TRUFFLE_CHEESE_FLUID_TYPE.get());
         }
+        if (ModList.get().isLoaded("quark") || ModList.get().isLoaded("darkerdepths")) {
+            event.registerFluidType(new IClientFluidTypeExtensions() {
+                public @NotNull ResourceLocation getStillTexture() {
+                    return ChewyCheeses.getResourceLocation("block/glowshroom_cheese_still");
+                }
+
+                public @NotNull ResourceLocation getFlowingTexture() {
+                    return ChewyCheeses.getResourceLocation("block/glowshroom_cheese_flow");
+                }
+            }, Registry.GLOWSHROOM_CHEESE_FLUID_TYPE.get());
+        }
     }
 }

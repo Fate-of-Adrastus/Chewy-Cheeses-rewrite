@@ -22,6 +22,11 @@
   "item.chewy_cheeses.truffle_cheese_wedge": "Truffle Cheese Wedge",
   "block.chewy_cheeses.unripe_truffle_cheese_wheel": "Unripe Truffle Cheese Wheel",
   "block.chewy_cheeses.truffle_cheese_wheel": "Truffle Cheese Wheel",
-  "fluid_type.chewy_cheeses.truffle_cheese_type": "Truffle Cheese"
+  "fluid_type.chewy_cheeses.truffle_cheese_type": "Truffle Cheese",
+
+  "item.chewy_cheeses.glowshroom_cheese_wedge": "Glowshroom Cheese Wedge",
+  "block.chewy_cheeses.unripe_glowshroom_cheese_wheel": "Unripe Glowshroom Cheese Wheel",
+  "block.chewy_cheeses.glowshroom_cheese_wheel": "Glowshroom Cheese Wheel",
+  "fluid_type.chewy_cheeses.glowshroom_cheese_type": "Glowshroom Cheese"
 
 }

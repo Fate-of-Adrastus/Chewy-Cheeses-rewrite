@@ -2,11 +2,11 @@
   "replace": false,
   "values": [
     {
-      "id": "dungeonsdelight:wardenzola_crumbles",
+      "id": "quark:glow_shroom",
       "required": false
     },
     {
-      "id": "chewy_cheeses:truffle_cheese_wedge",
+      "id": "darkerdepths:glowshroom",
       "required": false
     }
   ]

@@ -27,6 +27,8 @@ public class CheeseAgingRecipeMixin {
             original.add(new CheeseAgingRecipe(FarmerspizzeriaModBlocks.DORBLU_CHEESE_WHEEL.asItem(), FarmerspizzeriaModBlocks.UNRIPE_DORBLU_CHEESE_WHEEL.asItem()));
         if (Registry.UNRIPE_TRUFFLE_CHEESE_WHEEL_ITEM != null && Registry.TRUFFLE_CHEESE_WHEEL_ITEM != null)
             original.add(new CheeseAgingRecipe(Registry.UNRIPE_TRUFFLE_CHEESE_WHEEL_ITEM.get(), Registry.TRUFFLE_CHEESE_WHEEL_ITEM.get()));
+        if (Registry.UNRIPE_GLOWSHROOM_CHEESE_WHEEL_ITEM != null && Registry.GLOWSHROOM_CHEESE_WHEEL_ITEM != null)
+            original.add(new CheeseAgingRecipe(Registry.UNRIPE_GLOWSHROOM_CHEESE_WHEEL_ITEM.get(), Registry.GLOWSHROOM_CHEESE_WHEEL_ITEM.get()));
 
 
         return original;

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "chewy_cheeses:unripe_glowshroom_cheese_wheel"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "chewy_cheeses:blocks/unripe_glowshroom_cheese_wheel"
+}

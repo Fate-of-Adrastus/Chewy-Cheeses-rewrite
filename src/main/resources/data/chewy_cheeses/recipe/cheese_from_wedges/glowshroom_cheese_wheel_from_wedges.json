@@ -1,0 +1,33 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:or",
+      "values": [
+        {
+          "modid": "darkerdepths",
+          "type": "neoforge:mod_loaded"
+        },
+        {
+          "modid": "quark",
+          "type": "neoforge:mod_loaded"
+        }
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "p": {
+      "item": "chewy_cheeses:glowshroom_cheese_wedge"
+    }
+  },
+  "pattern": [
+    "pp",
+    "pp"
+  ],
+  "result": {
+    "count": 1,
+    "id": "chewy_cheeses:glowshroom_cheese_wheel"
+  },
+  "show_notification": true
+}

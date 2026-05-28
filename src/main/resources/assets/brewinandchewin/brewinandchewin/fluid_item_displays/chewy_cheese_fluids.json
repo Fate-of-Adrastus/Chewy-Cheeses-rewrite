@@ -22,5 +22,9 @@
   "chewy_cheeses:truffle_cheese": {
     "id": "chewy_cheeses:unripe_truffle_cheese_wheel",
     "optional": true
+  },
+  "chewy_cheeses:glowshroom_cheese": {
+    "id": "chewy_cheeses:unripe_glowshroom_cheese_wheel",
+    "optional": true
   }
 }

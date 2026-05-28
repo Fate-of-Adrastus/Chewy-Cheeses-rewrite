@@ -9,6 +9,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.Fluid;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.fluids.BaseFlowingFluid;
@@ -50,7 +51,7 @@ public class Registry {
     public static final BaseFlowingFluid.Properties GLOW_CHEESE_FLUID_PROPERTIES;
 
     // Environmental
-    public static final FoodProperties FLAXEN_CHEESE_PROPERITIES;
+    public static final FoodProperties TRUFFLE_CHEESE_PROPERITIES;
     public static final DeferredItem<Item> TRUFFLE_CHEESE_WEDGE;
     public static final DeferredBlock<Block> TRUFFLE_CHEESE_WHEEL;
     public static final DeferredBlock<Block> UNRIPE_TRUFFLE_CHEESE_WHEEL;
@@ -61,6 +62,19 @@ public class Registry {
     public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> TRUFFLE_CHEESE;
     public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> FLOWING_TRUFFLE_CHEESE;
     public static final BaseFlowingFluid.Properties TRUFFLE_CHEESE_FLUID_PROPERTIES;
+
+    // Quark / Darker depths
+    public static final FoodProperties GLOWSHROOM_CHEESE_PROPERITIES;
+    public static final DeferredItem<Item> GLOWSHROOM_CHEESE_WEDGE;
+    public static final DeferredBlock<Block> GLOWSHROOM_CHEESE_WHEEL;
+    public static final DeferredBlock<Block> UNRIPE_GLOWSHROOM_CHEESE_WHEEL;
+    public static final DeferredItem<BlockItem> UNRIPE_GLOWSHROOM_CHEESE_WHEEL_ITEM;
+    public static final DeferredItem<BlockItem> GLOWSHROOM_CHEESE_WHEEL_ITEM;
+
+    public static final DeferredHolder<FluidType, FluidType> GLOWSHROOM_CHEESE_FLUID_TYPE;
+    public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> GLOWSHROOM_CHEESE;
+    public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> FLOWING_GLOWSHROOM_CHEESE;
+    public static final BaseFlowingFluid.Properties GLOWSHROOM_CHEESE_FLUID_PROPERTIES;
 
     static  {
         if (ModList.get().isLoaded("dungeonsdelight")){
@@ -105,8 +119,8 @@ public class Registry {
             GLOW_CHEESE_FLUID_PROPERTIES = null;
         }
         if (ModList.get().isLoaded("environmental")) {
-            FLAXEN_CHEESE_PROPERITIES = (new FoodProperties.Builder()).nutrition(4).saturationModifier(1.0F).build();
-            TRUFFLE_CHEESE_WEDGE = ITEMS.register("truffle_cheese_wedge", () -> new Item((new Item.Properties()).food( FLAXEN_CHEESE_PROPERITIES )));
+            TRUFFLE_CHEESE_PROPERITIES = (new FoodProperties.Builder()).nutrition(4).saturationModifier(1.0F).build();
+            TRUFFLE_CHEESE_WEDGE = ITEMS.register("truffle_cheese_wedge", () -> new Item((new Item.Properties()).food( TRUFFLE_CHEESE_PROPERITIES )));
             TRUFFLE_CHEESE_WHEEL =  BLOCKS.register("truffle_cheese_wheel", () -> new CheeseWheelBlock(TRUFFLE_CHEESE_WEDGE , Block.Properties.ofFullCopy(Blocks.CAKE)));
             UNRIPE_TRUFFLE_CHEESE_WHEEL =  BLOCKS.register("unripe_truffle_cheese_wheel", () -> new UnripeCheeseWheelBlock(TRUFFLE_CHEESE_WHEEL , Block.Properties.ofFullCopy(Blocks.CAKE)));
             TRUFFLE_CHEESE_WHEEL_ITEM = ITEMS.registerSimpleBlockItem(TRUFFLE_CHEESE_WHEEL, new Item.Properties().stacksTo(16));
@@ -118,7 +132,7 @@ public class Registry {
             TRUFFLE_CHEESE_FLUID_PROPERTIES = new BaseFlowingFluid.Properties(TRUFFLE_CHEESE_FLUID_TYPE, TRUFFLE_CHEESE, FLOWING_TRUFFLE_CHEESE);
 
         } else {
-            FLAXEN_CHEESE_PROPERITIES = null;
+            TRUFFLE_CHEESE_PROPERITIES = null;
             TRUFFLE_CHEESE_WEDGE = null;
             TRUFFLE_CHEESE_WHEEL = null;
             UNRIPE_TRUFFLE_CHEESE_WHEEL = null;
@@ -129,6 +143,32 @@ public class Registry {
             TRUFFLE_CHEESE = null;
             FLOWING_TRUFFLE_CHEESE = null;
             TRUFFLE_CHEESE_FLUID_PROPERTIES = null;
+        }
+        if (ModList.get().isLoaded("quark") || ModList.get().isLoaded("darkerdepths")){
+            GLOWSHROOM_CHEESE_PROPERITIES = (new FoodProperties.Builder()).nutrition(4).saturationModifier(1.0F).build();
+            GLOWSHROOM_CHEESE_WEDGE = ITEMS.register("glowshroom_cheese_wedge", () -> new Item((new Item.Properties()).food( GLOWSHROOM_CHEESE_PROPERITIES )));
+            GLOWSHROOM_CHEESE_WHEEL =  BLOCKS.register("glowshroom_cheese_wheel", () -> new CheeseWheelBlock(GLOWSHROOM_CHEESE_WEDGE , Block.Properties.ofFullCopy(Blocks.CAKE).sound(SoundType.SLIME_BLOCK).lightLevel((p_152607_) -> 10)));
+            UNRIPE_GLOWSHROOM_CHEESE_WHEEL =  BLOCKS.register("unripe_glowshroom_cheese_wheel", () -> new UnripeCheeseWheelBlock(GLOWSHROOM_CHEESE_WHEEL , Block.Properties.ofFullCopy(Blocks.CAKE).lightLevel((p_152607_) -> 1)));
+            GLOWSHROOM_CHEESE_WHEEL_ITEM = ITEMS.registerSimpleBlockItem(GLOWSHROOM_CHEESE_WHEEL, new Item.Properties().stacksTo(16));
+            UNRIPE_GLOWSHROOM_CHEESE_WHEEL_ITEM =  ITEMS.registerSimpleBlockItem(UNRIPE_GLOWSHROOM_CHEESE_WHEEL, new Item.Properties().stacksTo(16));
+
+            GLOWSHROOM_CHEESE_FLUID_TYPE = FLUIDS_TYPES.register("glowshroom_cheese_type", BnCFluidType::new);
+            GLOWSHROOM_CHEESE = FLUIDS.register("glowshroom_cheese", () -> new BaseFlowingFluid.Source(Registry.GLOWSHROOM_CHEESE_FLUID_PROPERTIES));
+            FLOWING_GLOWSHROOM_CHEESE = FLUIDS.register("flowing_glowshroom_cheese", () -> new BaseFlowingFluid.Flowing(Registry.GLOWSHROOM_CHEESE_FLUID_PROPERTIES));
+            GLOWSHROOM_CHEESE_FLUID_PROPERTIES = new BaseFlowingFluid.Properties(GLOWSHROOM_CHEESE_FLUID_TYPE, GLOWSHROOM_CHEESE, FLOWING_GLOWSHROOM_CHEESE);
+
+        } else {
+            GLOWSHROOM_CHEESE_PROPERITIES = null;
+            GLOWSHROOM_CHEESE_WEDGE = null;
+            GLOWSHROOM_CHEESE_WHEEL = null;
+            UNRIPE_GLOWSHROOM_CHEESE_WHEEL = null;
+            GLOWSHROOM_CHEESE_WHEEL_ITEM = null;
+            UNRIPE_GLOWSHROOM_CHEESE_WHEEL_ITEM = null;
+
+            GLOWSHROOM_CHEESE_FLUID_TYPE = null;
+            GLOWSHROOM_CHEESE = null;
+            FLOWING_GLOWSHROOM_CHEESE = null;
+            GLOWSHROOM_CHEESE_FLUID_PROPERTIES = null;
         }
     }
 }
