@@ -1,17 +1,8 @@
 {
   "neoforge:conditions": [
     {
-      "type": "neoforge:or",
-      "values": [
-        {
-          "modid": "darkerdepths",
-          "type": "neoforge:mod_loaded"
-        },
-        {
-          "modid": "quark",
-          "type": "neoforge:mod_loaded"
-        }
-      ]
+      "modid": "environmental",
+      "type": "neoforge:mod_loaded"
     }
   ],
   "type": "brewinandchewin:fermenting",
@@ -26,10 +17,10 @@
   "experience": 1.0,
   "ingredients": [
     {
-      "tag": "chewy_cheeses:glowshroom_cheese_material"
+      "item": "minecraft:pitcher_pod"
     },
     {
-      "item": "minecraft:glow_ink_sac"
+      "item": "minecraft:pumpkin_seeds"
     },
     {
       "item": "minecraft:sugar"
@@ -38,8 +29,8 @@
   ],
   "result": {
     "amount": 1000,
-    "id": "chewy_cheeses:glowshroom_cheese"
+    "id": "chewy_cheeses:pitcher_cheese"
   },
-  "temperature": 2,
+  "temperature": 4,
   "unit": "millibuckets"
 }

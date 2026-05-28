@@ -21,7 +21,6 @@ import net.yirmiri.dungeonsdelight.common.util.DDProperties;
 import net.yirmiri.dungeonsdelight.core.registry.DDItems;
 import umpaz.brewinandchewin.common.block.CheeseWheelBlock;
 import umpaz.brewinandchewin.common.block.UnripeCheeseWheelBlock;
-import umpaz.brewinandchewin.common.registry.BnCEffects;
 import umpaz.brewinandchewin.neoforge.fluid.BnCFluidType;
 
 public class Registry {
@@ -91,6 +90,19 @@ public class Registry {
     public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> SHULKER_CHEESE;
     public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> FLOWING_SHULKER_CHEESE;
     public static final BaseFlowingFluid.Properties SHULKER_CHEESE_FLUID_PROPERTIES;
+
+    // minecraft
+    public static final FoodProperties PITCHER_CHEESE_PROPERITIES;
+    public static final DeferredItem<Item> PITCHER_CHEESE_WEDGE;
+    public static final DeferredBlock<Block> PITCHER_CHEESE_WHEEL;
+    public static final DeferredBlock<Block> UNRIPE_PITCHER_CHEESE_WHEEL;
+    public static final DeferredItem<BlockItem> UNRIPE_PITCHER_CHEESE_WHEEL_ITEM;
+    public static final DeferredItem<BlockItem> PITCHER_CHEESE_WHEEL_ITEM;
+
+    public static final DeferredHolder<FluidType, FluidType> PITCHER_CHEESE_FLUID_TYPE;
+    public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> PITCHER_CHEESE;
+    public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> FLOWING_PITCHER_CHEESE;
+    public static final BaseFlowingFluid.Properties PITCHER_CHEESE_FLUID_PROPERTIES;
 
     static  {
         if (ModList.get().isLoaded("dungeonsdelight")){
@@ -212,5 +224,18 @@ public class Registry {
             FLOWING_SHULKER_CHEESE = null;
             SHULKER_CHEESE_FLUID_PROPERTIES = null;
         }
+
+        PITCHER_CHEESE_PROPERITIES = (new FoodProperties.Builder()).nutrition(4).saturationModifier(1.0F).build();
+        PITCHER_CHEESE_WEDGE = ITEMS.register("pitcher_cheese_wedge", () -> new Item((new Item.Properties()).food( PITCHER_CHEESE_PROPERITIES )));
+        PITCHER_CHEESE_WHEEL =  BLOCKS.register("pitcher_cheese_wheel", () -> new CheeseWheelBlock(PITCHER_CHEESE_WEDGE , Block.Properties.ofFullCopy(Blocks.CAKE)));
+        UNRIPE_PITCHER_CHEESE_WHEEL =  BLOCKS.register("unripe_pitcher_cheese_wheel", () -> new UnripeCheeseWheelBlock(PITCHER_CHEESE_WHEEL , Block.Properties.ofFullCopy(Blocks.CAKE)));
+        PITCHER_CHEESE_WHEEL_ITEM = ITEMS.registerSimpleBlockItem(PITCHER_CHEESE_WHEEL, new Item.Properties().stacksTo(16));
+        UNRIPE_PITCHER_CHEESE_WHEEL_ITEM =  ITEMS.registerSimpleBlockItem(UNRIPE_PITCHER_CHEESE_WHEEL, new Item.Properties().stacksTo(16));
+
+        PITCHER_CHEESE_FLUID_TYPE = FLUIDS_TYPES.register("pitcher_cheese_type", BnCFluidType::new);
+        PITCHER_CHEESE = FLUIDS.register("pitcher_cheese", () -> new BaseFlowingFluid.Source(Registry.PITCHER_CHEESE_FLUID_PROPERTIES));
+        FLOWING_PITCHER_CHEESE = FLUIDS.register("flowing_pitcher_cheese", () -> new BaseFlowingFluid.Flowing(Registry.PITCHER_CHEESE_FLUID_PROPERTIES));
+        PITCHER_CHEESE_FLUID_PROPERTIES = new BaseFlowingFluid.Properties(PITCHER_CHEESE_FLUID_TYPE, PITCHER_CHEESE, FLOWING_PITCHER_CHEESE);
+
     }
 }

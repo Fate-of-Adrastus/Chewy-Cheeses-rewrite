@@ -32,5 +32,10 @@
   "item.chewy_cheeses.shulker_cheese_wedge": "Shulker Cheese Wedge",
   "block.chewy_cheeses.unripe_shulker_cheese_wheel": "Unripe Shulker Cheese Wheel",
   "block.chewy_cheeses.shulker_cheese_wheel": "Shulker Cheese Wheel",
-  "fluid_type.chewy_cheeses.shulker_cheese_type": "Shulker Cheese"
+  "fluid_type.chewy_cheeses.shulker_cheese_type": "Shulker Cheese",
+
+  "item.chewy_cheeses.pitcher_cheese_wedge": "Pitcher Cheese Wedge",
+  "block.chewy_cheeses.unripe_pitcher_cheese_wheel": "Unripe Pitcher Cheese Wheel",
+  "block.chewy_cheeses.pitcher_cheese_wheel": "Pitcher Cheese Wheel",
+  "fluid_type.chewy_cheeses.pitcher_cheese_type": "Pitcher Cheese"
 }

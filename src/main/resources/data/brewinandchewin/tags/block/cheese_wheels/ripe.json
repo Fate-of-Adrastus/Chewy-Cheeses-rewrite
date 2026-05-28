@@ -20,6 +20,10 @@
     {
       "id": "chewy_cheeses:shulker_cheese_wheel",
       "required": false
+    },
+    {
+      "id": "chewy_cheeses:pitcher_cheese_wheel",
+      "required": false
     }
   ]
 }

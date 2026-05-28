@@ -40,6 +40,14 @@
     {
       "id": "chewy_cheeses:unripe_shulker_cheese_wheel",
       "required": false
+    },
+    {
+      "id": "chewy_cheeses:pitcher_cheese_wheel",
+      "required": false
+    },
+    {
+      "id": "chewy_cheeses:unripe_pitcher_cheese_wheel",
+      "required": false
     }
   ]
 }

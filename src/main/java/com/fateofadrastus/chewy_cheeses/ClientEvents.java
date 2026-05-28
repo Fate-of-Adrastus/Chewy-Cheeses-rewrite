@@ -70,5 +70,15 @@ public class ClientEvents {
                 }
             }, Registry.SHULKER_CHEESE_FLUID_TYPE.get());
         }
+
+        event.registerFluidType(new IClientFluidTypeExtensions() {
+            public @NotNull ResourceLocation getStillTexture() {
+                return ChewyCheeses.getResourceLocation("block/pitcher_cheese_still");
+            }
+
+            public @NotNull ResourceLocation getFlowingTexture() {
+                return ChewyCheeses.getResourceLocation("block/pitcher_cheese_flow");
+            }
+        }, Registry.PITCHER_CHEESE_FLUID_TYPE.get());
     }
 }

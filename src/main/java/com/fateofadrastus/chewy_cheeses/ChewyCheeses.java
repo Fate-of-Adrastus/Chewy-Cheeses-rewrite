@@ -68,20 +68,26 @@ public class ChewyCheeses {
         if (ModList.get().isLoaded("dungeonsdelight") && event.getTab() == DDCreativeTabs.DUNGEONSDELIGHT.get()) {
             event.insertBefore(DDItems.WARDENZOLA.get().getDefaultInstance(), Registry.UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
-        if (ModList.get().isLoaded("environmental") && event.getTab() == BnCCreativeTabs.TAB_BREWIN_AND_CHEWIN) {
-            event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.TRUFFLE_CHEESE_WEDGE.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.TRUFFLE_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.UNRIPE_TRUFFLE_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-        }
-        if (( ModList.get().isLoaded("quark") || ModList.get().isLoaded("darkerdepths") ) && event.getTab() == BnCCreativeTabs.TAB_BREWIN_AND_CHEWIN) {
-            event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.GLOWSHROOM_CHEESE_WEDGE.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.GLOWSHROOM_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.UNRIPE_GLOWSHROOM_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-        }
-        if ( ModList.get().isLoaded("endersdelight") && event.getTab() == BnCCreativeTabs.TAB_BREWIN_AND_CHEWIN) {
-            event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.SHULKER_CHEESE_WEDGE.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.SHULKER_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.UNRIPE_SHULKER_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+        if (event.getTab() == BnCCreativeTabs.TAB_BREWIN_AND_CHEWIN){
+
+            if ( ModList.get().isLoaded("environmental") ) {
+                event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.TRUFFLE_CHEESE_WEDGE.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.TRUFFLE_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.UNRIPE_TRUFFLE_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            }
+            if ( ModList.get().isLoaded("quark") || ModList.get().isLoaded("darkerdepths") ) {
+                event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.GLOWSHROOM_CHEESE_WEDGE.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.GLOWSHROOM_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.UNRIPE_GLOWSHROOM_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            }
+            if ( ModList.get().isLoaded("endersdelight") ) {
+                event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.SHULKER_CHEESE_WEDGE.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.SHULKER_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.UNRIPE_SHULKER_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            }
+            event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.PITCHER_CHEESE_WEDGE.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.PITCHER_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.UNRIPE_PITCHER_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
     }
 
