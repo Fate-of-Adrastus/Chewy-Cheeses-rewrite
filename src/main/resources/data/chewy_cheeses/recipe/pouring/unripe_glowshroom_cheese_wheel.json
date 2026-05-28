@@ -1,0 +1,32 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:or",
+      "values": [
+        {
+          "modid": "darkerdepths",
+          "type": "neoforge:mod_loaded"
+        },
+        {
+          "modid": "quark",
+          "type": "neoforge:mod_loaded"
+        }
+      ]
+    }
+  ],
+  "type": "brewinandchewin:keg_pouring",
+  "can_fill": false,
+  "container": {
+    "count": 1,
+    "id": "minecraft:honeycomb"
+  },
+  "fluid": {
+    "amount": 1000,
+    "id": "chewy_cheeses:glowshroom_cheese"
+  },
+  "output": {
+    "count": 1,
+    "id": "chewy_cheeses:unripe_glowshroom_cheese_wheel"
+  },
+  "unit": "millibuckets"
+}

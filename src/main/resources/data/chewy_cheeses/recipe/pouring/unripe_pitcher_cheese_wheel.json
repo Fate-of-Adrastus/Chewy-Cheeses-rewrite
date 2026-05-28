@@ -1,0 +1,17 @@
+{
+  "type": "brewinandchewin:keg_pouring",
+  "can_fill": false,
+  "container": {
+    "count": 1,
+    "id": "minecraft:honeycomb"
+  },
+  "fluid": {
+    "amount": 1000,
+    "id": "chewy_cheeses:pitcher_cheese"
+  },
+  "output": {
+    "count": 1,
+    "id": "chewy_cheeses:unripe_pitcher_cheese_wheel"
+  },
+  "unit": "millibuckets"
+}

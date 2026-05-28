@@ -1,0 +1,36 @@
+{
+  "neoforge:conditions": [
+    {
+      "modid": "environmental",
+      "type": "neoforge:mod_loaded"
+    }
+  ],
+  "type": "brewinandchewin:fermenting",
+  "base_fluid": {
+    "amount": 1000,
+    "ingredient": {
+      "tag": "#c:milk"
+    },
+    "unit": "millibuckets"
+  },
+  "category": "meals",
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "minecraft:pitcher_pod"
+    },
+    {
+      "item": "minecraft:pumpkin_seeds"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    []
+  ],
+  "result": {
+    "amount": 1000,
+    "id": "chewy_cheeses:pitcher_cheese"
+  },
+  "temperature": 4,
+  "unit": "millibuckets"
+}

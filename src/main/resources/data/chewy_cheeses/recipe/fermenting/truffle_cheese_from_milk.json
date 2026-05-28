@@ -1,0 +1,36 @@
+{
+  "neoforge:conditions": [
+    {
+      "modid": "environmental",
+      "type": "neoforge:mod_loaded"
+    }
+  ],
+  "type": "brewinandchewin:fermenting",
+  "base_fluid": {
+    "amount": 1000,
+    "ingredient": {
+      "tag": "#c:milk"
+    },
+    "unit": "millibuckets"
+  },
+  "category": "meals",
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "environmental:truffle"
+    },
+    {
+      "item": "minecraft:pumpkin_seeds"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    []
+  ],
+  "result": {
+    "amount": 1000,
+    "id": "chewy_cheeses:truffle_cheese"
+  },
+  "temperature": 3,
+  "unit": "millibuckets"
+}

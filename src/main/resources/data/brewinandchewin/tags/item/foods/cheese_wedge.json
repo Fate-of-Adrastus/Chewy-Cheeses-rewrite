@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "dungeonsdelight:wardenzola_crumbles",
+      "required": false
+    },
+    {
+      "id": "chewy_cheeses:truffle_cheese_wedge",
+      "required": false
+    },
+    {
+      "id": "chewy_cheeses:glowshroom_cheese_wedge",
+      "required": false
+    },
+    {
+      "id": "chewy_cheeses:shulker_cheese_wedge",
+      "required": false
+    },
+    {
+      "id": "chewy_cheeses:pitcher_cheese_wedge",
+      "required": false
+    }
+  ]
+}

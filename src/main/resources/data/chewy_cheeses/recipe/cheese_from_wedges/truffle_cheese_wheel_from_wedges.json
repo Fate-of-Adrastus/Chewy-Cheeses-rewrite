@@ -1,0 +1,24 @@
+{
+  "neoforge:conditions": [
+    {
+      "modid": "environmental",
+      "type": "neoforge:mod_loaded"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "p": {
+      "item": "chewy_cheeses:truffle_cheese_wedge"
+    }
+  },
+  "pattern": [
+    "pp",
+    "pp"
+  ],
+  "result": {
+    "count": 1,
+    "id": "chewy_cheeses:truffle_cheese_wheel"
+  },
+  "show_notification": true
+}

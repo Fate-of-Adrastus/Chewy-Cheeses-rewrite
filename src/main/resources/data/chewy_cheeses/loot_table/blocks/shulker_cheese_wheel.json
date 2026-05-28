@@ -1,0 +1,138 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "chewy_cheeses:shulker_cheese_wheel",
+              "conditions": [
+                {
+                  "condition": "minecraft:all_of",
+                  "terms": [
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "block": "chewy_cheeses:shulker_cheese_wheel",
+                        "predicate": {
+                          "items": "#farmersdelight:tools/knives"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:block_state_property",
+                      "block": "chewy_cheeses:shulker_cheese_wheel",
+                      "properties": {
+                        "servings": "3"
+                      }
+                    },
+                    {
+                      "condition": "minecraft:survives_explosion"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "chewy_cheeses:shulker_cheese_wedge",
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": 4
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:all_of",
+                  "terms": [
+                    {
+                      "condition": "minecraft:block_state_property",
+                      "block": "chewy_cheeses:shulker_cheese_wheel",
+                      "properties": {
+                        "servings": "3"
+                      }
+                    },
+                    {
+                      "condition": "minecraft:survives_explosion"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "chewy_cheeses:shulker_cheese_wedge",
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": 3
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:all_of",
+                  "terms": [
+                    {
+                      "condition": "minecraft:block_state_property",
+                      "block": "chewy_cheeses:shulker_cheese_wheel",
+                      "properties": {
+                        "servings": "2"
+                      }
+                    },
+                    {
+                      "condition": "minecraft:survives_explosion"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "chewy_cheeses:shulker_cheese_wedge",
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": 2
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:all_of",
+                  "terms": [
+                    {
+                      "condition": "minecraft:block_state_property",
+                      "block": "chewy_cheeses:shulker_cheese_wheel",
+                      "properties": {
+                        "servings": "1"
+                      }
+                    },
+                    {
+                      "condition": "minecraft:survives_explosion"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "chewy_cheeses:shulker_cheese_wedge",
+              "conditions": [
+                {
+                  "condition": "minecraft:survives_explosion"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "random_sequence": "chewy_cheeses:blocks/shulker"
+}

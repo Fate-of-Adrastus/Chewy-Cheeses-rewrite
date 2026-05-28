@@ -37,5 +37,48 @@ public class ClientEvents {
                 }
             }, Registry.GLOW_CHEESE_FLUID_TYPE.get());
         }
+        if (ModList.get().isLoaded("environmental")) {
+            event.registerFluidType(new IClientFluidTypeExtensions() {
+                public @NotNull ResourceLocation getStillTexture() {
+                    return ChewyCheeses.getResourceLocation("block/truffle_cheese_still");
+                }
+
+                public @NotNull ResourceLocation getFlowingTexture() {
+                    return ChewyCheeses.getResourceLocation("block/truffle_cheese_flow");
+                }
+            }, Registry.TRUFFLE_CHEESE_FLUID_TYPE.get());
+        }
+        if (ModList.get().isLoaded("quark") || ModList.get().isLoaded("darkerdepths")) {
+            event.registerFluidType(new IClientFluidTypeExtensions() {
+                public @NotNull ResourceLocation getStillTexture() {
+                    return ChewyCheeses.getResourceLocation("block/glowshroom_cheese_still");
+                }
+
+                public @NotNull ResourceLocation getFlowingTexture() {
+                    return ChewyCheeses.getResourceLocation("block/glowshroom_cheese_flow");
+                }
+            }, Registry.GLOWSHROOM_CHEESE_FLUID_TYPE.get());
+        }
+        if (ModList.get().isLoaded("endersdelight")) {
+            event.registerFluidType(new IClientFluidTypeExtensions() {
+                public @NotNull ResourceLocation getStillTexture() {
+                    return ChewyCheeses.getResourceLocation("block/shulker_cheese_still");
+                }
+
+                public @NotNull ResourceLocation getFlowingTexture() {
+                    return ChewyCheeses.getResourceLocation("block/shulker_cheese_flow");
+                }
+            }, Registry.SHULKER_CHEESE_FLUID_TYPE.get());
+        }
+
+        event.registerFluidType(new IClientFluidTypeExtensions() {
+            public @NotNull ResourceLocation getStillTexture() {
+                return ChewyCheeses.getResourceLocation("block/pitcher_cheese_still");
+            }
+
+            public @NotNull ResourceLocation getFlowingTexture() {
+                return ChewyCheeses.getResourceLocation("block/pitcher_cheese_flow");
+            }
+        }, Registry.PITCHER_CHEESE_FLUID_TYPE.get());
     }
 }

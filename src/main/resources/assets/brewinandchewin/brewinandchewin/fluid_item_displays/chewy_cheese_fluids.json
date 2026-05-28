@@ -18,5 +18,21 @@
   "chewy_cheeses:wardenzola_cheese": {
     "id": "chewy_cheeses:unripe_wardenzola_cheese_wheel",
     "optional": true
+  },
+  "chewy_cheeses:truffle_cheese": {
+    "id": "chewy_cheeses:unripe_truffle_cheese_wheel",
+    "optional": true
+  },
+  "chewy_cheeses:glowshroom_cheese": {
+    "id": "chewy_cheeses:unripe_glowshroom_cheese_wheel",
+    "optional": true
+  },
+  "chewy_cheeses:shulker_cheese": {
+    "id": "chewy_cheeses:unripe_shulker_cheese_wheel",
+    "optional": true
+  },
+  "chewy_cheeses:pitcher_cheese": {
+    "id": "chewy_cheeses:unripe_pitcher_cheese_wheel",
+    "optional": true
   }
 }
