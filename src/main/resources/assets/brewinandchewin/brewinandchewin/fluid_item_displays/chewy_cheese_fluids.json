@@ -34,5 +34,9 @@
   "chewy_cheeses:pitcher_cheese": {
     "id": "chewy_cheeses:unripe_pitcher_cheese_wheel",
     "optional": true
+  },
+  "farmerspizzeria:dorblu_cheese": {
+    "id": "farmerspizzeria:unripe_dorblu_cheese_wheel",
+    "optional": true
   }
 }

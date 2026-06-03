@@ -8,7 +8,7 @@ license="MIT"
 # A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]]
 modId="chewy_cheeses"
-version="0.4.0"
+version="1.0.0"
 displayName="Chewy Cheeses"
 
 # A URL to query for updates for this mod. See the JSON update specification https://docs.neoforged.net/docs/misc/updatechecker/
@@ -28,7 +28,8 @@ credits="Burning Sulphur & Fate of Adrastus" #optional
 
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-An addon mod for Brewin' and Chewin' that adds compatibility with cheeses from other mods
+An addon mod for Brewin' and Chewin' that adds compatibility with cheeses from other mods,
+and adds cheeses with items from other mods.
 '''
 
 [[mixins]]
@@ -40,7 +41,7 @@ requiredMods=["dungeonsdelight"]
 [[dependencies.chewy_cheeses]]
     modId="neoforge"
     type="required"
-    versionRange="[21.1.219,)"
+    versionRange="[21.1.224,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.chewy_cheeses]]

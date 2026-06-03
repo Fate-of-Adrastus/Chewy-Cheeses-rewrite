@@ -26,26 +26,18 @@ public class ChewyCheeses {
     public static final String MODID = "chewy_cheeses";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    /* ----------------------------------------------notes for adding a new cheese ----------------------------------------------------
+    /*---------------------------------------------- notes for adding a new cheese ----------------------------------------------------*//*
 
-    register block
-    register unripe block
-    register item for blocks
-    add new cheese fluid type to cheese fluid
-    register fluid
-    block states
-    block models
-    coster model (in brewin and chewin file) - it is just the corner of cheese to go on a coaster, uses the cheese slice item from the mods
-    fluid item display
+    register blocks, fluids & items
+    add textures
+    add block models & block states
+    fluid item display & coaster model
     lang
-    block textures
-    recipes
-    tags
+    recipes & tags
 
-     ---------------------------------------------------------------------------------------------------------------------------------*/
+    /*---------------------------------------------------------------------------------------------------------------------------------*/
 
     public ChewyCheeses(IEventBus modEventBus, ModContainer modContainer) {
-        //modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::modifyComponents);
 
         Registry.BLOCKS.register(modEventBus);
