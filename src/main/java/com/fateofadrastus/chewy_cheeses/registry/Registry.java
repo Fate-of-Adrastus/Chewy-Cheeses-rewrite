@@ -2,6 +2,7 @@ package com.fateofadrastus.chewy_cheeses.registry;
 
 import com.fateofadrastus.chewy_cheeses.ChewyCheeses;
 import com.fateofadrastus.chewy_cheeses.content.block.WardenzolaCheeseWheelBlock;
+import net.hardzi.farmerspizzeria.init.FarmerspizzeriaModItems;
 import net.jadenxgamer.netherexp.registry.JNEItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -30,11 +31,15 @@ public class Registry {
     public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(Registries.FLUID ,ChewyCheeses.MODID);
     public static final DeferredRegister<FluidType> FLUIDS_TYPES = DeferredRegister.create(NeoForgeRegistries.FLUID_TYPES,ChewyCheeses.MODID);
 
+    // Farmer's Pizzeria
+    public static Item getDorbluCheeseWheelItem(){ return FarmerspizzeriaModItems.DORBLU_CHEESE_WHEEL.asItem(); }
+    public static Item getUnripeDorbluCheeseWheelItem(){ return FarmerspizzeriaModItems.UNRIPE_DORBLU_CHEESE_WHEEL.asItem(); }
 
     // Dungeons Delight
     public static final DeferredBlock<Block> WARDENZOLA_CHEESE_WHEEL;
     public static final DeferredBlock<Block> UNRIPE_WARDENZOLA_CHEESE_WHEEL;
     public static final DeferredItem<BlockItem> UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM;
+    public static Item getWardenzolaCheeseWheelItem(){ return DDItems.WARDENZOLA.get(); }
 
     public static final DeferredHolder<FluidType, FluidType> WARDENZOLA_CHEESE_FLUID_TYPE;
     public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> WARDENZOLA_CHEESE;
