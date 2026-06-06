@@ -8,7 +8,7 @@ license="MIT"
 # A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]]
 modId="chewy_cheeses"
-version="1.0.0"
+version="1.0.1"
 displayName="Chewy Cheeses"
 
 # A URL to query for updates for this mod. See the JSON update specification https://docs.neoforged.net/docs/misc/updatechecker/
