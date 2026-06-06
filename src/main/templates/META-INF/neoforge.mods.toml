@@ -44,12 +44,14 @@ requiredMods=["dungeonsdelight"]
     versionRange="[21.1.224,)"
     ordering="NONE"
     side="BOTH"
+
 [[dependencies.chewy_cheeses]]
     modId = "minecraft"
     type = "required"
     versionRange = "[1.21.1]"
     ordering = "NONE"
     side = "BOTH"
+
 [[dependencies."chewy_cheeses"]]
     modId= "brewinandchewin"
     type = "required"
@@ -62,12 +64,14 @@ requiredMods=["dungeonsdelight"]
     type = "optional"
     ordering="AFTER"
     side="BOTH"
+
 [[dependencies."chewy_cheeses"]]
     modId= "netherexp"
     type = "optional"
     versionRange="[2.4.0,)"
     ordering="AFTER"
     side="BOTH"
+
 [[dependencies."chewy_cheeses"]]
     modId= "dungeonsdelight"
     type = "optional"
@@ -81,18 +85,21 @@ requiredMods=["dungeonsdelight"]
     versionRange="[1.2.0,)"
     ordering="AFTER"
     side="BOTH"
+
 [[dependencies."chewy_cheeses"]]
     modId= "environmental"
     type = "optional"
     versionRange="[5.0.0,)"
     ordering="AFTER"
     side="BOTH"
+
 [[dependencies."chewy_cheeses"]]
     modId= "quark"
     type = "optional"
     versionRange="[4.1-474,)"
     ordering="AFTER"
     side="BOTH"
+
 [[dependencies."chewy_cheeses"]]
     modId= "darkerdepths"
     type = "optional"
