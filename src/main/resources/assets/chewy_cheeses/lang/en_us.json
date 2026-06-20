@@ -24,9 +24,10 @@
   "block.chewy_cheeses.shulker_cheese_wheel": "Shulker Cheese Wheel",
   "fluid_type.chewy_cheeses.shulker_cheese_type": "Shulker Cheese",
 
-  "block.chewy_cheeses.unripe_fragrant_cheese_wheel": "Unripe Fragrant Cheese Wheel",
-  "block.chewy_cheeses.fragrant_cheese_wheel": "Fragrant Cheese Wheel",
-  "fluid_type.chewy_cheeses.fragrant_cheese_type": "Fragrant Cheese",
+  "block.chewy_cheeses.unripe_fragrant_cheese_wheel": "Unripe \"Vieux Bulogne\" Cheese Wheel",
+  "block.chewy_cheeses.fragrant_cheese_wheel": "\"Vieux Bulogne\" Cheese Wheel",
+  "fluid_type.chewy_cheeses.fragrant_cheese_type": "\"Vieux Bulogne\" Cheese",
+  "fluid_type.chewy_cheeses.sniffers_milk_type": "Sniffer's Milk",
 
   "item.chewy_cheeses.pitcher_cheese_wedge": "Pitcher Cheese Wedge",
   "block.chewy_cheeses.unripe_pitcher_cheese_wheel": "Unripe Pitcher Cheese Wheel",
