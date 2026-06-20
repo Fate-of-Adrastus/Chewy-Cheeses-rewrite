@@ -1,0 +1,12 @@
+{
+  "type": "brewinandchewin:keg_pouring",
+  "fluid": {
+    "amount": 1000,
+    "id": "chewy_cheeses:sniffers_milk"
+  },
+  "output": {
+    "count": 1,
+    "id": "sniffer:s_7"
+  },
+  "unit": "millibuckets"
+}

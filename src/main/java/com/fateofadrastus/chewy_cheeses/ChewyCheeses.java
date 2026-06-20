@@ -21,6 +21,8 @@ import net.yirmiri.dungeonsdelight.common.util.DDProperties;
 import umpaz.brewinandchewin.common.registry.BnCCreativeTabs;
 import umpaz.brewinandchewin.common.registry.BnCItems;
 
+
+
 @Mod(ChewyCheeses.MODID)
 public class ChewyCheeses {
     public static final String MODID = "chewy_cheeses";
@@ -77,6 +79,11 @@ public class ChewyCheeses {
                 event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.SHULKER_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
                 event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.UNRIPE_SHULKER_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             }
+            if ( ModList.get().isLoaded("sniffer") ) {
+                event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.FRAGRANT_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.UNRIPE_FRAGRANT_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+
+            }
             event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.PITCHER_CHEESE_WEDGE.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.PITCHER_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.UNRIPE_PITCHER_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
@@ -90,13 +97,6 @@ public class ChewyCheeses {
     }
 
 
-//    private void commonSetup(FMLCommonSetupEvent event) {
-//
-//    }
-//    // You can use SubscribeEvent and let the Event Bus discover methods to call
-//    @SubscribeEvent
-//    public void onServerStarting(ServerStartingEvent event) {
-//    }
 
     public static ResourceLocation getResourceLocation(String name){
         return ResourceLocation.fromNamespaceAndPath(MODID, name);

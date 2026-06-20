@@ -1,0 +1,24 @@
+{
+  "neoforge:conditions": [
+    {
+      "modid": "sniffer",
+      "type": "neoforge:mod_loaded"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "p": {
+      "item": "sniffer:s_9"
+    }
+  },
+  "pattern": [
+    "pp",
+    "pp"
+  ],
+  "result": {
+    "count": 1,
+    "id": "chewy_cheeses:fragrant_cheese_wheel"
+  },
+  "show_notification": true
+}

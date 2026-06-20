@@ -1,0 +1,36 @@
+{
+  "neoforge:conditions": [
+    {
+      "modid": "sniffer",
+      "type": "neoforge:mod_loaded"
+    }
+  ],
+  "type": "brewinandchewin:fermenting",
+  "base_fluid": {
+    "amount": 1000,
+    "ingredient": {
+      "tag": "#chewy_cheeses:sniffers_milk"
+    },
+    "unit": "millibuckets"
+  },
+  "category": "meals",
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "sniffer:s_14"
+    },
+    {
+      "item": "minecraft:torchflower_seeds"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    []
+  ],
+  "result": {
+    "amount": 1000,
+    "id": "chewy_cheeses:fragrant_cheese"
+  },
+  "temperature": 3,
+  "unit": "millibuckets"
+}

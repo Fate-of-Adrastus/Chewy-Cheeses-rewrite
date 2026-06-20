@@ -31,6 +31,14 @@
     "id": "chewy_cheeses:unripe_shulker_cheese_wheel",
     "optional": true
   },
+  "chewy_cheeses:fragrant_cheese": {
+    "id": "chewy_cheeses:unripe_fragrant_cheese_wheel",
+    "optional": true
+  },
+  "chewy_cheeses:sniffers_milk": {
+    "id": "sniffer:s_7",
+    "optional": true
+  },
   "chewy_cheeses:pitcher_cheese": {
     "id": "chewy_cheeses:unripe_pitcher_cheese_wheel",
     "optional": true

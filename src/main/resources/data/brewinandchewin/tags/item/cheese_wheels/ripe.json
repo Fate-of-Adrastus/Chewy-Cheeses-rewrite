@@ -22,6 +22,10 @@
       "required": false
     },
     {
+      "id": "chewy_cheeses:fragrant_cheese_wheel",
+      "required": false
+    },
+    {
       "id": "chewy_cheeses:pitcher_cheese_wheel",
       "required": false
     }

@@ -71,6 +71,27 @@ public class ClientEvents {
             }, Registry.SHULKER_CHEESE_FLUID_TYPE.get());
         }
 
+        if (ModList.get().isLoaded("sniffer")) {
+            event.registerFluidType(new IClientFluidTypeExtensions() {
+                public @NotNull ResourceLocation getStillTexture() {
+                    return ChewyCheeses.getResourceLocation("block/fragrant_cheese_still");
+                }
+
+                public @NotNull ResourceLocation getFlowingTexture() {
+                    return ChewyCheeses.getResourceLocation("block/fragrant_cheese_flow");
+                }
+            }, Registry.FRAGRANT_CHEESE_FLUID_TYPE.get());
+            event.registerFluidType(new IClientFluidTypeExtensions() {
+                public @NotNull ResourceLocation getStillTexture() {
+                    return ChewyCheeses.getResourceLocation("block/sniffers_milk_still");
+                }
+
+                public @NotNull ResourceLocation getFlowingTexture() {
+                    return ChewyCheeses.getResourceLocation("block/sniffers_milk_flow");
+                }
+            }, Registry.SNIFFERS_MILK_FLUID_TYPE.get());
+        }
+
         event.registerFluidType(new IClientFluidTypeExtensions() {
             public @NotNull ResourceLocation getStillTexture() {
                 return ChewyCheeses.getResourceLocation("block/pitcher_cheese_still");

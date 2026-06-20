@@ -1,0 +1,25 @@
+{
+  "neoforge:conditions": [
+    {
+      "modid": "sniffer",
+      "type": "neoforge:mod_loaded"
+    }
+  ],
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "chewy_cheeses:fragrant_cheese_wheel"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 4,
+        "id": "sniffer:s_9"
+      }
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/knife"
+  }
+}

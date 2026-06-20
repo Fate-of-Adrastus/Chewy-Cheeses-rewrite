@@ -22,6 +22,10 @@
       "required": false
     },
     {
+      "id": "chewy_cheeses:unripe_fragrant_cheese_wheel",
+      "required": false
+    },
+    {
       "id": "chewy_cheeses:unripe_pitcher_cheese_wheel",
       "required": false
     }

@@ -4,6 +4,7 @@ import com.fateofadrastus.chewy_cheeses.ChewyCheeses;
 import com.fateofadrastus.chewy_cheeses.content.block.WardenzolaCheeseWheelBlock;
 import net.hardzi.farmerspizzeria.init.FarmerspizzeriaModItems;
 import net.jadenxgamer.netherexp.registry.JNEItems;
+import net.mcreator.sniffer.item.S9Item;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -23,6 +24,9 @@ import net.yirmiri.dungeonsdelight.core.registry.DDItems;
 import umpaz.brewinandchewin.common.block.CheeseWheelBlock;
 import umpaz.brewinandchewin.common.block.UnripeCheeseWheelBlock;
 import umpaz.brewinandchewin.neoforge.fluid.BnCFluidType;
+import net.mcreator.sniffer.init.SnifferModItems;
+
+import static net.mcreator.sniffer.init.SnifferModItems.S_9;
 
 public class Registry {
 
@@ -95,6 +99,25 @@ public class Registry {
     public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> SHULKER_CHEESE;
     public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> FLOWING_SHULKER_CHEESE;
     public static final BaseFlowingFluid.Properties SHULKER_CHEESE_FLUID_PROPERTIES;
+
+    // Sniffer Delicacies
+    public static final DeferredBlock<Block> FRAGRANT_CHEESE_WHEEL;
+    public static final DeferredBlock<Block> UNRIPE_FRAGRANT_CHEESE_WHEEL;
+    public static final DeferredItem<BlockItem> UNRIPE_FRAGRANT_CHEESE_WHEEL_ITEM;
+    public static final DeferredItem<BlockItem> FRAGRANT_CHEESE_WHEEL_ITEM;
+
+    public static final DeferredHolder<FluidType, FluidType> FRAGRANT_CHEESE_FLUID_TYPE;
+    public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> FRAGRANT_CHEESE;
+    public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> FLOWING_FRAGRANT_CHEESE;
+    public static final BaseFlowingFluid.Properties FRAGRANT_CHEESE_FLUID_PROPERTIES;
+
+    public static final DeferredHolder<FluidType, FluidType> SNIFFERS_MILK_FLUID_TYPE;
+    public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> SNIFFERS_MILK;
+    public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> FLOWING_SNIFFERS_MILK;
+    public static final BaseFlowingFluid.Properties SNIFFERS_MILK_FLUID_PROPERTIES;
+
+
+
 
     // minecraft
     public static final FoodProperties PITCHER_CHEESE_PROPERITIES;
@@ -229,6 +252,42 @@ public class Registry {
             FLOWING_SHULKER_CHEESE = null;
             SHULKER_CHEESE_FLUID_PROPERTIES = null;
         }
+        if (ModList.get().isLoaded("sniffer")) {
+            FRAGRANT_CHEESE_WHEEL =  BLOCKS.register("fragrant_cheese_wheel", () -> new CheeseWheelBlock(S_9, Block.Properties.ofFullCopy(Blocks.CAKE))); // s_9 is the cheese wedge item
+            UNRIPE_FRAGRANT_CHEESE_WHEEL =  BLOCKS.register("unripe_fragrant_cheese_wheel", () -> new UnripeCheeseWheelBlock(FRAGRANT_CHEESE_WHEEL , Block.Properties.ofFullCopy(Blocks.CAKE)));
+            FRAGRANT_CHEESE_WHEEL_ITEM = ITEMS.registerSimpleBlockItem(FRAGRANT_CHEESE_WHEEL, new Item.Properties().stacksTo(16));
+            UNRIPE_FRAGRANT_CHEESE_WHEEL_ITEM =  ITEMS.registerSimpleBlockItem(UNRIPE_FRAGRANT_CHEESE_WHEEL, new Item.Properties().stacksTo(16));
+
+            FRAGRANT_CHEESE_FLUID_TYPE = FLUIDS_TYPES.register("fragrant_cheese_type", BnCFluidType::new);
+            FRAGRANT_CHEESE = FLUIDS.register("fragrant_cheese", () -> new BaseFlowingFluid.Source(Registry.FRAGRANT_CHEESE_FLUID_PROPERTIES));
+            FLOWING_FRAGRANT_CHEESE = FLUIDS.register("flowing_fragrant_cheese", () -> new BaseFlowingFluid.Flowing(Registry.FRAGRANT_CHEESE_FLUID_PROPERTIES));
+            FRAGRANT_CHEESE_FLUID_PROPERTIES = new BaseFlowingFluid.Properties(FRAGRANT_CHEESE_FLUID_TYPE, FRAGRANT_CHEESE, FLOWING_FRAGRANT_CHEESE);
+
+            SNIFFERS_MILK_FLUID_TYPE = FLUIDS_TYPES.register("sniffers_milk_type", BnCFluidType::new);
+            SNIFFERS_MILK = FLUIDS.register("sniffers_milk", () -> new BaseFlowingFluid.Source(Registry.SNIFFERS_MILK_FLUID_PROPERTIES));
+            FLOWING_SNIFFERS_MILK = FLUIDS.register("flowing_sniffers_milk", () -> new BaseFlowingFluid.Flowing(Registry.SNIFFERS_MILK_FLUID_PROPERTIES));
+            SNIFFERS_MILK_FLUID_PROPERTIES = new BaseFlowingFluid.Properties(SNIFFERS_MILK_FLUID_TYPE, SNIFFERS_MILK, FLOWING_SNIFFERS_MILK);
+
+
+
+        } else {
+            FRAGRANT_CHEESE_WHEEL = null;
+            UNRIPE_FRAGRANT_CHEESE_WHEEL = null;
+            FRAGRANT_CHEESE_WHEEL_ITEM = null;
+            UNRIPE_FRAGRANT_CHEESE_WHEEL_ITEM = null;
+
+            FRAGRANT_CHEESE_FLUID_TYPE = null;
+            FRAGRANT_CHEESE = null;
+            FLOWING_FRAGRANT_CHEESE = null;
+            FRAGRANT_CHEESE_FLUID_PROPERTIES = null;
+
+            SNIFFERS_MILK_FLUID_TYPE = null;
+            SNIFFERS_MILK = null;
+            FLOWING_SNIFFERS_MILK = null;
+            SNIFFERS_MILK_FLUID_PROPERTIES = null;
+        }
+
+
 
         PITCHER_CHEESE_PROPERITIES = (new FoodProperties.Builder()).nutrition(4).saturationModifier(1.0F).build();
         PITCHER_CHEESE_WEDGE = ITEMS.register("pitcher_cheese_wedge", () -> new Item((new Item.Properties()).food( PITCHER_CHEESE_PROPERITIES )));
