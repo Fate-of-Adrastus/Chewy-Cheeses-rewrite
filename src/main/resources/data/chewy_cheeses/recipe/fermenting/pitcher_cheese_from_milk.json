@@ -1,10 +1,4 @@
 {
-  "neoforge:conditions": [
-    {
-      "modid": "environmental",
-      "type": "neoforge:mod_loaded"
-    }
-  ],
   "type": "brewinandchewin:fermenting",
   "base_fluid": {
     "amount": 1000,
