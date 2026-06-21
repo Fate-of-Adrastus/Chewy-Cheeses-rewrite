@@ -1,0 +1,33 @@
+{
+  "neoforge:conditions": [
+    {
+      "modid": "hearthandharvest",
+      "type": "neoforge:mod_loaded"
+    }
+  ],
+  "type": "brewinandchewin:fermenting",
+  "base_fluid": {
+    "amount": 1000,
+    "ingredient": {
+      "tag": "#c:milk"
+    },
+    "unit": "millibuckets"
+  },
+  "category": "meals",
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "hearthandharvest:sunflower_seeds"
+    },
+    {
+      "tag": "c:dusts/salt"
+    },
+    []
+  ],
+  "result": {
+    "amount": 1000,
+    "id": "chewy_cheeses:cheddar_cheese"
+  },
+  "temperature": 4,
+  "unit": "millibuckets"
+}

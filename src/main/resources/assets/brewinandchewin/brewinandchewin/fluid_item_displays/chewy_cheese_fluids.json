@@ -39,6 +39,18 @@
     "id": "sniffer:s_7",
     "optional": true
   },
+  "chewy_cheeses:goat_cheese": {
+    "id": "hearthandharvest:unripe_goat_cheese_wheel",
+    "optional": true
+  },
+  "chewy_cheeses:cheddar_cheese": {
+    "id": "hearthandharvest:unripe_cheddar_cheese_wheel",
+    "optional": true
+  },
+  "chewy_cheeses:goat_milk": {
+    "id": "hearthandharvest:goat_milk_bottle",
+    "optional": true
+  },
   "chewy_cheeses:pitcher_cheese": {
     "id": "chewy_cheeses:unripe_pitcher_cheese_wheel",
     "optional": true

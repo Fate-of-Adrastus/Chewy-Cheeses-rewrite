@@ -1,10 +1,10 @@
 package com.fateofadrastus.chewy_cheeses.registry;
 
+import alabaster.hearthandharvest.common.registry.HHModItems;
 import com.fateofadrastus.chewy_cheeses.ChewyCheeses;
 import com.fateofadrastus.chewy_cheeses.content.block.WardenzolaCheeseWheelBlock;
 import net.hardzi.farmerspizzeria.init.FarmerspizzeriaModItems;
 import net.jadenxgamer.netherexp.registry.JNEItems;
-import net.mcreator.sniffer.item.S9Item;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -24,7 +24,6 @@ import net.yirmiri.dungeonsdelight.core.registry.DDItems;
 import umpaz.brewinandchewin.common.block.CheeseWheelBlock;
 import umpaz.brewinandchewin.common.block.UnripeCheeseWheelBlock;
 import umpaz.brewinandchewin.neoforge.fluid.BnCFluidType;
-import net.mcreator.sniffer.init.SnifferModItems;
 
 import static net.mcreator.sniffer.init.SnifferModItems.S_9;
 
@@ -62,7 +61,7 @@ public class Registry {
     public static final BaseFlowingFluid.Properties GLOW_CHEESE_FLUID_PROPERTIES;
 
     // Environmental
-    public static final FoodProperties TRUFFLE_CHEESE_PROPERITIES;
+    public static final FoodProperties TRUFFLE_CHEESE_PROPERTIES;
     public static final DeferredItem<Item> TRUFFLE_CHEESE_WEDGE;
     public static final DeferredBlock<Block> TRUFFLE_CHEESE_WHEEL;
     public static final DeferredBlock<Block> UNRIPE_TRUFFLE_CHEESE_WHEEL;
@@ -75,7 +74,7 @@ public class Registry {
     public static final BaseFlowingFluid.Properties TRUFFLE_CHEESE_FLUID_PROPERTIES;
 
     // Quark / Darker depths
-    public static final FoodProperties GLOWSHROOM_CHEESE_PROPERITIES;
+    public static final FoodProperties GLOWSHROOM_CHEESE_PROPERTIES;
     public static final DeferredItem<Item> GLOWSHROOM_CHEESE_WEDGE;
     public static final DeferredBlock<Block> GLOWSHROOM_CHEESE_WHEEL;
     public static final DeferredBlock<Block> UNRIPE_GLOWSHROOM_CHEESE_WHEEL;
@@ -88,7 +87,7 @@ public class Registry {
     public static final BaseFlowingFluid.Properties GLOWSHROOM_CHEESE_FLUID_PROPERTIES;
 
     // Ender's delight
-    public static final FoodProperties SHULKER_CHEESE_PROPERITIES;
+    public static final FoodProperties SHULKER_CHEESE_PROPERTIES;
     public static final DeferredItem<Item> SHULKER_CHEESE_WEDGE;
     public static final DeferredBlock<Block> SHULKER_CHEESE_WHEEL;
     public static final DeferredBlock<Block> UNRIPE_SHULKER_CHEESE_WHEEL;
@@ -116,11 +115,30 @@ public class Registry {
     public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> FLOWING_SNIFFERS_MILK;
     public static final BaseFlowingFluid.Properties SNIFFERS_MILK_FLUID_PROPERTIES;
 
+    // Hearts and Harvest
+    public static Item getUnripeCheddarCheeseWheelItem(){ return HHModItems.UNRIPE_CHEDDAR_CHEESE_WHEEL.get(); }
+    public static Item getCheddarCheeseWheelItem(){ return HHModItems.CHEDDAR_CHEESE_WHEEL.get(); }
+    public static Item getUnripeGoatCheeseWheelItem(){ return HHModItems.UNRIPE_GOAT_CHEESE_WHEEL.get(); }
+    public static Item getGoatCheeseWheelItem(){ return HHModItems.GOAT_CHEESE_WHEEL.get(); }
 
+    public static final DeferredHolder<FluidType, FluidType> CHEDDAR_CHEESE_FLUID_TYPE;
+    public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> CHEDDAR_CHEESE;
+    public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> FLOWING_CHEDDAR_CHEESE;
+    public static final BaseFlowingFluid.Properties CHEDDAR_CHEESE_FLUID_PROPERTIES;
+
+    public static final DeferredHolder<FluidType, FluidType> GOAT_CHEESE_FLUID_TYPE;
+    public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> GOAT_CHEESE;
+    public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> FLOWING_GOAT_CHEESE;
+    public static final BaseFlowingFluid.Properties GOAT_CHEESE_FLUID_PROPERTIES;
+
+    public static final DeferredHolder<FluidType, FluidType> GOAT_MILK_FLUID_TYPE;
+    public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> GOAT_MILK;
+    public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> FLOWING_GOAT_MILK;
+    public static final BaseFlowingFluid.Properties GOAT_MILK_FLUID_PROPERTIES;
 
 
     // minecraft
-    public static final FoodProperties PITCHER_CHEESE_PROPERITIES;
+    public static final FoodProperties PITCHER_CHEESE_PROPERTIES;
     public static final DeferredItem<Item> PITCHER_CHEESE_WEDGE;
     public static final DeferredBlock<Block> PITCHER_CHEESE_WHEEL;
     public static final DeferredBlock<Block> UNRIPE_PITCHER_CHEESE_WHEEL;
@@ -175,8 +193,8 @@ public class Registry {
             GLOW_CHEESE_FLUID_PROPERTIES = null;
         }
         if (ModList.get().isLoaded("environmental")) {
-            TRUFFLE_CHEESE_PROPERITIES = (new FoodProperties.Builder()).nutrition(4).saturationModifier(1.0F).build();
-            TRUFFLE_CHEESE_WEDGE = ITEMS.register("truffle_cheese_wedge", () -> new Item((new Item.Properties()).food( TRUFFLE_CHEESE_PROPERITIES )));
+            TRUFFLE_CHEESE_PROPERTIES = (new FoodProperties.Builder()).nutrition(4).saturationModifier(1.0F).build();
+            TRUFFLE_CHEESE_WEDGE = ITEMS.register("truffle_cheese_wedge", () -> new Item((new Item.Properties()).food( TRUFFLE_CHEESE_PROPERTIES )));
             TRUFFLE_CHEESE_WHEEL =  BLOCKS.register("truffle_cheese_wheel", () -> new CheeseWheelBlock(TRUFFLE_CHEESE_WEDGE , Block.Properties.ofFullCopy(Blocks.CAKE)));
             UNRIPE_TRUFFLE_CHEESE_WHEEL =  BLOCKS.register("unripe_truffle_cheese_wheel", () -> new UnripeCheeseWheelBlock(TRUFFLE_CHEESE_WHEEL , Block.Properties.ofFullCopy(Blocks.CAKE)));
             TRUFFLE_CHEESE_WHEEL_ITEM = ITEMS.registerSimpleBlockItem(TRUFFLE_CHEESE_WHEEL, new Item.Properties().stacksTo(16));
@@ -188,7 +206,7 @@ public class Registry {
             TRUFFLE_CHEESE_FLUID_PROPERTIES = new BaseFlowingFluid.Properties(TRUFFLE_CHEESE_FLUID_TYPE, TRUFFLE_CHEESE, FLOWING_TRUFFLE_CHEESE);
 
         } else {
-            TRUFFLE_CHEESE_PROPERITIES = null;
+            TRUFFLE_CHEESE_PROPERTIES = null;
             TRUFFLE_CHEESE_WEDGE = null;
             TRUFFLE_CHEESE_WHEEL = null;
             UNRIPE_TRUFFLE_CHEESE_WHEEL = null;
@@ -201,8 +219,8 @@ public class Registry {
             TRUFFLE_CHEESE_FLUID_PROPERTIES = null;
         }
         if (ModList.get().isLoaded("quark") || ModList.get().isLoaded("darkerdepths")){
-            GLOWSHROOM_CHEESE_PROPERITIES = (new FoodProperties.Builder()).nutrition(4).saturationModifier(1.0F).build();
-            GLOWSHROOM_CHEESE_WEDGE = ITEMS.register("glowshroom_cheese_wedge", () -> new Item((new Item.Properties()).food( GLOWSHROOM_CHEESE_PROPERITIES )));
+            GLOWSHROOM_CHEESE_PROPERTIES = (new FoodProperties.Builder()).nutrition(4).saturationModifier(1.0F).build();
+            GLOWSHROOM_CHEESE_WEDGE = ITEMS.register("glowshroom_cheese_wedge", () -> new Item((new Item.Properties()).food( GLOWSHROOM_CHEESE_PROPERTIES )));
             GLOWSHROOM_CHEESE_WHEEL =  BLOCKS.register("glowshroom_cheese_wheel", () -> new CheeseWheelBlock(GLOWSHROOM_CHEESE_WEDGE , Block.Properties.ofFullCopy(Blocks.CAKE).sound(SoundType.SLIME_BLOCK).lightLevel((p_152607_) -> 10)));
             UNRIPE_GLOWSHROOM_CHEESE_WHEEL =  BLOCKS.register("unripe_glowshroom_cheese_wheel", () -> new UnripeCheeseWheelBlock(GLOWSHROOM_CHEESE_WHEEL , Block.Properties.ofFullCopy(Blocks.CAKE).lightLevel((p_152607_) -> 1)));
             GLOWSHROOM_CHEESE_WHEEL_ITEM = ITEMS.registerSimpleBlockItem(GLOWSHROOM_CHEESE_WHEEL, new Item.Properties().stacksTo(16));
@@ -214,7 +232,7 @@ public class Registry {
             GLOWSHROOM_CHEESE_FLUID_PROPERTIES = new BaseFlowingFluid.Properties(GLOWSHROOM_CHEESE_FLUID_TYPE, GLOWSHROOM_CHEESE, FLOWING_GLOWSHROOM_CHEESE);
 
         } else {
-            GLOWSHROOM_CHEESE_PROPERITIES = null;
+            GLOWSHROOM_CHEESE_PROPERTIES = null;
             GLOWSHROOM_CHEESE_WEDGE = null;
             GLOWSHROOM_CHEESE_WHEEL = null;
             UNRIPE_GLOWSHROOM_CHEESE_WHEEL = null;
@@ -227,8 +245,8 @@ public class Registry {
             GLOWSHROOM_CHEESE_FLUID_PROPERTIES = null;
         }
         if (ModList.get().isLoaded("endersdelight")){
-            SHULKER_CHEESE_PROPERITIES = (new FoodProperties.Builder()).nutrition(4).saturationModifier(1.0F).effect( () -> new MobEffectInstance(MobEffects.LEVITATION, 100, 0, false, false), 1.0F).alwaysEdible().build();
-            SHULKER_CHEESE_WEDGE = ITEMS.register("shulker_cheese_wedge", () -> new Item((new Item.Properties()).food( SHULKER_CHEESE_PROPERITIES )));
+            SHULKER_CHEESE_PROPERTIES = (new FoodProperties.Builder()).nutrition(4).saturationModifier(1.0F).effect( () -> new MobEffectInstance(MobEffects.LEVITATION, 100, 0, false, false), 1.0F).alwaysEdible().build();
+            SHULKER_CHEESE_WEDGE = ITEMS.register("shulker_cheese_wedge", () -> new Item((new Item.Properties()).food( SHULKER_CHEESE_PROPERTIES )));
             SHULKER_CHEESE_WHEEL =  BLOCKS.register("shulker_cheese_wheel", () -> new CheeseWheelBlock(SHULKER_CHEESE_WEDGE , Block.Properties.ofFullCopy(Blocks.CAKE)));
             UNRIPE_SHULKER_CHEESE_WHEEL =  BLOCKS.register("unripe_shulker_cheese_wheel", () -> new UnripeCheeseWheelBlock(SHULKER_CHEESE_WHEEL , Block.Properties.ofFullCopy(Blocks.CAKE)));
             SHULKER_CHEESE_WHEEL_ITEM = ITEMS.registerSimpleBlockItem(SHULKER_CHEESE_WHEEL, new Item.Properties().stacksTo(16));
@@ -240,7 +258,7 @@ public class Registry {
             SHULKER_CHEESE_FLUID_PROPERTIES = new BaseFlowingFluid.Properties(SHULKER_CHEESE_FLUID_TYPE, SHULKER_CHEESE, FLOWING_SHULKER_CHEESE);
 
         } else {
-            SHULKER_CHEESE_PROPERITIES = null;
+            SHULKER_CHEESE_PROPERTIES = null;
             SHULKER_CHEESE_WEDGE = null;
             SHULKER_CHEESE_WHEEL = null;
             UNRIPE_SHULKER_CHEESE_WHEEL = null;
@@ -268,8 +286,6 @@ public class Registry {
             FLOWING_SNIFFERS_MILK = FLUIDS.register("flowing_sniffers_milk", () -> new BaseFlowingFluid.Flowing(Registry.SNIFFERS_MILK_FLUID_PROPERTIES));
             SNIFFERS_MILK_FLUID_PROPERTIES = new BaseFlowingFluid.Properties(SNIFFERS_MILK_FLUID_TYPE, SNIFFERS_MILK, FLOWING_SNIFFERS_MILK);
 
-
-
         } else {
             FRAGRANT_CHEESE_WHEEL = null;
             UNRIPE_FRAGRANT_CHEESE_WHEEL = null;
@@ -286,11 +302,40 @@ public class Registry {
             FLOWING_SNIFFERS_MILK = null;
             SNIFFERS_MILK_FLUID_PROPERTIES = null;
         }
+        if (ModList.get().isLoaded("hearthandharvest")) {
+            CHEDDAR_CHEESE_FLUID_TYPE = FLUIDS_TYPES.register("cheddar_cheese_type", BnCFluidType::new);
+            CHEDDAR_CHEESE = FLUIDS.register("cheddar_cheese", () -> new BaseFlowingFluid.Source(Registry.CHEDDAR_CHEESE_FLUID_PROPERTIES));
+            FLOWING_CHEDDAR_CHEESE = FLUIDS.register("flowing_cheddar_cheese", () -> new BaseFlowingFluid.Flowing(Registry.CHEDDAR_CHEESE_FLUID_PROPERTIES));
+            CHEDDAR_CHEESE_FLUID_PROPERTIES = new BaseFlowingFluid.Properties(CHEDDAR_CHEESE_FLUID_TYPE, CHEDDAR_CHEESE, FLOWING_CHEDDAR_CHEESE);
 
+            GOAT_CHEESE_FLUID_TYPE = FLUIDS_TYPES.register("goat_cheese_type", BnCFluidType::new);
+            GOAT_CHEESE = FLUIDS.register("goat_cheese", () -> new BaseFlowingFluid.Source(Registry.GOAT_CHEESE_FLUID_PROPERTIES));
+            FLOWING_GOAT_CHEESE = FLUIDS.register("flowing_goat_cheese", () -> new BaseFlowingFluid.Flowing(Registry.GOAT_CHEESE_FLUID_PROPERTIES));
+            GOAT_CHEESE_FLUID_PROPERTIES = new BaseFlowingFluid.Properties(GOAT_CHEESE_FLUID_TYPE, GOAT_CHEESE, FLOWING_GOAT_CHEESE);
 
+            GOAT_MILK_FLUID_TYPE = FLUIDS_TYPES.register("goat_milk_type", BnCFluidType::new);
+            GOAT_MILK = FLUIDS.register("goat_milk", () -> new BaseFlowingFluid.Source(Registry.GOAT_MILK_FLUID_PROPERTIES));
+            FLOWING_GOAT_MILK = FLUIDS.register("flowing_goat_milk", () -> new BaseFlowingFluid.Flowing(Registry.GOAT_MILK_FLUID_PROPERTIES));
+            GOAT_MILK_FLUID_PROPERTIES = new BaseFlowingFluid.Properties(GOAT_MILK_FLUID_TYPE, GOAT_MILK, FLOWING_GOAT_MILK);
+        } else {
+            CHEDDAR_CHEESE_FLUID_TYPE = null;
+            CHEDDAR_CHEESE = null;
+            FLOWING_CHEDDAR_CHEESE = null;
+            CHEDDAR_CHEESE_FLUID_PROPERTIES = null;
 
-        PITCHER_CHEESE_PROPERITIES = (new FoodProperties.Builder()).nutrition(4).saturationModifier(1.0F).build();
-        PITCHER_CHEESE_WEDGE = ITEMS.register("pitcher_cheese_wedge", () -> new Item((new Item.Properties()).food( PITCHER_CHEESE_PROPERITIES )));
+            GOAT_CHEESE_FLUID_TYPE = null;
+            GOAT_CHEESE = null;
+            FLOWING_GOAT_CHEESE = null;
+            GOAT_CHEESE_FLUID_PROPERTIES = null;
+
+            GOAT_MILK_FLUID_TYPE = null;
+            GOAT_MILK = null;
+            FLOWING_GOAT_MILK = null;
+            GOAT_MILK_FLUID_PROPERTIES = null;
+        }
+
+        PITCHER_CHEESE_PROPERTIES = (new FoodProperties.Builder()).nutrition(4).saturationModifier(1.0F).build();
+        PITCHER_CHEESE_WEDGE = ITEMS.register("pitcher_cheese_wedge", () -> new Item((new Item.Properties()).food( PITCHER_CHEESE_PROPERTIES )));
         PITCHER_CHEESE_WHEEL =  BLOCKS.register("pitcher_cheese_wheel", () -> new CheeseWheelBlock(PITCHER_CHEESE_WEDGE , Block.Properties.ofFullCopy(Blocks.CAKE)));
         UNRIPE_PITCHER_CHEESE_WHEEL =  BLOCKS.register("unripe_pitcher_cheese_wheel", () -> new UnripeCheeseWheelBlock(PITCHER_CHEESE_WHEEL , Block.Properties.ofFullCopy(Blocks.CAKE)));
         PITCHER_CHEESE_WHEEL_ITEM = ITEMS.registerSimpleBlockItem(PITCHER_CHEESE_WHEEL, new Item.Properties().stacksTo(16));

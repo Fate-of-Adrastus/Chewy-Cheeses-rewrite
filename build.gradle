@@ -148,36 +148,39 @@ dependencies {
     compileOnly "maven.modrinth:runiclib:DR9yZcRO"
     //localRuntime "maven.modrinth:runiclib:DR9yZcRO"
 
-    compileOnly "maven.modrinth:jadens-nether-expansion:2.4.0-BETA.3"
-    //localRuntime "maven.modrinth:jadens-nether-expansion:2.4.0-BETA.3"
-    compileOnly "maven.modrinth:elysium-api:1.21.1-1.2.0-ALPHA.12"
-    //localRuntime "maven.modrinth:elysium-api:1.21.1-1.2.0-ALPHA.12"
+    compileOnly "maven.modrinth:jadens-nether-expansion:2.4.0-BETA.7"
+    //localRuntime "maven.modrinth:jadens-nether-expansion:2.4.0-BETA.7"
+    //compileOnly "maven.modrinth:elysium-api:1.21.1-2.0.0-BETA.6"
+    //localRuntime "maven.modrinth:elysium-api:1.21.1-2.0.0-BETA.6"
 
     compileOnly "maven.modrinth:farmers-pizzeria:1.1.0"
     //localRuntime "maven.modrinth:farmers-pizzeria:1.1.0"
 
     compileOnly "maven.modrinth:enders-delight:1.2.0"
-    localRuntime "maven.modrinth:enders-delight:1.2.0"
+    //localRuntime "maven.modrinth:enders-delight:1.2.0"
 
     compileOnly "maven.modrinth:blueprint:8.1.0"
-    localRuntime "maven.modrinth:blueprint:8.1.0"
+    //localRuntime "maven.modrinth:blueprint:8.1.0"
     compileOnly "maven.modrinth:environmental:5.0.1"
-    localRuntime "maven.modrinth:environmental:5.0.1"
+    //localRuntime "maven.modrinth:environmental:5.0.1"
 
     compileOnly "maven.modrinth:zeta:1.1-40"
-    localRuntime "maven.modrinth:zeta:1.1-40"
+    //localRuntime "maven.modrinth:zeta:1.1-40"
     compileOnly "maven.modrinth:quark:4.1-480"
-    localRuntime "maven.modrinth:quark:4.1-480"
+    //localRuntime "maven.modrinth:quark:4.1-480"
 
     //compileOnly "maven.modrinth:biolith:1ZfKhpFg"
     //localRuntime "maven.modrinth:biolith:1ZfKhpFg"
-    compileOnly "maven.modrinth:geckolib:gFmrC8Ru"
-    localRuntime "maven.modrinth:geckolib:gFmrC8Ru"
+    //compileOnly "maven.modrinth:geckolib:gFmrC8Ru"
+    //localRuntime "maven.modrinth:geckolib:gFmrC8Ru"
     compileOnly "maven.modrinth:darker-depths:TU0ozd7Y"
-    localRuntime "maven.modrinth:darker-depths:TU0ozd7Y"
+    //localRuntime "maven.modrinth:darker-depths:TU0ozd7Y"
 
+    compileOnly "maven.modrinth:hearth-and-harvest:1.1.5"
+    localRuntime "maven.modrinth:hearth-and-harvest:1.1.5"
 
-    implementation "curse.maven:sniffers-delicacies-1102094:6114900"
+    compileOnly "curse.maven:sniffers-delicacies-1102094:6114900"
+    localRuntime "curse.maven:sniffers-delicacies-1102094:6114900"
 
 
 

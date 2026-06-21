@@ -3,9 +3,6 @@ package com.fateofadrastus.chewy_cheeses;
 import com.fateofadrastus.chewy_cheeses.registry.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
-import net.neoforged.fml.ModList;
-import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
-import net.yirmiri.dungeonsdelight.core.registry.DDCreativeTabs;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -14,10 +11,16 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
 import net.yirmiri.dungeonsdelight.core.registry.DDItems;
 import net.yirmiri.dungeonsdelight.common.util.DDProperties;
+import net.yirmiri.dungeonsdelight.core.registry.DDCreativeTabs;
+import net.mcreator.sniffer.init.SnifferModItems;
+import net.mcreator.sniffer.init.SnifferModTabs;
+import alabaster.hearthandharvest.common.registry.HHModItems;
 import umpaz.brewinandchewin.common.registry.BnCCreativeTabs;
 import umpaz.brewinandchewin.common.registry.BnCItems;
 
@@ -79,14 +82,13 @@ public class ChewyCheeses {
                 event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.SHULKER_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
                 event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.UNRIPE_SHULKER_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             }
-            if ( ModList.get().isLoaded("sniffer") ) {
-                event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.FRAGRANT_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.UNRIPE_FRAGRANT_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-
-            }
             event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.PITCHER_CHEESE_WEDGE.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.PITCHER_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertAfter(BnCItems.SCARLET_CHEESE_WEDGE.getDefaultInstance(), Registry.UNRIPE_PITCHER_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+        }
+        if (ModList.get().isLoaded("sniffer") && event.getTab() == SnifferModTabs.SNIFFER.get()){
+                event.insertBefore(SnifferModItems.S_9.get().getDefaultInstance(), Registry.UNRIPE_FRAGRANT_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertBefore(SnifferModItems.S_9.get().getDefaultInstance(), Registry.FRAGRANT_CHEESE_WHEEL_ITEM.get().getDefaultInstance() , CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
     }
 
@@ -94,6 +96,16 @@ public class ChewyCheeses {
         if (ModList.get().isLoaded("dungeonsdelight"))
             event.modify(DDItems.WARDENZOLA.get(), builder -> builder
                     .set(DataComponents.MAX_STACK_SIZE, 16).set(DataComponents.RARITY,DDProperties.MONSTER));
+        if (ModList.get().isLoaded("hearthandharvest")) {
+            event.modify(HHModItems.GOAT_CHEESE_WHEEL.get(), builder -> builder
+                    .set(DataComponents.MAX_STACK_SIZE, 16));
+            event.modify(HHModItems.UNRIPE_GOAT_CHEESE_WHEEL.get(), builder -> builder
+                    .set(DataComponents.MAX_STACK_SIZE, 16));
+            event.modify(HHModItems.CHEDDAR_CHEESE_WHEEL.get(), builder -> builder
+                    .set(DataComponents.MAX_STACK_SIZE, 16));
+            event.modify(HHModItems.UNRIPE_CHEDDAR_CHEESE_WHEEL.get(), builder -> builder
+                    .set(DataComponents.MAX_STACK_SIZE, 16));
+        }
     }
 
 

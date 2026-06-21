@@ -32,5 +32,9 @@
   "item.chewy_cheeses.pitcher_cheese_wedge": "Pitcher Cheese Wedge",
   "block.chewy_cheeses.unripe_pitcher_cheese_wheel": "Unripe Pitcher Cheese Wheel",
   "block.chewy_cheeses.pitcher_cheese_wheel": "Pitcher Cheese Wheel",
-  "fluid_type.chewy_cheeses.pitcher_cheese_type": "Pitcher Cheese"
+  "fluid_type.chewy_cheeses.pitcher_cheese_type": "Pitcher Cheese",
+
+  "fluid_type.chewy_cheeses.cheddar_cheese_type": "Cheddar Cheese",
+  "fluid_type.chewy_cheeses.goat_cheese_type": "Goat Cheese",
+  "fluid_type.chewy_cheeses.goat_milk_type": "Goat Milk"
 }

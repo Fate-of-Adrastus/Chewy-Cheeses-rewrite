@@ -26,6 +26,14 @@
       "required": false
     },
     {
+      "id": "hearthandharvest:unripe_goat_cheese_wheel",
+      "required": false
+    },
+    {
+      "id": "hearthandharvest:unripe_cheddar_cheese_wheel",
+      "required": false
+    },
+    {
       "id": "chewy_cheeses:unripe_pitcher_cheese_wheel",
       "required": false
     }

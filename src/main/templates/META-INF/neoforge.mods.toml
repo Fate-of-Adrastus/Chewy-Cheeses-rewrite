@@ -73,6 +73,18 @@ requiredMods=["dungeonsdelight"]
     side="BOTH"
 
 [[dependencies."chewy_cheeses"]]
+modId= "sniffer"
+type = "optional"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."chewy_cheeses"]]
+modId= "hearthandharvest"
+type = "optional"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."chewy_cheeses"]]
     modId= "dungeonsdelight"
     type = "optional"
     versionRange="[1.4.0,)"

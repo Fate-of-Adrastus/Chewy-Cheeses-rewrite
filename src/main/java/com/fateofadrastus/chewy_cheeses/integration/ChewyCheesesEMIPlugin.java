@@ -1,5 +1,6 @@
 package com.fateofadrastus.chewy_cheeses.integration;
 
+import alabaster.hearthandharvest.common.registry.HHModItems;
 import com.fateofadrastus.chewy_cheeses.ChewyCheeses;
 import com.fateofadrastus.chewy_cheeses.registry.Registry;
 import dev.emi.emi.api.EmiEntrypoint;
@@ -39,6 +40,11 @@ public class ChewyCheesesEMIPlugin implements EmiPlugin {
 
         if (Registry.UNRIPE_FRAGRANT_CHEESE_WHEEL_ITEM != null && Registry.FRAGRANT_CHEESE_WHEEL_ITEM != null )
             registry.addRecipe(new CheeseEmiRecipe(ChewyCheeses.getResourceLocation("/cheese/fragrant"), EmiStack.of(Registry.UNRIPE_FRAGRANT_CHEESE_WHEEL_ITEM.get()), EmiStack.of(Registry.FRAGRANT_CHEESE_WHEEL_ITEM.get())));
+
+        if (ModList.get().isLoaded("hearthandharvest")) {
+            registry.addRecipe(new CheeseEmiRecipe(ChewyCheeses.getResourceLocation("/cheese/cheddar"), EmiStack.of(HHModItems.UNRIPE_CHEDDAR_CHEESE_WHEEL.get()), EmiStack.of(HHModItems.CHEDDAR_CHEESE_WHEEL.get())));
+            registry.addRecipe(new CheeseEmiRecipe(ChewyCheeses.getResourceLocation("/cheese/goat"), EmiStack.of(HHModItems.UNRIPE_GOAT_CHEESE_WHEEL.get()), EmiStack.of(HHModItems.GOAT_CHEESE_WHEEL.get())));
+        }
 
 
         registry.addRecipe(new CheeseEmiRecipe(ChewyCheeses.getResourceLocation("/cheese/pitcher"), EmiStack.of(Registry.UNRIPE_PITCHER_CHEESE_WHEEL_ITEM.get()), EmiStack.of(Registry.PITCHER_CHEESE_WHEEL_ITEM.get())));

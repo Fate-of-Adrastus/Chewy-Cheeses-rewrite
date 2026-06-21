@@ -2,6 +2,22 @@
   "replace": false,
   "values": [
     {
+      "id": "hearthandharvest:unripe_goat_cheese_wheel",
+      "required": false
+    },
+    {
+      "id": "hearthandharvest:goat_cheese_wheel",
+      "required": false
+    },
+    {
+      "id": "hearthandharvest:unripe_cheddar_cheese_wheel",
+      "required": false
+    },
+    {
+      "id": "hearthandharvest:cheddar_cheese_wheel",
+      "required": false
+    },
+    {
       "id": "chewy_cheeses:unripe_wardenzola_cheese_wheel",
       "required": false
     },

@@ -70,7 +70,6 @@ public class ClientEvents {
                 }
             }, Registry.SHULKER_CHEESE_FLUID_TYPE.get());
         }
-
         if (ModList.get().isLoaded("sniffer")) {
             event.registerFluidType(new IClientFluidTypeExtensions() {
                 public @NotNull ResourceLocation getStillTexture() {
@@ -90,6 +89,35 @@ public class ClientEvents {
                     return ChewyCheeses.getResourceLocation("block/sniffers_milk_flow");
                 }
             }, Registry.SNIFFERS_MILK_FLUID_TYPE.get());
+        }
+        if (ModList.get().isLoaded("hearthandharvest")) {
+            event.registerFluidType(new IClientFluidTypeExtensions() {
+                public @NotNull ResourceLocation getStillTexture() {
+                    return ChewyCheeses.getResourceLocation("block/cheddar_cheese_still");
+                }
+
+                public @NotNull ResourceLocation getFlowingTexture() {
+                    return ChewyCheeses.getResourceLocation("block/cheddar_cheese_flow");
+                }
+            }, Registry.CHEDDAR_CHEESE_FLUID_TYPE.get());
+            event.registerFluidType(new IClientFluidTypeExtensions() {
+                public @NotNull ResourceLocation getStillTexture() {
+                    return ChewyCheeses.getResourceLocation("block/goat_cheese_still");
+                }
+
+                public @NotNull ResourceLocation getFlowingTexture() {
+                    return ChewyCheeses.getResourceLocation("block/goat_cheese_flow");
+                }
+            }, Registry.GOAT_CHEESE_FLUID_TYPE.get());
+            event.registerFluidType(new IClientFluidTypeExtensions() {
+                public @NotNull ResourceLocation getStillTexture() {
+                    return ChewyCheeses.getResourceLocation("block/goat_milk_still");
+                }
+
+                public @NotNull ResourceLocation getFlowingTexture() {
+                    return ChewyCheeses.getResourceLocation("block/goat_milk_flow");
+                }
+            }, Registry.GOAT_MILK_FLUID_TYPE.get());
         }
 
         event.registerFluidType(new IClientFluidTypeExtensions() {
