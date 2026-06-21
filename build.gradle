@@ -183,6 +183,11 @@ dependencies {
     localRuntime "curse.maven:sniffers-delicacies-1102094:6114900"
 
 
+    //compileOnly "maven.modrinth:vanillacookbook:2.4.1"
+    //localRuntime "maven.modrinth:vanillacookbook:2.4.1"
+    //localRuntime "maven.modrinth:terrablender:6e8GCrLb"
+    //compileOnly "maven.modrinth:natures-spirit:2.2.5-1.21.1"
+    //localRuntime "maven.modrinth:natures-spirit:2.2.5-1.21.1"
 
     //compileOnly "curse.maven:lets-do-meadow-821483:7672847"
     //localRuntime "curse.maven:lets-do-meadow-821483:7672847"

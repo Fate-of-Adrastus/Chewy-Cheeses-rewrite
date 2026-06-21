@@ -2,14 +2,17 @@ package com.fateofadrastus.chewy_cheeses.registry;
 
 import alabaster.hearthandharvest.common.registry.HHModItems;
 import com.fateofadrastus.chewy_cheeses.ChewyCheeses;
+import com.fateofadrastus.chewy_cheeses.Config;
 import com.fateofadrastus.chewy_cheeses.content.block.WardenzolaCheeseWheelBlock;
 import net.hardzi.farmerspizzeria.init.FarmerspizzeriaModItems;
 import net.jadenxgamer.netherexp.registry.JNEItems;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -21,8 +24,10 @@ import net.neoforged.neoforge.fluids.FluidType;
 import net.neoforged.neoforge.registries.*;
 import net.yirmiri.dungeonsdelight.common.util.DDProperties;
 import net.yirmiri.dungeonsdelight.core.registry.DDItems;
+import org.jetbrains.annotations.Nullable;
 import umpaz.brewinandchewin.common.block.CheeseWheelBlock;
 import umpaz.brewinandchewin.common.block.UnripeCheeseWheelBlock;
+import umpaz.brewinandchewin.common.registry.BnCItems;
 import umpaz.brewinandchewin.neoforge.fluid.BnCFluidType;
 
 import static net.mcreator.sniffer.init.SnifferModItems.S_9;
@@ -33,16 +38,19 @@ public class Registry {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ChewyCheeses.MODID);
     public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(Registries.FLUID ,ChewyCheeses.MODID);
     public static final DeferredRegister<FluidType> FLUIDS_TYPES = DeferredRegister.create(NeoForgeRegistries.FLUID_TYPES,ChewyCheeses.MODID);
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ChewyCheeses.MODID);
 
     // Farmer's Pizzeria
-    public static Item getDorbluCheeseWheelItem(){ return FarmerspizzeriaModItems.DORBLU_CHEESE_WHEEL.asItem(); }
-    public static Item getUnripeDorbluCheeseWheelItem(){ return FarmerspizzeriaModItems.UNRIPE_DORBLU_CHEESE_WHEEL.asItem(); }
+    public static @Nullable Item getDorbluCheeseWheelItem(){ if (!ModList.get().isLoaded("farmerspizzeria")) return null; return FarmerspizzeriaModItems.DORBLU_CHEESE_WHEEL.asItem(); }
+    public static @Nullable Item getUnripeDorbluCheeseWheelItem(){ if (!ModList.get().isLoaded("farmerspizzeria")) return null; return FarmerspizzeriaModItems.UNRIPE_DORBLU_CHEESE_WHEEL.asItem(); }
+    public static @Nullable Item getDorbluCheeseWedge(){ if (!ModList.get().isLoaded("farmerspizzeria")) return null; return FarmerspizzeriaModItems.DORBLU_CHEESE_WEDGE.asItem(); }
 
     // Dungeons Delight
     public static final DeferredBlock<Block> WARDENZOLA_CHEESE_WHEEL;
     public static final DeferredBlock<Block> UNRIPE_WARDENZOLA_CHEESE_WHEEL;
     public static final DeferredItem<BlockItem> UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM;
-    public static Item getWardenzolaCheeseWheelItem(){ return DDItems.WARDENZOLA.get(); }
+    public static @Nullable Item getWardenzolaCheeseWheelItem(){ if (!ModList.get().isLoaded("dungeonsdelight")) return null; return DDItems.WARDENZOLA.get(); }
+    public static @Nullable Item getWardenzolaCrumbles(){  if (!ModList.get().isLoaded("dungeonsdelight")) return null; return DDItems.WARDENZOLA_CRUMBLES.get(); }
 
     public static final DeferredHolder<FluidType, FluidType> WARDENZOLA_CHEESE_FLUID_TYPE;
     public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> WARDENZOLA_CHEESE;
@@ -50,6 +58,7 @@ public class Registry {
     public static final BaseFlowingFluid.Properties WARDENZOLA_CHEESE_FLUID_PROPERTIES;
 
     // Jaden's Nether Expansion
+    public static @Nullable Item getGlowCheese(){  if (!ModList.get().isLoaded("netherexp")) return null; return JNEItems.GLOWCHEESE.get(); }
     public static final DeferredBlock<Block> GLOW_CHEESE_WHEEL;
     public static final DeferredBlock<Block> UNRIPE_GLOW_CHEESE_WHEEL;
     public static final DeferredItem<BlockItem> UNRIPE_GLOW_CHEESE_WHEEL_ITEM;
@@ -100,6 +109,7 @@ public class Registry {
     public static final BaseFlowingFluid.Properties SHULKER_CHEESE_FLUID_PROPERTIES;
 
     // Sniffer Delicacies
+    public static @Nullable Item getFragrantSlice(){  if (!ModList.get().isLoaded("sniffer")) return null; return S_9.get(); }
     public static final DeferredBlock<Block> FRAGRANT_CHEESE_WHEEL;
     public static final DeferredBlock<Block> UNRIPE_FRAGRANT_CHEESE_WHEEL;
     public static final DeferredItem<BlockItem> UNRIPE_FRAGRANT_CHEESE_WHEEL_ITEM;
@@ -116,10 +126,12 @@ public class Registry {
     public static final BaseFlowingFluid.Properties SNIFFERS_MILK_FLUID_PROPERTIES;
 
     // Hearts and Harvest
-    public static Item getUnripeCheddarCheeseWheelItem(){ return HHModItems.UNRIPE_CHEDDAR_CHEESE_WHEEL.get(); }
-    public static Item getCheddarCheeseWheelItem(){ return HHModItems.CHEDDAR_CHEESE_WHEEL.get(); }
-    public static Item getUnripeGoatCheeseWheelItem(){ return HHModItems.UNRIPE_GOAT_CHEESE_WHEEL.get(); }
-    public static Item getGoatCheeseWheelItem(){ return HHModItems.GOAT_CHEESE_WHEEL.get(); }
+    public static @Nullable Item getUnripeCheddarCheeseWheelItem(){ if (!ModList.get().isLoaded("hearthandharvest")) return null;  return HHModItems.UNRIPE_CHEDDAR_CHEESE_WHEEL.get(); }
+    public static @Nullable Item getCheddarCheeseWheelItem(){ if (!ModList.get().isLoaded("hearthandharvest")) return null;  return HHModItems.CHEDDAR_CHEESE_WHEEL.get(); }
+    public static @Nullable Item getCheddarCheeseWedge(){ if (!ModList.get().isLoaded("hearthandharvest")) return null;  return HHModItems.CHEDDAR_CHEESE_SLICE.get(); }
+    public static @Nullable Item getUnripeGoatCheeseWheelItem(){ if (!ModList.get().isLoaded("hearthandharvest")) return null;  return HHModItems.UNRIPE_GOAT_CHEESE_WHEEL.get(); }
+    public static @Nullable Item getGoatCheeseWheelItem(){ if (!ModList.get().isLoaded("hearthandharvest")) return null;  return HHModItems.GOAT_CHEESE_WHEEL.get(); }
+    public static @Nullable Item getGoatCheeseWedge(){ if (!ModList.get().isLoaded("hearthandharvest")) return null;  return HHModItems.GOAT_CHEESE_SLICE.get(); }
 
     public static final DeferredHolder<FluidType, FluidType> CHEDDAR_CHEESE_FLUID_TYPE;
     public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> CHEDDAR_CHEESE;
@@ -347,4 +359,58 @@ public class Registry {
         PITCHER_CHEESE_FLUID_PROPERTIES = new BaseFlowingFluid.Properties(PITCHER_CHEESE_FLUID_TYPE, PITCHER_CHEESE, FLOWING_PITCHER_CHEESE);
 
     }
+
+    static void acceptIfPresent(CreativeModeTab.Output output, Item item){
+        if (item == null) return;
+        output.accept(item);
+    }
+    static <T extends Item> void acceptIfPresent(CreativeModeTab.Output output, DeferredItem<T> item) {
+        if (item == null) return;
+        acceptIfPresent(output, item.get());
+    }
+    // Creative tab
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> ALL_CHEESE_TAB = CREATIVE_MODE_TABS.register("all_cheese", () -> CreativeModeTab.builder()
+            .title(Component.translatable("itemGroup.chewy_cheeses.all_cheese"))
+            //.withTabsBefore(CreativeModeTabs.COMBAT)
+            .icon(BnCItems.FLAXEN_CHEESE_WEDGE::getDefaultInstance)
+            .displayItems((parameters, output) -> {
+                if (Config.USE_CHEESE_TAB.getAsBoolean()){
+                    acceptIfPresent(output,BnCItems.UNRIPE_FLAXEN_CHEESE_WHEEL);
+                    acceptIfPresent(output,BnCItems.FLAXEN_CHEESE_WHEEL);
+                    acceptIfPresent(output,BnCItems.FLAXEN_CHEESE_WEDGE);
+                    acceptIfPresent(output,BnCItems.UNRIPE_SCARLET_CHEESE_WHEEL);
+                    acceptIfPresent(output,BnCItems.SCARLET_CHEESE_WHEEL);
+                    acceptIfPresent(output,BnCItems.SCARLET_CHEESE_WEDGE);
+                    acceptIfPresent(output,UNRIPE_PITCHER_CHEESE_WHEEL_ITEM);
+                    acceptIfPresent(output,PITCHER_CHEESE_WHEEL_ITEM);
+                    acceptIfPresent(output,PITCHER_CHEESE_WEDGE);
+                    acceptIfPresent(output,getUnripeDorbluCheeseWheelItem());
+                    acceptIfPresent(output,getDorbluCheeseWheelItem());
+                    acceptIfPresent(output,getDorbluCheeseWedge());
+                    acceptIfPresent(output,UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM);
+                    acceptIfPresent(output,getWardenzolaCheeseWheelItem());
+                    acceptIfPresent(output,getWardenzolaCrumbles());
+                    acceptIfPresent(output,UNRIPE_GLOW_CHEESE_WHEEL_ITEM);
+                    acceptIfPresent(output,GLOW_CHEESE_WHEEL_ITEM);
+                    acceptIfPresent(output,getGlowCheese());
+                    acceptIfPresent(output,UNRIPE_TRUFFLE_CHEESE_WHEEL_ITEM);
+                    acceptIfPresent(output,TRUFFLE_CHEESE_WHEEL_ITEM);
+                    acceptIfPresent(output,TRUFFLE_CHEESE_WEDGE);
+                    acceptIfPresent(output,UNRIPE_GLOWSHROOM_CHEESE_WHEEL_ITEM);
+                    acceptIfPresent(output,GLOWSHROOM_CHEESE_WHEEL_ITEM);
+                    acceptIfPresent(output,GLOWSHROOM_CHEESE_WEDGE);
+                    acceptIfPresent(output,UNRIPE_SHULKER_CHEESE_WHEEL_ITEM);
+                    acceptIfPresent(output,SHULKER_CHEESE_WHEEL_ITEM);
+                    acceptIfPresent(output,SHULKER_CHEESE_WEDGE);
+                    acceptIfPresent(output,UNRIPE_FRAGRANT_CHEESE_WHEEL_ITEM);
+                    acceptIfPresent(output,FRAGRANT_CHEESE_WHEEL_ITEM);
+                    acceptIfPresent(output,getFragrantSlice());
+                    acceptIfPresent(output,getUnripeCheddarCheeseWheelItem());
+                    acceptIfPresent(output,getCheddarCheeseWheelItem());
+                    acceptIfPresent(output,getCheddarCheeseWedge());
+                    acceptIfPresent(output,getUnripeGoatCheeseWheelItem());
+                    acceptIfPresent(output,getGoatCheeseWheelItem());
+                    acceptIfPresent(output,getGoatCheeseWedge());
+                }
+            }).build());
 }

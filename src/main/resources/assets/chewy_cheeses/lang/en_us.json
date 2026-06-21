@@ -1,5 +1,6 @@
 {
-  "item_group.chewy_cheeses.tab": "Chewy Cheeses",
+  "itemGroup.chewy_cheeses.all_cheese": "Chewy Cheeses",
+  "chewy_cheeses.configuration.useCheeseTab":  "Cheese Tab",
 
   "block.chewy_cheeses.unripe_glow_cheese_wheel": "Unripe Glow Cheese Wheel",
   "block.chewy_cheeses.glow_cheese_wheel": "Glow Cheese Wheel",

@@ -1,17 +1,13 @@
 package com.fateofadrastus.chewy_cheeses.integration;
 
-import alabaster.hearthandharvest.common.registry.HHModItems;
 import com.fateofadrastus.chewy_cheeses.ChewyCheeses;
 import com.fateofadrastus.chewy_cheeses.registry.Registry;
 import dev.emi.emi.api.EmiEntrypoint;
 import dev.emi.emi.api.EmiPlugin;
 import dev.emi.emi.api.EmiRegistry;
 import dev.emi.emi.api.stack.EmiStack;
-import net.hardzi.farmerspizzeria.FarmerspizzeriaMod;
-import net.hardzi.farmerspizzeria.init.FarmerspizzeriaModBlocks;
-import net.minecraft.resources.ResourceLocation;
-import net.neoforged.fml.ModList;
-import net.yirmiri.dungeonsdelight.core.registry.DDItems;
+import net.minecraft.world.item.Item;
+import net.neoforged.neoforge.registries.DeferredItem;
 import umpaz.brewinandchewin.integration.emi.recipe.CheeseEmiRecipe;
 
 @EmiEntrypoint
@@ -19,34 +15,38 @@ public class ChewyCheesesEMIPlugin implements EmiPlugin {
     public ChewyCheesesEMIPlugin() {
     }
 
-    public void register(EmiRegistry registry){
-        if (Registry.UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM != null )
-            registry.addRecipe(new CheeseEmiRecipe(ChewyCheeses.getResourceLocation("/cheese/wardenzola"), EmiStack.of(Registry.UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM.get()), EmiStack.of(DDItems.WARDENZOLA.get())));
-
-        if (Registry.UNRIPE_GLOW_CHEESE_WHEEL_ITEM != null && Registry.GLOW_CHEESE_WHEEL_ITEM != null)
-            registry.addRecipe(new CheeseEmiRecipe(ChewyCheeses.getResourceLocation("/cheese/glowcheese"), EmiStack.of(Registry.UNRIPE_GLOW_CHEESE_WHEEL_ITEM.get()), EmiStack.of(Registry.GLOW_CHEESE_WHEEL_ITEM.get())));
-
-        if (ModList.get().isLoaded("farmerspizzeria"))
-            registry.addRecipe(new CheeseEmiRecipe(ResourceLocation.fromNamespaceAndPath(FarmerspizzeriaMod.MODID, "/cheese/dorblu"), EmiStack.of(FarmerspizzeriaModBlocks.UNRIPE_DORBLU_CHEESE_WHEEL.asItem()), EmiStack.of(FarmerspizzeriaModBlocks.DORBLU_CHEESE_WHEEL.asItem())));
-
-        if (Registry.UNRIPE_TRUFFLE_CHEESE_WHEEL_ITEM != null && Registry.TRUFFLE_CHEESE_WHEEL_ITEM != null )
-            registry.addRecipe(new CheeseEmiRecipe(ChewyCheeses.getResourceLocation("/cheese/truffle"), EmiStack.of(Registry.UNRIPE_TRUFFLE_CHEESE_WHEEL_ITEM.get()), EmiStack.of(Registry.TRUFFLE_CHEESE_WHEEL_ITEM.get())));
-
-        if (Registry.UNRIPE_GLOWSHROOM_CHEESE_WHEEL_ITEM != null && Registry.GLOWSHROOM_CHEESE_WHEEL_ITEM != null )
-            registry.addRecipe(new CheeseEmiRecipe(ChewyCheeses.getResourceLocation("/cheese/glowshroom"), EmiStack.of(Registry.UNRIPE_GLOWSHROOM_CHEESE_WHEEL_ITEM.get()), EmiStack.of(Registry.GLOWSHROOM_CHEESE_WHEEL_ITEM.get())));
-
-        if (Registry.UNRIPE_SHULKER_CHEESE_WHEEL_ITEM != null && Registry.SHULKER_CHEESE_WHEEL_ITEM != null )
-            registry.addRecipe(new CheeseEmiRecipe(ChewyCheeses.getResourceLocation("/cheese/shulker"), EmiStack.of(Registry.UNRIPE_SHULKER_CHEESE_WHEEL_ITEM.get()), EmiStack.of(Registry.SHULKER_CHEESE_WHEEL_ITEM.get())));
-
-        if (Registry.UNRIPE_FRAGRANT_CHEESE_WHEEL_ITEM != null && Registry.FRAGRANT_CHEESE_WHEEL_ITEM != null )
-            registry.addRecipe(new CheeseEmiRecipe(ChewyCheeses.getResourceLocation("/cheese/fragrant"), EmiStack.of(Registry.UNRIPE_FRAGRANT_CHEESE_WHEEL_ITEM.get()), EmiStack.of(Registry.FRAGRANT_CHEESE_WHEEL_ITEM.get())));
-
-        if (ModList.get().isLoaded("hearthandharvest")) {
-            registry.addRecipe(new CheeseEmiRecipe(ChewyCheeses.getResourceLocation("/cheese/cheddar"), EmiStack.of(HHModItems.UNRIPE_CHEDDAR_CHEESE_WHEEL.get()), EmiStack.of(HHModItems.CHEDDAR_CHEESE_WHEEL.get())));
-            registry.addRecipe(new CheeseEmiRecipe(ChewyCheeses.getResourceLocation("/cheese/goat"), EmiStack.of(HHModItems.UNRIPE_GOAT_CHEESE_WHEEL.get()), EmiStack.of(HHModItems.GOAT_CHEESE_WHEEL.get())));
+    private void addIfPresent(EmiRegistry registry, String name, Item before, Item after){
+        if (before != null && after != null && !name.isEmpty()){
+            registry.addRecipe( new CheeseEmiRecipe(ChewyCheeses.getResourceLocation("/cheese/" + name), EmiStack.of(before), EmiStack.of(after)));
         }
+    }
+    private <T extends Item> void addIfPresent(EmiRegistry registry, String name, DeferredItem<T> before, Item after){
+        if (before != null && after != null){
+            addIfPresent(registry, name, before.get(), after);
+        }
+    }
+    private <T extends Item> void addIfPresent(EmiRegistry registry, String name, Item before, DeferredItem<T> after){
+        if (before != null && after != null){
+            addIfPresent(registry, name, before, after.get());
+        }
+    }
+    private <T extends Item> void addIfPresent(EmiRegistry registry, String name, DeferredItem<T> before, DeferredItem<T> after){
+        if (before != null && after != null){
+            addIfPresent(registry, name, before.get(), after.get());
+        }
+    }
 
+    public void register(EmiRegistry registry){
 
-        registry.addRecipe(new CheeseEmiRecipe(ChewyCheeses.getResourceLocation("/cheese/pitcher"), EmiStack.of(Registry.UNRIPE_PITCHER_CHEESE_WHEEL_ITEM.get()), EmiStack.of(Registry.PITCHER_CHEESE_WHEEL_ITEM.get())));
+        addIfPresent(registry, "pitcher", Registry.UNRIPE_PITCHER_CHEESE_WHEEL_ITEM, Registry.PITCHER_CHEESE_WHEEL_ITEM);
+        addIfPresent(registry, "wardenzola", Registry.UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM, Registry.getWardenzolaCheeseWheelItem());
+        addIfPresent(registry, "glowcheese", Registry.UNRIPE_GLOW_CHEESE_WHEEL_ITEM, Registry.GLOW_CHEESE_WHEEL_ITEM);
+        addIfPresent(registry, "dorblu", Registry.getUnripeDorbluCheeseWheelItem(), Registry.getDorbluCheeseWheelItem());
+        addIfPresent(registry, "truffle", Registry.UNRIPE_TRUFFLE_CHEESE_WHEEL_ITEM, Registry.TRUFFLE_CHEESE_WHEEL_ITEM);
+        addIfPresent(registry, "glowshroom", Registry.UNRIPE_GLOWSHROOM_CHEESE_WHEEL_ITEM, Registry.GLOWSHROOM_CHEESE_WHEEL_ITEM);
+        addIfPresent(registry, "shulker", Registry.UNRIPE_SHULKER_CHEESE_WHEEL_ITEM, Registry.SHULKER_CHEESE_WHEEL_ITEM);
+        addIfPresent(registry, "fragrant", Registry.UNRIPE_FRAGRANT_CHEESE_WHEEL_ITEM, Registry.FRAGRANT_CHEESE_WHEEL_ITEM);
+        addIfPresent(registry, "cheddar", Registry.getUnripeCheddarCheeseWheelItem(), Registry.getCheddarCheeseWheelItem());
+        addIfPresent(registry, "goat", Registry.getUnripeGoatCheeseWheelItem(), Registry.getGoatCheeseWheelItem());
     }
 }

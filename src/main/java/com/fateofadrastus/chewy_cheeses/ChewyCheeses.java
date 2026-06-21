@@ -3,6 +3,9 @@ package com.fateofadrastus.chewy_cheeses;
 import com.fateofadrastus.chewy_cheeses.registry.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.neoforge.client.gui.ConfigurationScreen;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -50,6 +53,8 @@ public class ChewyCheeses {
         Registry.FLUIDS_TYPES.register(modEventBus);
         Registry.FLUIDS.register(modEventBus);
 
+        Registry.CREATIVE_MODE_TABS.register(modEventBus);
+
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
@@ -58,7 +63,8 @@ public class ChewyCheeses {
         modEventBus.addListener(this::addCreative);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
-        //modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        modContainer.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
