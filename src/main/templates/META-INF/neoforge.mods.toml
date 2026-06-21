@@ -118,3 +118,10 @@ side="BOTH"
     versionRange="[2.0.0,)"
     ordering="AFTER"
     side="BOTH"
+
+[[dependencies."chewy_cheeses"]]
+modId= "sniffer"
+type = "optional"
+versionRange="[1.0.0,)"
+ordering="AFTER"
+side="BOTH"
