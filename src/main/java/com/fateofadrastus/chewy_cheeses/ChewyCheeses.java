@@ -107,9 +107,9 @@ public class ChewyCheeses {
                     .set(DataComponents.MAX_STACK_SIZE, 16));
             event.modify(HHModItems.UNRIPE_GOAT_CHEESE_WHEEL.get(), builder -> builder
                     .set(DataComponents.MAX_STACK_SIZE, 16));
-            event.modify(HHModItems.CHEDDAR_CHEESE_WHEEL.get(), builder -> builder
+            event.modify(HHModItems.CHEESE_WHEEL.get(), builder -> builder
                     .set(DataComponents.MAX_STACK_SIZE, 16));
-            event.modify(HHModItems.UNRIPE_CHEDDAR_CHEESE_WHEEL.get(), builder -> builder
+            event.modify(HHModItems.UNRIPE_CHEESE_WHEEL.get(), builder -> builder
                     .set(DataComponents.MAX_STACK_SIZE, 16));
         }
     }

@@ -126,9 +126,9 @@ public class Registry {
     public static final BaseFlowingFluid.Properties SNIFFERS_MILK_FLUID_PROPERTIES;
 
     // Hearts and Harvest
-    public static @Nullable Item getUnripeCheddarCheeseWheelItem(){ if (!ModList.get().isLoaded("hearthandharvest")) return null;  return HHModItems.UNRIPE_CHEDDAR_CHEESE_WHEEL.get(); }
-    public static @Nullable Item getCheddarCheeseWheelItem(){ if (!ModList.get().isLoaded("hearthandharvest")) return null;  return HHModItems.CHEDDAR_CHEESE_WHEEL.get(); }
-    public static @Nullable Item getCheddarCheeseWedge(){ if (!ModList.get().isLoaded("hearthandharvest")) return null;  return HHModItems.CHEDDAR_CHEESE_SLICE.get(); }
+    public static @Nullable Item getUnripeCheddarCheeseWheelItem(){ if (!ModList.get().isLoaded("hearthandharvest")) return null;  return HHModItems.UNRIPE_CHEESE_WHEEL.get(); }
+    public static @Nullable Item getCheddarCheeseWheelItem(){ if (!ModList.get().isLoaded("hearthandharvest")) return null;  return HHModItems.CHEESE_WHEEL.get(); }
+    public static @Nullable Item getCheddarCheeseWedge(){ if (!ModList.get().isLoaded("hearthandharvest")) return null;  return HHModItems.CHEESE_SLICE.get(); }
     public static @Nullable Item getUnripeGoatCheeseWheelItem(){ if (!ModList.get().isLoaded("hearthandharvest")) return null;  return HHModItems.UNRIPE_GOAT_CHEESE_WHEEL.get(); }
     public static @Nullable Item getGoatCheeseWheelItem(){ if (!ModList.get().isLoaded("hearthandharvest")) return null;  return HHModItems.GOAT_CHEESE_WHEEL.get(); }
     public static @Nullable Item getGoatCheeseWedge(){ if (!ModList.get().isLoaded("hearthandharvest")) return null;  return HHModItems.GOAT_CHEESE_SLICE.get(); }
