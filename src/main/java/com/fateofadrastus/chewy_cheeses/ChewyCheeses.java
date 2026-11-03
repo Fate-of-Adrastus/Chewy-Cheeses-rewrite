@@ -4,6 +4,7 @@ import com.fateofadrastus.chewy_cheeses.registry.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import org.slf4j.Logger;
@@ -63,8 +64,10 @@ public class ChewyCheeses {
         modEventBus.addListener(this::addCreative);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
+        if (FMLEnvironment.dist.isClient()) {
+            modContainer.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+        }
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
-        modContainer.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
