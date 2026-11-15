@@ -16,27 +16,27 @@ import java.util.List;
 public class CheeseAgingRecipeMixin {
 
     @Unique
-    private void addIfPresent(List<CheeseAgingRecipe> registry, Item before, Item after){
+    private void chewy_Cheeses_rewrite$addIfPresent(List<CheeseAgingRecipe> registry, Item before, Item after){
         if (before != null && after != null){
             registry.add(new CheeseAgingRecipe(before, after));
         }
     }
     @Unique
-    private <T extends Item> void addIfPresent(List<CheeseAgingRecipe> registry, DeferredItem<T> before, Item after){
+    private <T extends Item> void chewy_Cheeses_rewrite$addIfPresent(List<CheeseAgingRecipe> registry, DeferredItem<T> before, Item after){
         if (before != null && after != null){
-            addIfPresent(registry, before.get(), after);
+            chewy_Cheeses_rewrite$addIfPresent(registry, before.get(), after);
         }
     }
     @Unique
-    private <T extends Item> void addIfPresent(List<CheeseAgingRecipe> registry, Item before, DeferredItem<T> after){
+    private <T extends Item> void chewy_Cheeses_rewrite$addIfPresent(List<CheeseAgingRecipe> registry, Item before, DeferredItem<T> after){
         if (before != null && after != null){
-            addIfPresent(registry, before, after.get());
+            chewy_Cheeses_rewrite$addIfPresent(registry, before, after.get());
         }
     }
     @Unique
-    private <T extends Item> void addIfPresent(List<CheeseAgingRecipe> registry, DeferredItem<T> before, DeferredItem<T> after){
+    private <T extends Item> void chewy_Cheeses_rewrite$addIfPresent(List<CheeseAgingRecipe> registry, DeferredItem<T> before, DeferredItem<T> after){
         if (before != null && after != null){
-            addIfPresent(registry, before.get(), after.get());
+            chewy_Cheeses_rewrite$addIfPresent(registry, before.get(), after.get());
         }
     }
 
@@ -44,18 +44,18 @@ public class CheeseAgingRecipeMixin {
     public List<CheeseAgingRecipe> getOtherCheeseRecipes(List<CheeseAgingRecipe> registry){
         if (registry == null) registry = new ArrayList<>();
 
-        addIfPresent(registry, Registry.UNRIPE_PITCHER_CHEESE_WHEEL_ITEM, Registry.PITCHER_CHEESE_WHEEL_ITEM);
-        addIfPresent(registry, Registry.UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM, Registry.getWardenzolaCheeseWheelItem());
-        addIfPresent(registry, Registry.UNRIPE_GLOW_CHEESE_WHEEL_ITEM, Registry.GLOW_CHEESE_WHEEL_ITEM);
-        addIfPresent(registry, Registry.getUnripeDorbluCheeseWheelItem(), Registry.getDorbluCheeseWheelItem());
-        addIfPresent(registry, Registry.UNRIPE_TRUFFLE_CHEESE_WHEEL_ITEM, Registry.TRUFFLE_CHEESE_WHEEL_ITEM);
-        addIfPresent(registry, Registry.UNRIPE_GLOWSHROOM_CHEESE_WHEEL_ITEM, Registry.GLOWSHROOM_CHEESE_WHEEL_ITEM);
-        addIfPresent(registry, Registry.UNRIPE_SHULKER_CHEESE_WHEEL_ITEM, Registry.SHULKER_CHEESE_WHEEL_ITEM);
-        addIfPresent(registry, Registry.UNRIPE_FRAGRANT_CHEESE_WHEEL_ITEM, Registry.FRAGRANT_CHEESE_WHEEL_ITEM);
-        addIfPresent(registry, Registry.getUnripeCheddarCheeseWheelItem(), Registry.getCheddarCheeseWheelItem());
-        addIfPresent(registry, Registry.getUnripeGoatCheeseWheelItem(), Registry.getGoatCheeseWheelItem());
-        addIfPresent(registry, Registry.getUnripeTandTCheeseWheelItem(), Registry.getTandTCheeseWheelItem());
-        addIfPresent(registry, Registry.getUnripeTandTCherryCheeseWheelItem(), Registry.getTandTCherryCheeseWheelItem());
+        chewy_Cheeses_rewrite$addIfPresent(registry, Registry.UNRIPE_PITCHER_CHEESE_WHEEL_ITEM, Registry.PITCHER_CHEESE_WHEEL_ITEM);
+        chewy_Cheeses_rewrite$addIfPresent(registry, Registry.UNRIPE_WARDENZOLA_CHEESE_WHEEL_ITEM, Registry.getWardenzolaCheeseWheelItem());
+        chewy_Cheeses_rewrite$addIfPresent(registry, Registry.UNRIPE_GLOW_CHEESE_WHEEL_ITEM, Registry.GLOW_CHEESE_WHEEL_ITEM);
+        chewy_Cheeses_rewrite$addIfPresent(registry, Registry.getUnripeDorbluCheeseWheelItem(), Registry.getDorbluCheeseWheelItem());
+        chewy_Cheeses_rewrite$addIfPresent(registry, Registry.UNRIPE_TRUFFLE_CHEESE_WHEEL_ITEM, Registry.TRUFFLE_CHEESE_WHEEL_ITEM);
+        chewy_Cheeses_rewrite$addIfPresent(registry, Registry.UNRIPE_GLOWSHROOM_CHEESE_WHEEL_ITEM, Registry.GLOWSHROOM_CHEESE_WHEEL_ITEM);
+        chewy_Cheeses_rewrite$addIfPresent(registry, Registry.UNRIPE_SHULKER_CHEESE_WHEEL_ITEM, Registry.SHULKER_CHEESE_WHEEL_ITEM);
+        chewy_Cheeses_rewrite$addIfPresent(registry, Registry.UNRIPE_FRAGRANT_CHEESE_WHEEL_ITEM, Registry.FRAGRANT_CHEESE_WHEEL_ITEM);
+        chewy_Cheeses_rewrite$addIfPresent(registry, Registry.getUnripeCheddarCheeseWheelItem(), Registry.getCheddarCheeseWheelItem());
+        chewy_Cheeses_rewrite$addIfPresent(registry, Registry.getUnripeGoatCheeseWheelItem(), Registry.getGoatCheeseWheelItem());
+        chewy_Cheeses_rewrite$addIfPresent(registry, Registry.getUnripeTandTCheeseWheelItem(), Registry.getTandTCheeseWheelItem());
+        chewy_Cheeses_rewrite$addIfPresent(registry, Registry.getUnripeTandTCherryCheeseWheelItem(), Registry.getTandTCherryCheeseWheelItem());
 
         return registry;
     }
