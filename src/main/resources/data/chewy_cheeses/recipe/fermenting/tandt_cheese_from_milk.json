@@ -1,0 +1,36 @@
+{
+  "neoforge:conditions": [
+    {
+      "modid": "trailandtales_delight",
+      "type": "neoforge:mod_loaded"
+    }
+  ],
+  "type": "brewinandchewin:fermenting",
+  "base_fluid": {
+    "amount": 1000,
+    "ingredient": {
+      "tag": "#c:milk"
+    },
+    "unit": "millibuckets"
+  },
+  "category": "meals",
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "trailandtales_delight:lantern_fruit_seeds"
+    },
+    {
+      "item": "trailandtales_delight:lantern_fruit"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    []
+  ],
+  "result": {
+    "amount": 1000,
+    "id": "chewy_cheeses:tandt_cheese"
+  },
+  "temperature": 2,
+  "unit": "millibuckets"
+}

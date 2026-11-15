@@ -48,5 +48,7 @@ public class ChewyCheesesEMIPlugin implements EmiPlugin {
         addIfPresent(registry, "fragrant", Registry.UNRIPE_FRAGRANT_CHEESE_WHEEL_ITEM, Registry.FRAGRANT_CHEESE_WHEEL_ITEM);
         addIfPresent(registry, "cheddar", Registry.getUnripeCheddarCheeseWheelItem(), Registry.getCheddarCheeseWheelItem());
         addIfPresent(registry, "goat", Registry.getUnripeGoatCheeseWheelItem(), Registry.getGoatCheeseWheelItem());
+        addIfPresent(registry, "tandt", Registry.getUnripeTandTCheeseWheelItem(), Registry.getTandTCheeseWheelItem());
+        addIfPresent(registry, "tandt_cherry", Registry.getUnripeTandTCherryCheeseWheelItem(), Registry.getTandTCherryCheeseWheelItem());
     }
 }

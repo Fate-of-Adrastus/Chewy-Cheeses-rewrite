@@ -25,6 +25,7 @@ import net.neoforged.neoforge.registries.*;
 import net.yirmiri.dungeonsdelight.common.util.DDProperties;
 import net.yirmiri.dungeonsdelight.core.registry.DDItems;
 import org.jetbrains.annotations.Nullable;
+import show.tatd.mod.init.ModItems;
 import umpaz.brewinandchewin.common.block.CheeseWheelBlock;
 import umpaz.brewinandchewin.common.block.UnripeCheeseWheelBlock;
 import umpaz.brewinandchewin.common.registry.BnCItems;
@@ -148,6 +149,23 @@ public class Registry {
     public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> FLOWING_GOAT_MILK;
     public static final BaseFlowingFluid.Properties GOAT_MILK_FLUID_PROPERTIES;
 
+    // Trails & Tails Delight
+    public static @Nullable Item getUnripeTandTCheeseWheelItem(){ if (!ModList.get().isLoaded("trailandtales_delight")) return null;  return ModItems.CURD_BLOCK.get(); }
+    public static @Nullable Item getTandTCheeseWheelItem(){ if (!ModList.get().isLoaded("trailandtales_delight")) return null;  return ModItems.CHEESE_WHEEL.get(); }
+    public static @Nullable Item getTandTCheeseWedge(){ if (!ModList.get().isLoaded("trailandtales_delight")) return null;  return ModItems.CHEESE_SLICE.get(); }
+    public static @Nullable Item getUnripeTandTCherryCheeseWheelItem(){ if (!ModList.get().isLoaded("trailandtales_delight")) return null;  return ModItems.CHERRY_CURD_BLOCK.get(); }
+    public static @Nullable Item getTandTCherryCheeseWheelItem(){ if (!ModList.get().isLoaded("trailandtales_delight")) return null;  return ModItems.CHERRY_CHEESE_WHEEL.get(); }
+    public static @Nullable Item getTandTCherryCheeseWedge(){ if (!ModList.get().isLoaded("trailandtales_delight")) return null;  return ModItems.CHERRY_CHEESE_SLICE.get(); }
+
+    public static final DeferredHolder<FluidType, FluidType> TANDT_CHEESE_FLUID_TYPE;
+    public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> TANDT_CHEESE;
+    public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> FLOWING_TANDT_CHEESE;
+    public static final BaseFlowingFluid.Properties TANDT_CHEESE_FLUID_PROPERTIES;
+
+    public static final DeferredHolder<FluidType, FluidType> TANDT_CHERRY_CHEESE_FLUID_TYPE;
+    public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> TANDT_CHERRY_CHEESE;
+    public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> FLOWING_TANDT_CHERRY_CHEESE;
+    public static final BaseFlowingFluid.Properties TANDT_CHERRY_CHEESE_FLUID_PROPERTIES;
 
     // minecraft
     public static final FoodProperties PITCHER_CHEESE_PROPERTIES;
@@ -345,6 +363,28 @@ public class Registry {
             FLOWING_GOAT_MILK = null;
             GOAT_MILK_FLUID_PROPERTIES = null;
         }
+        if (ModList.get().isLoaded("trailandtales_delight")) {
+            TANDT_CHEESE_FLUID_TYPE = FLUIDS_TYPES.register("tandt_cheese_type", BnCFluidType::new);
+            TANDT_CHEESE = FLUIDS.register("tandt_cheese", () -> new BaseFlowingFluid.Source(Registry.TANDT_CHEESE_FLUID_PROPERTIES));
+            FLOWING_TANDT_CHEESE = FLUIDS.register("flowing_tandt_cheese", () -> new BaseFlowingFluid.Flowing(Registry.TANDT_CHEESE_FLUID_PROPERTIES));
+            TANDT_CHEESE_FLUID_PROPERTIES = new BaseFlowingFluid.Properties(TANDT_CHEESE_FLUID_TYPE, TANDT_CHEESE, FLOWING_TANDT_CHEESE);
+
+            TANDT_CHERRY_CHEESE_FLUID_TYPE = FLUIDS_TYPES.register("tandt_cherry_cheese_type", BnCFluidType::new);
+            TANDT_CHERRY_CHEESE = FLUIDS.register("tandt_cherry_cheese", () -> new BaseFlowingFluid.Source(Registry.TANDT_CHERRY_CHEESE_FLUID_PROPERTIES));
+            FLOWING_TANDT_CHERRY_CHEESE = FLUIDS.register("flowing_tandt_cherry_cheese", () -> new BaseFlowingFluid.Flowing(Registry.TANDT_CHERRY_CHEESE_FLUID_PROPERTIES));
+            TANDT_CHERRY_CHEESE_FLUID_PROPERTIES = new BaseFlowingFluid.Properties(TANDT_CHERRY_CHEESE_FLUID_TYPE, TANDT_CHERRY_CHEESE, FLOWING_TANDT_CHERRY_CHEESE);
+
+        } else {
+            TANDT_CHEESE_FLUID_TYPE = null;
+            TANDT_CHEESE = null;
+            FLOWING_TANDT_CHEESE = null;
+            TANDT_CHEESE_FLUID_PROPERTIES = null;
+
+            TANDT_CHERRY_CHEESE_FLUID_TYPE = null;
+            TANDT_CHERRY_CHEESE = null;
+            FLOWING_TANDT_CHERRY_CHEESE = null;
+            TANDT_CHERRY_CHEESE_FLUID_PROPERTIES = null;
+        }
 
         PITCHER_CHEESE_PROPERTIES = (new FoodProperties.Builder()).nutrition(4).saturationModifier(1.0F).build();
         PITCHER_CHEESE_WEDGE = ITEMS.register("pitcher_cheese_wedge", () -> new Item((new Item.Properties()).food( PITCHER_CHEESE_PROPERTIES )));
@@ -411,6 +451,12 @@ public class Registry {
                     acceptIfPresent(output,getUnripeGoatCheeseWheelItem());
                     acceptIfPresent(output,getGoatCheeseWheelItem());
                     acceptIfPresent(output,getGoatCheeseWedge());
+                    acceptIfPresent(output,getUnripeTandTCheeseWheelItem());
+                    acceptIfPresent(output,getTandTCheeseWheelItem());
+                    acceptIfPresent(output,getTandTCheeseWedge());
+                    acceptIfPresent(output,getUnripeTandTCherryCheeseWheelItem());
+                    acceptIfPresent(output,getTandTCherryCheeseWheelItem());
+                    acceptIfPresent(output,getTandTCherryCheeseWedge());
                 }
             }).build());
 }

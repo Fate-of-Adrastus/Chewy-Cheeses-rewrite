@@ -25,6 +25,7 @@ import net.yirmiri.dungeonsdelight.core.registry.DDCreativeTabs;
 import net.mcreator.sniffer.init.SnifferModItems;
 import net.mcreator.sniffer.init.SnifferModTabs;
 import alabaster.hearthandharvest.common.registry.HHModItems;
+import show.tatd.mod.init.ModItems;
 import umpaz.brewinandchewin.common.registry.BnCCreativeTabs;
 import umpaz.brewinandchewin.common.registry.BnCItems;
 
@@ -113,6 +114,16 @@ public class ChewyCheeses {
             event.modify(HHModItems.CHEESE_WHEEL.get(), builder -> builder
                     .set(DataComponents.MAX_STACK_SIZE, 16));
             event.modify(HHModItems.UNRIPE_CHEESE_WHEEL.get(), builder -> builder
+                    .set(DataComponents.MAX_STACK_SIZE, 16));
+        }
+        if (ModList.get().isLoaded("trailandtales_delight")) {
+            event.modify(ModItems.CURD_BLOCK.get(), builder -> builder
+                    .set(DataComponents.MAX_STACK_SIZE, 16));
+            event.modify(ModItems.CHEESE_WHEEL.get(), builder -> builder
+                    .set(DataComponents.MAX_STACK_SIZE, 16));
+            event.modify(ModItems.CHERRY_CURD_BLOCK.get(), builder -> builder
+                    .set(DataComponents.MAX_STACK_SIZE, 16));
+            event.modify(ModItems.CHERRY_CHEESE_WHEEL.get(), builder -> builder
                     .set(DataComponents.MAX_STACK_SIZE, 16));
         }
     }

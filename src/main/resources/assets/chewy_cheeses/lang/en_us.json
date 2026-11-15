@@ -37,5 +37,8 @@
 
   "fluid_type.chewy_cheeses.cheddar_cheese_type": "Cheddar Cheese",
   "fluid_type.chewy_cheeses.goat_cheese_type": "Goat Cheese",
-  "fluid_type.chewy_cheeses.goat_milk_type": "Goat Milk"
+  "fluid_type.chewy_cheeses.goat_milk_type": "Goat Milk",
+
+  "fluid_type.chewy_cheeses.tandt_cheese_type": "Cheese",
+  "fluid_type.chewy_cheeses.tandt_cherry_cheese_type": "Cherry Cheese"
 }

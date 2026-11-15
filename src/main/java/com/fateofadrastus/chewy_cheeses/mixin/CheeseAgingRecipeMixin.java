@@ -54,6 +54,8 @@ public class CheeseAgingRecipeMixin {
         addIfPresent(registry, Registry.UNRIPE_FRAGRANT_CHEESE_WHEEL_ITEM, Registry.FRAGRANT_CHEESE_WHEEL_ITEM);
         addIfPresent(registry, Registry.getUnripeCheddarCheeseWheelItem(), Registry.getCheddarCheeseWheelItem());
         addIfPresent(registry, Registry.getUnripeGoatCheeseWheelItem(), Registry.getGoatCheeseWheelItem());
+        addIfPresent(registry, Registry.getUnripeTandTCheeseWheelItem(), Registry.getTandTCheeseWheelItem());
+        addIfPresent(registry, Registry.getUnripeTandTCherryCheeseWheelItem(), Registry.getTandTCherryCheeseWheelItem());
 
         return registry;
     }

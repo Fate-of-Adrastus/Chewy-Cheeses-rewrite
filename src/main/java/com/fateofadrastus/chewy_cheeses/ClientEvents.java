@@ -119,6 +119,26 @@ public class ClientEvents {
                 }
             }, Registry.GOAT_MILK_FLUID_TYPE.get());
         }
+        if (ModList.get().isLoaded("trailandtales_delight")) {
+            event.registerFluidType(new IClientFluidTypeExtensions() {
+                public @NotNull ResourceLocation getStillTexture() {
+                    return ChewyCheeses.getResourceLocation("block/tandt_cheese_still");
+                }
+
+                public @NotNull ResourceLocation getFlowingTexture() {
+                    return ChewyCheeses.getResourceLocation("block/tandt_cheese_flow");
+                }
+            }, Registry.TANDT_CHEESE_FLUID_TYPE.get());
+            event.registerFluidType(new IClientFluidTypeExtensions() {
+                public @NotNull ResourceLocation getStillTexture() {
+                    return ChewyCheeses.getResourceLocation("block/tandt_cherry_cheese_still");
+                }
+
+                public @NotNull ResourceLocation getFlowingTexture() {
+                    return ChewyCheeses.getResourceLocation("block/tandt_cherry_cheese_flow");
+                }
+            }, Registry.TANDT_CHERRY_CHEESE_FLUID_TYPE.get());
+        }
 
         event.registerFluidType(new IClientFluidTypeExtensions() {
             public @NotNull ResourceLocation getStillTexture() {

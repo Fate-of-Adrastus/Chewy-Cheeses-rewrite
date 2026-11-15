@@ -194,6 +194,7 @@ dependencies {
     //compileOnly "curse.maven:architectury-api-419699:5786327"
     //localRuntime "curse.maven:architectury-api-419699:5786327"
 
+    implementation "maven.modrinth:Koee7vhY:t7NVzCoW"
 
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar

@@ -58,5 +58,13 @@
   "farmerspizzeria:dorblu_cheese": {
     "id": "farmerspizzeria:unripe_dorblu_cheese_wheel",
     "optional": true
+  },
+  "chewy_cheeses:tandt_cheese": {
+    "id": "trailandtales_delight:curd_block",
+    "optional": true
+  },
+  "chewy_cheeses:tandt_cherry_cheese": {
+    "id": "trailandtales_delight:cherry_curd_block",
+    "optional": true
   }
 }

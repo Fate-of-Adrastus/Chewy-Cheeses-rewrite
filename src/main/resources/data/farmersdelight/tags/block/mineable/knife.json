@@ -72,6 +72,22 @@
     {
       "id": "chewy_cheeses:unripe_pitcher_cheese_wheel",
       "required": false
+    },
+    {
+      "id": "trailandtales_delight:curd_block",
+      "required": false
+    },
+    {
+      "id": "trailandtales_delight:cheese_wheel",
+      "required": false
+    },
+    {
+      "id": "trailandtales_delight:cherry_curd_block",
+      "required": false
+    },
+    {
+      "id": "trailandtales_delight:cherry_cheese_wheel",
+      "required": false
     }
   ]
 }

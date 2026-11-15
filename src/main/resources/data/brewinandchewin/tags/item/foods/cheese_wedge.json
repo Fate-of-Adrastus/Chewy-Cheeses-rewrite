@@ -32,6 +32,14 @@
     {
       "id": "chewy_cheeses:pitcher_cheese_wedge",
       "required": false
+    },
+    {
+      "id": "trailandtales_delight:cheese_slice",
+      "required": false
+    },
+    {
+      "id": "trailandtales_delight:cherry_cheese_slice",
+      "required": false
     }
   ]
 }

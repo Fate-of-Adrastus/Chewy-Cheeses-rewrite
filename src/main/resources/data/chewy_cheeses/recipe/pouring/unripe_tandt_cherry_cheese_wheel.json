@@ -1,0 +1,23 @@
+{
+  "neoforge:conditions": [
+    {
+      "modid": "trailandtales_delight",
+      "type": "neoforge:mod_loaded"
+    }
+  ],
+  "type": "brewinandchewin:keg_pouring",
+  "can_fill": false,
+  "container": {
+    "count": 1,
+    "id": "minecraft:honeycomb"
+  },
+  "fluid": {
+    "amount": 1000,
+    "id": "chewy_cheeses:tandt_cherry_cheese"
+  },
+  "output": {
+    "count": 1,
+    "id": "trailandtales_delight:cherry_curd_block"
+  },
+  "unit": "millibuckets"
+}
